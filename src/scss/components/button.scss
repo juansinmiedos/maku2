@@ -1,0 +1,18 @@
+button {
+  // display: flex;
+  color: $surface-white;
+  background-color: $surface-black;
+  font-size: $button-size;
+  font-weight: $medium;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 24px;
+  // height: 40px;
+  // justify-content: center;
+  // align-items: center;
+  // gap: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

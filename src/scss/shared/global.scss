@@ -1,0 +1,147 @@
+html {
+  font-family: $primary-font;
+}
+
+// HEADLINE
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $primary-font;
+  font-weight: $semi-bold;
+  margin: 0;
+}
+
+h1,
+h3,
+h4 {
+  letter-spacing: -4%;
+}
+
+h1 {
+  font-size: $h1-size;
+  line-height: 80px;
+}
+
+h2 {
+  font-size: $h2-size;
+  line-height: 62px;
+  letter-spacing: -2%;
+}
+
+h3 {
+  font-size: $h3-size;
+  line-height: 54px;
+}
+
+h4 {
+  font-size: $h4-size;
+  line-height: 28px;
+}
+
+p {
+  margin: 0;
+}
+
+// TITLES
+.title-lg {
+  font-size: 20px;
+  font-weight: $semi-bold;
+  line-height: 26px;
+  letter-spacing: 0%;
+}
+
+.title-md {
+  font-size: 16px;
+  font-weight: $semi-bold;
+  line-height: 22px;
+  letter-spacing: 0%;
+}
+
+.title-sm {
+  font-size: 14px;
+  font-weight: $semi-bold;
+  line-height: 22px;
+  letter-spacing: 0%;
+}
+
+// PARAGRAPHS
+.p-lg {
+  font-size: $p-lg-size;
+  font-weight: $regular;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.p-md {
+  font-size: $p-md-size;
+  font-weight: $regular;
+  line-height: 22px;
+  letter-spacing: 0%;
+}
+
+.p-sm {
+  font-size: $p-sm-size;
+  font-weight: $regular;
+  line-height: 22px;
+  letter-spacing: 0%;
+}
+
+// OVERLINE
+.overline-lg {
+  font-size: $overline-lg-size;
+  font-weight: $regular;
+  line-height: 22px;
+  letter-spacing: 6%;
+}
+
+.overline-md {
+  font-size: $overline-md-size;
+  font-weight: $regular;
+  line-height: 22px;
+  letter-spacing: 10%;
+}
+
+.overline-sm {
+  font-size: $overline-sm-size;
+  font-weight: $regular;
+  line-height: 22px;
+  letter-spacing: 10%;
+}
+
+a {
+  font-size: $link-size;
+  font-weight: $medium;
+  line-height: 22px;
+  letter-spacing: 2%;
+  offset: 20px;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: 8%;
+  text-underline-offset: 20%;
+  text-underline-position: from-font;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+// WIDTHS
+.w {
+  &-100 {
+    width: 100%;
+  }
+}
+
+// TEXT STYLES
+.text {
+  &-semi-bold {
+    font-weight: $semi-bold;
+  }
+}
