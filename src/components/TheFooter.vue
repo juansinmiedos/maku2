@@ -5,7 +5,7 @@
         <div class="title-container">
           <div class="text-wrapper">
             <p class="title-lg">Don’t wait to get noticed.</p>
-            <h3 style="width: 355px;">The bold ones act first.</h3>
+            <h3 style="width: 100%; max-width: 355px;">The bold ones act first.</h3>
           </div>
           
            <TheButton>Enter Your Email</TheButton>
@@ -36,10 +36,10 @@
       <img src="../assets/maku-logo.svg" width="100%" />
 
       <div class="bottom">
-        <div class="w-100">
+        <div class="brand">
           <p class="title-md">Maku Agency 2026</p>
         </div>
-        <div class="w-100 flex" style="gap: 16px;">
+        <div class="links">
           <a class="w-100 text-semi-bold">Terms & Conditions</a>
           <a class="w-100 text-semi-bold">Privacy Policy</a>
         </div>

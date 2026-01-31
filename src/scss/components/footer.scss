@@ -42,11 +42,17 @@
 
   & .title-section {
     display: flex;
-    // width: 416px;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
-    flex: 1 0 0;
+    
+    @include from($large-width) {
+      flex: 1 0 0;
+    }
+
+    @include until($large-width) {
+      width: 416px;
+    }
   }
 
   & .title-container {
@@ -67,10 +73,16 @@
 
   & .body-section {
     display: flex;
-    // width: 846px;
     align-items: flex-start;
     gap: 16px;
-    flex: 1 0 0;
+
+    @include from($large-width) {
+      flex: 1 0 0;
+    }
+
+    @include until($large-width) {
+      width: 846px;
+    }
   }
 
   & .body-container {
@@ -98,9 +110,16 @@
 
     & > img {
       width: 100%;
-      max-width: 1162px;
       align-self: flex-end;
-      margin-bottom: 58px;
+
+      @include from($large-width) {
+        max-width: 1162px;
+        margin-bottom: 58px;
+      }
+
+      @include until($large-width) {
+        margin-bottom: 27.3px;
+      }
     }
 
     @include until($small-width) {
@@ -120,6 +139,29 @@
     align-items: flex-start;
     gap: 16px;
     align-self: stretch;
+
+    .brand {
+      @include from($large-width) {
+        width: 100%;
+      }
+
+      @include until($large-width) {
+        width: calc(33.33%);
+      }
+    }
+    
+    .links {
+      display: flex;
+      gap: 16px;
+
+      @include from($large-width) {
+        width: 100%;
+      }
+
+      @include until($large-width) {
+        width: calc(66.67%);
+      }
+    }
 
     @include until($small-width) {
       flex-direction: column;
