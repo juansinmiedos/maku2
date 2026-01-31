@@ -92,6 +92,17 @@
   }
 
   & .bottom-small-up {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    & > img {
+      width: 100%;
+      max-width: 1162px;
+      align-self: flex-end;
+      margin-bottom: 58px;
+    }
+
     @include until($small-width) {
       display: none;
     }

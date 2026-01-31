@@ -37,10 +37,12 @@
 
       <div class="bottom">
         <div class="w-100">
-          <a class="text-semi-bold">Maku Agency 2026</a>
+          <p class="title-md">Maku Agency 2026</p>
         </div>
-        <a class="w-100 text-semi-bold">Terms & Conditions</a>
-        <a class="w-100 text-semi-bold">Privacy Policy</a>
+        <div class="w-100 flex" style="gap: 16px;">
+          <a class="w-100 text-semi-bold">Terms & Conditions</a>
+          <a class="w-100 text-semi-bold">Privacy Policy</a>
+        </div>
       </div>
     </div>
 
