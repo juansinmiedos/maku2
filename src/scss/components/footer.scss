@@ -29,8 +29,10 @@
   }
 
   @include until($small-width) {
-    height: calc(700px - 64px);
+    // height: calc(700px - 64px);
     padding: 32px 24px;
+    // gap: 31px;
+    min-height: auto;
     // background-color: pink;
   }
 
@@ -43,6 +45,11 @@
     @include until($medium-width) {
       flex-direction: column;
       gap: 88px;
+    }
+
+    @include until($small-width) {
+      flex-direction: column;
+      gap: 31px;
     }
   }
 
@@ -101,6 +108,10 @@
 
     @include until($medium-width) {
       width: 100%;
+    }
+
+    @include until($small-width) {
+      flex-direction: column;
     }
   }
 
@@ -188,8 +199,13 @@
     }
 
     @include until($small-width) {
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 0px;
+
+      :first-child {
+        width: 100%;
+        margin-bottom: 16px;
+      }
     }
   }
 }

@@ -4,8 +4,9 @@
       <div class="title-section">
         <div class="title-container">
           <div class="text-wrapper">
-            <p class="title-lg">Don’t wait to get noticed.</p>
-            <h3>The bold ones act first.</h3>
+            <p :class="windowIsSmall ? 'title-md' : 'title-lg'">Don’t wait to get noticed</p>
+            <h4 v-if="windowIsSmall">The bold ones act first.</h4>
+            <h3 v-else>The bold ones act first.</h3>
           </div>
           
            <TheButton>Enter Your Email</TheButton>
@@ -46,13 +47,13 @@
       </div>
     </div>
 
-    <img class="bottom-until-small" src="../assets/maku-logo.svg" width="100%" />
+    <img class="bottom-until-small" src="../assets/maku-logo.svg" width="100%" style="margin: 31px 0px 16px;" />
 
     <div class="bottom-until-small">
       <div class="bottom">
         <p>Maku Agency 2026</p>
-        <p>Terms & Conditions</p>
-        <p>Privacy Policy</p>
+        <a class="w-50 text-semi-bold">Terms & Conditions</a>
+        <a class="w-50 text-semi-bold">Privacy Policy</a>
       </div>
     </div>
   </footer>
@@ -62,5 +63,6 @@
 import { computed } from 'vue'
 import TheButton from './TheButton.vue'
 
+const windowIsSmall = computed(() => window.innerWidth <= 380)
 const windowIsMedium = computed(() => window.innerWidth <= 830 && window.innerWidth > 380)
 </script>
