@@ -13,17 +13,21 @@
       </div>
 
       <div class="body-section">
-        <div class="body-container gap">
-          <p class="overline-md">Our approach to your brand?</p>
+        <div class="body-container">
+          <p class="overline-md uppercase text-neutral-500">Our approach to your brand?</p>
           <p class="title-md">Ask for a free 15-minute audit. We’ll review your current communication and tell you what’s getting in your way (and how to fix it).</p>
         </div>
         <div class="body-container">
-          <p class="overline-md">Contact</p>
+          <p class="overline-md uppercase text-neutral-500">Contact</p>
           <div class="contact-details">
             <a>michellepeniche@maku.agency</a>
             <a>+52 (62) 4320 0680</a>
-            <a>@maku.agency</a> <!-- should be router link -->
           </div>
+        </div>
+        <div class="body-container">
+          <p class="overline-md uppercase text-neutral-500">Follow us</p>
+          <a>Instragram @maku.agency</a>
+          <a>Tiktok</a>
         </div>
       </div>
     </div>

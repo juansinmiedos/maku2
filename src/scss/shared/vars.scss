@@ -1,5 +1,6 @@
 // fonts
 $primary-font: "Manrope", sans-serif;
+$mono-font: "DM Mono", monospace;
 
 // font weights
 $extra-light: 200;
@@ -28,9 +29,21 @@ $button-size: 14px;
 $link-size: 16px;
 
 // colors & gradients
+// BASIC COLORS
 $surface-black: #000000;
 $surface-white: #FFFFFF;
-$surface-yellow: #E3FF17;
+$surface-yellow: #E3FF17; // Its also neutral-yellow
+// NEUTRAL COLORS
+$neutral-50: #F7F7F7;
+$neutral-100: #EDEDED;
+$neutral-200: #DDDDDD;
+$neutral-300: #C8C8C8;
+$neutral-400: #ADADAD;
+$neutral-500: #888888;
+$neutral-600: #7B7B7B;
+$neutral-700: #676767;
+$neutral-800: #545454;
+$neutral-900: #363636;
 
 // breakpoints
 $small-width: 380px;
