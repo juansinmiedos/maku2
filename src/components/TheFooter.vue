@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="bottom-small-up">
       <img src="../assets/maku-logo.svg" width="100%" />
 
       <div class="bottom">
@@ -37,6 +37,16 @@
         </div>
         <a class="w-100 text-semi-bold">Terms & Conditions</a>
         <a class="w-100 text-semi-bold">Privacy Policy</a>
+      </div>
+    </div>
+
+    <img class="bottom-until-small" src="../assets/maku-logo.svg" width="100%" />
+
+    <div class="bottom-until-small">
+      <div class="bottom">
+        <p>Maku Agency 2026</p>
+        <p>Terms & Conditions</p>
+        <p>Privacy Policy</p>
       </div>
     </div>
   </footer>
