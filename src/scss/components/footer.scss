@@ -17,14 +17,15 @@
     // background-color: green;
   }
 
+  @include from($medium-width) {
+    height: calc(830px - 64px);
+  }
+
   @include until($medium-width) {
     padding: 32px 48px;
     align-self: stretch;
+    min-height: calc(830px - 64px);
     // background-color: red;
-  }
-
-  @include from($small-width) {
-    height: calc(830px - 64px);
   }
 
   @include until($small-width) {
@@ -38,6 +39,11 @@
     align-items: flex-start;
     gap: 16px;
     align-self: stretch;
+
+    @include until($medium-width) {
+      flex-direction: column;
+      gap: 88px;
+    }
   }
 
   & .title-section {
@@ -52,6 +58,10 @@
 
     @include until($large-width) {
       width: 416px;
+    }
+
+    @include until($medium-width) {
+      width: 100%;
     }
   }
 
@@ -69,6 +79,11 @@
     align-items: flex-start;
     gap: 9px;
     align-self: stretch;
+
+    & > h3 {
+      width: 100%;
+      max-width: 355px;
+    }
   }
 
   & .body-section {
@@ -82,6 +97,10 @@
 
     @include until($large-width) {
       width: 846px;
+    }
+
+    @include until($medium-width) {
+      width: 100%;
     }
   }
 
@@ -101,6 +120,7 @@
     align-items: flex-start;
     gap: 2px;
     align-self: stretch;
+    word-break: break-all;
   }
 
   & .bottom-small-up {
@@ -119,6 +139,10 @@
 
       @include until($large-width) {
         margin-bottom: 27.3px;
+      }
+
+      @include until($medium-width) {
+        margin: 67px 0;
       }
     }
 

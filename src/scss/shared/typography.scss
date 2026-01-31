@@ -88,7 +88,7 @@ p {
   font-size: $overline-lg-size;
   font-weight: $regular;
   line-height: 22px;
-  letter-spacing: 6%;
+  letter-spacing: 0.96px;
 }
 
 .overline-md {
@@ -96,14 +96,14 @@ p {
   font-size: $overline-md-size;
   font-weight: $regular;
   line-height: 22px;
-  letter-spacing: 10%;
+  letter-spacing: 1.4px;
 }
 
 .overline-sm {
   font-size: $overline-sm-size;
   font-weight: $regular;
   line-height: 22px;
-  letter-spacing: 10%;
+  letter-spacing: 1.2px;
 }
 
 a {
