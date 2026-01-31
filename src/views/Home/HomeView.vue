@@ -5,9 +5,10 @@
     <!-- our method -->
     <!-- projects -->
     <!-- brands? -->
-    <!-- services -->
+     <Services />
   </div>
 </template>
 
 <script setup>
+import Services from './sections/Services.vue'
 </script>
