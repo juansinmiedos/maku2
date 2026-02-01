@@ -1,0 +1,33 @@
+.marquee-section {
+  display: flex;
+  width: calc(100% - 160px);
+  max-width: 2500px;
+  padding: 80px;
+
+  & .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // gap: 67px;
+    animation: marquee-content 15s linear infinite;
+  }
+
+  & .marquee__item {
+    display: flex;
+    align-items: center;
+    gap: 67px;
+    padding-left: 67px;
+
+    // animation: marquee-content 5s linear infinite;
+  }
+
+  @keyframes marquee-content {
+    from {
+      transform: translateX( 0% );
+    }
+    to {
+      transform: translateX( -100% );
+    }
+  }
+}

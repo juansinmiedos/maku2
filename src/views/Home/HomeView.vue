@@ -5,10 +5,12 @@
     <!-- our method -->
     <!-- projects -->
     <!-- brands? -->
-     <Services />
+    <Marquee />
+    <Services />
   </div>
 </template>
 
 <script setup>
+import Marquee from './sections/Marquee.vue'
 import Services from './sections/Services.vue'
 </script>

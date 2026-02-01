@@ -130,6 +130,12 @@ a {
 }
 
 .text {
+  // STYLES
+  &-semi-bold {
+    font-weight: $semi-bold;
+  }
+
+  // COLORS
   &-neutral {
     &-50 {
       color: $neutral-50;

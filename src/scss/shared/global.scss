@@ -4,6 +4,14 @@ html {
 
 .flex {
   display: flex;
+
+  & .align-center {
+    align-items: center;
+  }
+  
+  & .justify-center {
+    justify-content: center;
+  }
 }
 
 // WIDTHS
@@ -14,12 +22,5 @@ html {
 
   &-50 {
     width: 50%;
-  }
-}
-
-// TEXT STYLES
-.text {
-  &-semi-bold {
-    font-weight: $semi-bold;
   }
 }
