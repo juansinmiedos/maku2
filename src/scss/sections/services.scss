@@ -1,6 +1,5 @@
 .services-section {
   display: flex;
-  padding: 80px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -8,6 +7,14 @@
 
   @include from($large-width) {
     align-self: stretch;
+  }
+
+  @include from($medium-width) {
+    padding: 80px;
+  }
+
+  @include until($medium-width) {
+    padding: 48px;
   }
 
   & .container {
@@ -35,6 +42,10 @@
       width: 100%;
       max-width: 28.89vw; // 416px at 1440px
     }
+
+    @include until($medium-width) {
+      max-width: 22.65vw; // 188px at 830px
+    }
   }
 
   & .subtitle {
@@ -61,6 +72,10 @@
 
     @include until($large-width) {
       padding-left: 28.89vw;
+    }
+
+    @include until($medium-width) {
+      padding-left: 0;
     }
   }
 

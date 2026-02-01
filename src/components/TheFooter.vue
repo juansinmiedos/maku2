@@ -78,6 +78,9 @@ function resizeController() {
   } else if (window.innerWidth <= 830 && window.innerWidth > 380) {
     windowIsSmall.value = false
     windowIsMedium.value = true
+  } else {
+    windowIsSmall.value = false
+    windowIsMedium.value = false
   }
 }
 </script>
