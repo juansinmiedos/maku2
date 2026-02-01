@@ -60,9 +60,24 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, onMounted } from 'vue'
 import TheButton from './TheButton.vue'
 
-const windowIsSmall = computed(() => window.innerWidth <= 380)
-const windowIsMedium = computed(() => window.innerWidth <= 830 && window.innerWidth > 380)
+const windowIsSmall = ref(false)
+const windowIsMedium = ref(false)
+
+onMounted(() => {
+  resizeController()
+  window.addEventListener("resize", () => resizeController())
+})
+
+function resizeController() {
+  if (window.innerWidth <= 380) {
+    windowIsSmall.value = true
+    windowIsMedium.value = false
+  } else if (window.innerWidth <= 830 && window.innerWidth > 380) {
+    windowIsSmall.value = false
+    windowIsMedium.value = true
+  }
+}
 </script>
