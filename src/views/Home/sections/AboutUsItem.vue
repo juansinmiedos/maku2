@@ -2,7 +2,7 @@
   <div class="about-us-item">
     <img :src="getImage()" />
 
-    <div>
+    <div class="body">
       <p class="title-lg">{{ data.title }}</p>
       <p class="p-md">{{ data.body }}</p>
     </div>
