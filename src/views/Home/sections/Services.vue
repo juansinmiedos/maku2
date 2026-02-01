@@ -2,10 +2,10 @@
   <section class="services-section">
     <div class="container">
       <div class="top">
-        <p class="title title-lg">Services</p>
+        <p class="title title-lg" :class="windowIsSmall ? 'title-sm' : 'title-lg'">Services</p>
 
         <div class="subtitle">
-          <p class="title-lg">Whether you’re launching something new or ready to evolve, we offer:</p>
+          <p :class="{ 'title-lg': windowIsSmall }">Whether you’re launching something new or ready to evolve, we offer:</p>
         </div>
       </div>
 
@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import ServiceItem from './ServiceItem.vue'
 
 const services = [
@@ -59,4 +60,20 @@ const services = [
     ],
   },
 ]
+
+const windowIsSmall = ref(false)
+
+onMounted(() => {
+  resizeController()
+  window.addEventListener("resize", () => resizeController())
+})
+
+function resizeController() {
+  if (window.innerWidth <= 380) {
+    windowIsSmall.value = true
+  } else {
+    windowIsSmall.value = false
+
+  }
+}
 </script>

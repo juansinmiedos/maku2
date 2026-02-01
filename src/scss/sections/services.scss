@@ -17,6 +17,10 @@
     padding: 48px;
   }
 
+  @include until($small-width) {
+    padding: 32px;
+  }
+
   & .container {
     display: flex;
     width: 100%;
@@ -24,6 +28,10 @@
     flex-direction: column;
     align-items: center;
     gap: 67px;
+
+    @include until($small-width) {
+      gap: 32px;
+    }
   }
 
   & .top {
@@ -46,6 +54,10 @@
     @include until($medium-width) {
       max-width: 22.65vw; // 188px at 830px
     }
+
+    @include until($small-width) {
+      max-width: auto;
+    }
   }
 
   & .subtitle {
@@ -58,8 +70,14 @@
       align-self: stretch;
     }
 
-    @include until($large-width) {
-      // align-self: stretch;
+    & > p {
+      @include until($small-width) {
+        font-family: $primary-font;
+        font-size: $title-md-size;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+      }
     }
   }
 

@@ -1,7 +1,8 @@
 <template>
   <div class="service-item">
-    <h3>{{ data.title }}</h3>
-    <p :class="windowIsMedium ? 'p-md' : 'p-lg'" v-for="(point, i) in data.points" :key="i">{{ point }}</p>
+    <h4 v-if="windowIsSmall" style="line-height: normal;">{{ data.title }}</h4>
+    <h3 v-else>{{ data.title }}</h3>
+    <p :class="windowIsSmall || windowIsMedium ? 'p-md' : 'p-lg'" v-for="(point, i) in data.points" :key="i">{{ point }}</p>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ defineProps({
   data: Object,
 })
 
+const windowIsSmall = ref(false)
 const windowIsMedium = ref(false)
 
 onMounted(() => {
@@ -20,9 +22,14 @@ onMounted(() => {
 })
 
 function resizeController() {
-  if (window.innerWidth <= 830 && window.innerWidth > 380) {
+  if (window.innerWidth <= 380) {
+    windowIsSmall.value = true
+    windowIsMedium.value = false
+  } else if (window.innerWidth <= 830 && window.innerWidth > 380) {
+    windowIsSmall.value = false
     windowIsMedium.value = true
   } else {
+    windowIsSmall.value = false
     windowIsMedium.value = false
   }
 }
