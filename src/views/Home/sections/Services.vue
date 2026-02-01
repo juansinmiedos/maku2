@@ -2,7 +2,7 @@
   <section class="services-section">
     <div class="container">
       <div class="top">
-        <p class="title-lg" style="flex: 1 0 0;">Services</p>
+        <p class="title title-lg">Services</p>
 
         <div class="subtitle">
           <p class="title-lg">Whether you’re launching something new or ready to evolve, we offer:</p>
