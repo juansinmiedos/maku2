@@ -2,7 +2,7 @@
   display: flex;
   width: calc(100% - 160px);
   max-width: 2500px;
-  height: 830px;
+  min-height: calc(830px - 80px);
   padding: 80px;
   flex-direction: column;
   justify-content: center;
@@ -10,6 +10,11 @@
   gap: 56px;
   background: $surface-yellow;
   // box-shadow: -60px 0 112px 0 var(--Surface-Surface-Yellow, #E3FF17) inset, 60px 0 112px 0 var(--Surface-Surface-Yellow, #E3FF17) inset;
+
+  @include until($large-width) {
+    align-self: stretch;
+    gap: 94px;
+  }
 
   & .top {
     display: flex;
@@ -30,6 +35,12 @@
 
   & .title {
     flex: 1 0 0;
+
+    @include until($large-width) {
+      flex: auto;
+      width: 100%;
+      max-width: 416px;
+    }
   }
 
   & .body-wrapper {
@@ -45,11 +56,33 @@
     align-items: flex-start;
     gap: 16px;
     align-self: stretch;
+
+    @include until($large-width) {
+      justify-content: space-between;
+      align-self: stretch;
+      gap: 0;
+    }
+
+    & .title-lg {
+      @include until($large-width) {
+        flex: 1 0 0;
+      }
+    }
+
+    & .p-lg {
+      @include until($large-width) {
+        flex: 1 0 0;
+      }
+    }
   }
 
   & .slogan {
     width: 100%;
     max-width: 1094px;
+
+    @include until($large-width) {
+      max-width: none;
+    }
   }
 
   & .bottom {

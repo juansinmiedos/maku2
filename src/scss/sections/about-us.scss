@@ -1,6 +1,6 @@
 .about-us-section {
   display: flex;
-  height: 620px;
+  height: calc(620px - 160px);
   padding: 80px;
   flex-direction: column;
   justify-content: center;
