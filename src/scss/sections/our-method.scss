@@ -9,11 +9,19 @@
   align-items: center;
   gap: 56px;
   background: $surface-yellow;
-  // box-shadow: -60px 0 112px 0 var(--Surface-Surface-Yellow, #E3FF17) inset, 60px 0 112px 0 var(--Surface-Surface-Yellow, #E3FF17) inset;
 
   @include until($large-width) {
     align-self: stretch;
     gap: 94px;
+  }
+
+  @include until($medium-width) {
+    min-height: calc(951px - 160px);
+    padding: 80px 48px;
+    width: calc(100% - 96px);
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 136px;
   }
 
   & .top {
@@ -40,6 +48,11 @@
       flex: auto;
       width: 100%;
       max-width: 416px;
+    }
+
+    @include until($medium-width) {
+      width: 100%;
+      max-width: 188px;
     }
   }
 

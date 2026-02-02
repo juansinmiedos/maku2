@@ -13,7 +13,8 @@
         </div>
       </div>
 
-      <h2 class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h2>
+      <h2 v-if="!windowIsMedium" class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h2>
+      <h3 v-else class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h3>
     </div>
 
     <div class="bottom"></div>
@@ -21,5 +22,22 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
+
 import TheButton from '@/components/TheButton.vue'
+
+const windowIsMedium = ref(false)
+
+onMounted(() => {
+  resizeController()
+  window.addEventListener("resize", () => resizeController())
+})
+
+function resizeController() {
+  if (window.innerWidth <= 830 && window.innerWidth > 380) {
+    windowIsMedium.value = true
+  } else {
+    windowIsMedium.value = false
+  }
+}
 </script>
