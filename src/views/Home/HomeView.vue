@@ -3,7 +3,7 @@
     <!-- hero -->
     <!-- who we are -->
     <AboutUs />
-    <!-- our method -->
+    <OurMethod />
     <!-- projects -->
     <!-- <Marquee /> -->
     <Services />
@@ -12,6 +12,7 @@
 
 <script setup>
 import AboutUs from './sections/AboutUs.vue'
+import OurMethod from './sections/OurMethod.vue'
 import Marquee from './sections/Marquee.vue'
 import Services from './sections/Services.vue'
 </script>
