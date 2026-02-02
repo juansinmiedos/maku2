@@ -131,6 +131,10 @@ a {
 
 .text {
   // STYLES
+  &-regular {
+    font-weight: $regular;
+  }
+
   &-semi-bold {
     font-weight: $semi-bold;
   }

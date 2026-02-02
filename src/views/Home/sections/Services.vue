@@ -2,7 +2,7 @@
   <section class="services-section">
     <div class="container">
       <div class="top">
-        <p class="title title-lg" :class="windowIsSmall ? 'title-sm' : 'title-lg'">Services</p>
+        <p class="title" :class="windowIsSmall ? 'title-sm' : 'title-lg'">Services</p>
 
         <div class="subtitle">
           <p :class="{ 'title-lg': windowIsSmall }">Whether you’re launching something new or ready to evolve, we offer:</p>

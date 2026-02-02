@@ -24,6 +24,15 @@
     gap: 136px;
   }
 
+  @include until ($small-width) {
+    display: flex;
+    min-height: calc(700px - 64px);
+    padding: 32px 24px;
+    width: calc(100% - 48px);
+    align-self: stretch;
+    gap: 55px;
+  }
+
   & .top {
     display: flex;
     width: 100%;
@@ -32,6 +41,10 @@
     justify-content: space-between;
     align-items: flex-start;
     flex: 1 0 0;
+    
+    @include until($small-width) {
+      gap: 55px;
+    }
   }
 
   & .container {
@@ -39,6 +52,13 @@
     justify-content: space-between;
     align-items: flex-start;
     align-self: stretch;
+
+    @include until ($small-width) {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      align-self: stretch;
+    }
   }
 
   & .title {
@@ -53,6 +73,11 @@
     @include until($medium-width) {
       width: 100%;
       max-width: 188px;
+    }
+
+    @include until($small-width) {
+      width: auto;
+      flex: none;
     }
   }
 
@@ -72,19 +97,36 @@
 
     @include until($large-width) {
       justify-content: space-between;
-      align-self: stretch;
       gap: 0;
+    }
+
+    @include until ($small-width) {
+      flex-direction: column;
+      gap: 16px;
     }
 
     & .title-lg {
       @include until($large-width) {
         flex: 1 0 0;
       }
+
+      @include until($small-width) {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.48px;
+      }
     }
 
     & .p-lg {
       @include until($large-width) {
         flex: 1 0 0;
+      }
+
+      @include until($small-width) {
+        font-size: 16px;
+        line-height: normal;
+        letter-spacing: -0.48px;
       }
     }
   }
@@ -95,6 +137,11 @@
 
     @include until($large-width) {
       max-width: none;
+    }
+
+    @include until($small-width) {
+      line-height: normal;
+      letter-spacing: -0.96px;
     }
   }
 
@@ -107,5 +154,9 @@
     gap: 9.202px;
     flex-shrink: 0;
     aspect-ratio: 635/37;
+
+    @include until($small-width) {
+      height: 85.63px;
+    }
   }
 }
