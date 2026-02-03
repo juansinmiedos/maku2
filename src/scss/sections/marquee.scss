@@ -1,16 +1,19 @@
 .marquee-section {
   display: flex;
-  width: calc(100% - 160px);
-  max-width: 2500px;
-  padding: 80px;
+  width: 100%;
+  padding: 80px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
 
   & .container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    // gap: 67px;
     animation: marquee-content 15s linear infinite;
+    padding-left: 100%;
+    text-indent: 0;
   }
 
   & .marquee__item {
@@ -18,8 +21,6 @@
     align-items: center;
     gap: 67px;
     padding-left: 67px;
-
-    // animation: marquee-content 5s linear infinite;
   }
 
   @keyframes marquee-content {

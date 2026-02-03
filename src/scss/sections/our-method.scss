@@ -1,7 +1,7 @@
 .our-method-section {
   display: flex;
-  width: calc(100% - 160px);
-  max-width: 2500px;
+  // width: calc(100% - 160px);
+  // max-width: 2500px;
   min-height: calc(830px - 80px);
   padding: 80px;
   flex-direction: column;
@@ -41,7 +41,7 @@
     justify-content: space-between;
     align-items: flex-start;
     flex: 1 0 0;
-    
+
     @include until($small-width) {
       gap: 55px;
     }

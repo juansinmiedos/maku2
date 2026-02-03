@@ -5,7 +5,7 @@
     <AboutUs />
     <OurMethod />
     <!-- projects -->
-    <!-- <Marquee /> -->
+    <Marquee />
     <Services />
   </div>
 </template>
