@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import AboutUsItem from './AboutUsItem.vue'
+import AboutUsItem from './components/AboutUsItem.vue'
 
 const items = [
   {

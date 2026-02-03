@@ -16,5 +16,5 @@
 </template>
 
 <script setup>
-import MarqueeItem from './MarqueeItem.vue'
+import MarqueeItem from './components/MarqueeItem.vue'
 </script>

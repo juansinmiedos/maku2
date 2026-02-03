@@ -18,7 +18,7 @@
       <h3 v-else class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h3>
     </div>
 
-    <div class="bottom"></div>
+    <BrandMarquee />
 
     <TheButton v-if="windowIsSmall">Have a project in mind? Let’s talk</TheButton>
   </section>
@@ -28,6 +28,7 @@
 import { ref, onMounted } from 'vue'
 
 import TheButton from '@/components/TheButton.vue'
+import BrandMarquee from './components/BrandMarquee.vue'
 
 const windowIsSmall = ref(false)
 const windowIsMedium = ref(false)

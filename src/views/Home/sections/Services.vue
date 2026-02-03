@@ -18,7 +18,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import ServiceItem from './ServiceItem.vue'
+import ServiceItem from './components/ServiceItem.vue'
 
 const services = [
   {
