@@ -4,7 +4,7 @@
       <p class="title title-lg">Who We Are</p>
 
       <div class="body-wrapper">
-        <h1>&nbsp;&nbsp;&nbsp;&nbsp; MAKU is a strategic branding and marketing agency that highlights the best of your brand.</h1>
+        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MAKU is a strategic branding and marketing agency that highlights the best of your brand.</h1>
         <div class="body">
           <div class="body-container">
             <div>

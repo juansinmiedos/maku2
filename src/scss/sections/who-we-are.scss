@@ -10,10 +10,10 @@
     padding: 80px;
   }
 
-  // @include until($medium-width) {
-  //   min-height: calc(1002px - 96px);
-  //   padding: 48px;
-  // }
+  @include until($medium-width) {
+    min-height: calc(1002px - 96px);
+    padding: 48px;
+  }
 
   & .container {
     display: flex;
@@ -31,6 +31,10 @@
       width: 100%;
       max-width: 416px;;
     }
+
+    @include until($medium-width) {
+      max-width: 180px;
+    }
   }
 
   & .body-wrapper {
@@ -39,9 +43,6 @@
     align-items: flex-start;
     flex: 1 0 0;
     align-self: stretch;
-
-    @include until($large-width) {
-    }
 
     & > h1 {
       letter-spacing: -2.56px;
@@ -64,18 +65,12 @@
     justify-content: space-between;
     align-items: flex-start;
 
-    @include until($large-width) {
-    }
-
     & > div {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 32px;
       align-self: stretch;
-
-      @include until($large-width) {
-      }
     }
   }
 }
