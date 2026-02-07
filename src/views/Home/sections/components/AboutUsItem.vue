@@ -10,9 +10,9 @@
 </template>
 
 <script setup>
-import corn from "../../../assets/about-us-corn.svg"
-import bolt from "../../../assets/about-us-bolt.svg"
-import speaker from "../../../assets/about-us-speaker.svg"
+import corn from "../../../../assets/about-us-corn.svg"
+import bolt from "../../../../assets/about-us-bolt.svg"
+import speaker from "../../../../assets/about-us-speaker.svg"
 
 const props = defineProps({
   data: Object,
