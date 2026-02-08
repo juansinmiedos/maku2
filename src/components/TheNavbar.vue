@@ -3,7 +3,7 @@
     <div class="container">
       <img src="../assets/maku-logo.svg" alt="logo" @click="goToHome" />
 
-      <div class="testtt">
+      <div class="body">
         <div class="links">
           <RouterLink to="/about-us">About Us</RouterLink>
           <RouterLink to="/services">Services</RouterLink>
