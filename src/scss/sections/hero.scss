@@ -20,6 +20,7 @@
   @include until($small-width) {
     height: calc(700px - 64px);
     padding: 32px 80px;
+    width: calc(100% - 160px);
   }
 
   & img {
