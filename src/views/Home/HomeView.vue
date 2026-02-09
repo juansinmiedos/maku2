@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- hero -->
-     <WhoWeAre />
+    <Hero />>
+    <WhoWeAre />
     <AboutUs />
     <OurMethod />
     <Projects />
@@ -11,6 +11,7 @@
 </template>
 
 <script setup>
+import Hero from './sections/Hero.vue'
 import WhoWeAre from './sections/WhoWeAre.vue'
 import AboutUs from './sections/AboutUs.vue'
 import OurMethod from './sections/OurMethod.vue'

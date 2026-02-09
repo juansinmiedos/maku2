@@ -1,0 +1,33 @@
+.hero {
+  display: flex;
+  width: calc(100% - 160px);
+  height: calc(830px - 64px);
+  padding: 32px 80px;
+  justify-content: center;
+  align-items: center;
+
+  @include until($large-width) {
+    height: calc(830px - 64px);
+    padding: 32px 80px;
+  }
+
+  @include until($medium-width) {
+    height: calc(830px - 96px);
+    width: calc(100% - 96px);
+    padding: 48px;
+  }
+
+  @include until($small-width) {
+    height: calc(700px - 64px);
+    padding: 32px 80px;
+  }
+
+  & img {
+    width: 100%;
+    max-width: 478.47px;
+
+    @include until($small-width) {
+      width: 220px;
+    }
+  }
+}
