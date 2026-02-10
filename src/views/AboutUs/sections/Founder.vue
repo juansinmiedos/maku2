@@ -1,9 +1,11 @@
 <template>
   <section class="founder-section">
     <div class="top">
-      <p class="title-lg">About the founder</p>
+      <p class="title-md-up title-lg">About the founder</p>
       <div class="founder-image"></div>
     </div>
+
+    <p class="title-until-sm title-lg">About the founder</p>
 
     <div class="bottom">
       <div class="container">
