@@ -1,6 +1,6 @@
 <template>
   <div class="our-brand-item">
-    <div class="image"></div>
+    <div class="image" :class="data.image"></div>
     <div class="body">
       <p class="overline-md">{{ data.subtitle }}</p>
       <p class="title-lg">{{ data.title }}</p>

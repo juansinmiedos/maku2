@@ -41,7 +41,8 @@
 
   & .bottom {
     display: flex;
-    width: 1170px;
+    width: 100%;
+    max-width: 1170px;
     align-items: flex-start;
     gap: 16px;
 
@@ -64,9 +65,16 @@
 
     & .image {
       border-radius: 12px;
-      background: red;
       height: 391px;
       align-self: stretch;
+
+      &.our-brand-k {
+        background: no-repeat center url("../../assets/our-brand-k.png");
+      }
+
+      &.our-brand-yellow {
+        background: no-repeat center url("../../assets/our-brand-yellow.png");
+      }
     }
     
     & .body {
