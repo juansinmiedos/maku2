@@ -11,15 +11,16 @@
 @import "components/button.scss";
 @import "components/footer.scss";
 @import "components/nav.scss";
+@import "sections/marquee.scss";
 
 // Sections
 // Home
 @import "sections/hero.scss";
 @import "sections/who-we-are";
 @import "sections/about-us.scss";
-@import "sections/marquee.scss";
 @import "sections/our-method.scss";
 @import "sections/services.scss";
 
 // About Us
+@import "sections/our-brand.scss";
 @import "sections/founder.scss";

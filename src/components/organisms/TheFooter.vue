@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <img class="bottom-until-small" src="../assets/maku-logo.svg" width="100%" style="margin: 31px 0px 16px;" />
+    <img class="bottom-until-small" src="../../assets/maku-logo.svg" width="100%" style="margin: 31px 0px 16px;" />
 
     <div class="bottom-until-small">
       <div class="bottom">
