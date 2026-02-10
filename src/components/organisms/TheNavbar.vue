@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="container">
-      <img src="../assets/maku-logo.svg" alt="logo" @click="goToHome" />
+      <img src="../../assets/maku-logo.svg" alt="logo" @click="goToHome" />
 
       <div class="menu">
         <div class="links">
@@ -39,7 +39,7 @@ import { ref } from "vue"
 import { useRouter } from 'vue-router'
 
 import { RouterLink } from 'vue-router'
-import TheButton from './TheButton.vue'
+import TheButton from '../atoms/TheButton.vue'
 
 const router = useRouter()
 

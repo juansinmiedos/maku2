@@ -23,6 +23,6 @@
 </template>
 
 <script setup>
-import TheButton from '@/components/TheButton.vue'
+import TheButton from '@/components/atoms/TheButton.vue'
 
 </script>

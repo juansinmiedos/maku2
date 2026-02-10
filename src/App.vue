@@ -13,6 +13,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
 
-import TheNavbar from './components/TheNavbar.vue'
-import TheFooter from './components/TheFooter.vue'
+import TheNavbar from './components/organisms/TheNavbar.vue'
+import TheFooter from './components/organisms/TheFooter.vue'
 </script>

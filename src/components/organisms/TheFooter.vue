@@ -34,7 +34,7 @@
     </div>
 
     <div class="bottom-small-up">
-      <img src="../assets/maku-logo.svg" width="100%" />
+      <img src="../../assets/maku-logo.svg" width="100%" />
 
       <div class="bottom">
         <div class="brand">
@@ -61,7 +61,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import TheButton from './TheButton.vue'
+import TheButton from '../atoms/TheButton.vue'
 
 const windowIsSmall = ref(false)
 const windowIsMedium = ref(false)

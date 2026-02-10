@@ -27,7 +27,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-import TheButton from '@/components/TheButton.vue'
+import TheButton from '@/components/atoms/TheButton.vue'
 import BrandMarquee from './components/BrandMarquee.vue'
 
 const windowIsSmall = ref(false)
