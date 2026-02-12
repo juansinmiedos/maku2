@@ -8,15 +8,30 @@
   align-items: center;
   gap: 67px;
 
+  @include until($large-width) {
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
   & .container {
     display: flex;
     align-items: flex-start;
     flex: 1 0 0;
     align-self: stretch;
+
+    @include until($large-width) {
+      gap: 16px;
+    }
   }
 
   & .title-lg {
     flex: 1 0 0;
+
+    @include until($large-width) {
+      width: 100%;
+      max-width: 416px;
+    }
   }
 
   & .body-wrapper {
@@ -25,6 +40,17 @@
     align-items: flex-start;
     flex: 1 0 0;
     align-self: stretch;
+  }
+
+  & h1 {
+    text-indent: 2em;
+    align-self: stretch;
+
+    @include until($large-width) {
+      text-indent: 1.2em;
+      flex: 1 0 0;
+      letter-spacing: -2.54px;
+    }
   }
 
   & .body {
