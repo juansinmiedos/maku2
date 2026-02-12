@@ -5,6 +5,7 @@
 
       <div class="body-wrapper">
         <h1>Symbols carved into stone. Signs painted on walls. Traces that remained long after the moment passed.</h1>
+        <h4>Symbols carved into stone. Signs painted on walls. Traces that remained long after the moment passed.</h4>
 
         <div class="body">
           <div class="body-container">
