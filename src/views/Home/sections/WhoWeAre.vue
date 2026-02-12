@@ -34,7 +34,6 @@ const growStronger = ref(null)
 let animInstance = null
 
 onMounted(() => {
-  console.log(animationData)
   animInstance = lottie.loadAnimation({
     container: growStronger.value,
     renderer: "svg",
