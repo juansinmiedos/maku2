@@ -8,7 +8,7 @@
           <h2>Our Projects</h2>
 
           <div>
-            <TheLabel>zz</TheLabel>
+            <TheLabel>Botón!</TheLabel>
           </div>
         </div>
 
@@ -24,4 +24,5 @@
 
 <script setup>
 import TheLabel from '@/components/atoms/TheLabel.vue'
+import TheButton from '@/components/atoms/TheButton.vue'
 </script>
