@@ -10,11 +10,14 @@
           <div class="body-container">
             <div>
               <h4>Through our proven ABCDS Method, we craft strategies and creative that help brands.</h4>
-              <h3>Grow stronger</h3>
-              <h4 class="h4-until-small">Grow stronger</h4>
+              <div ref="growStronger" class="lottie"></div>
+              <!-- <h3>Grow stronger</h3> -->
+              <!-- <h4 class="h4-until-small">Grow stronger</h4> -->
             </div>
 
-            <TheButton>Learn more</TheButton>
+            <div>
+              <TheButton>Learn more</TheButton>
+            </div>
           </div>
         </div>
       </div>
@@ -23,6 +26,26 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue"
+import lottie from "lottie-web"
+import animationData from "@/assets/grow-stronger.json"
+
 import TheButton from '@/components/atoms/TheButton.vue'
 
+const growStronger = ref(null)
+let animInstance = null
+
+onMounted(() => {
+  animInstance = lottie.loadAnimation({
+    container: growStronger.value,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    animationData
+  })
+})
+
+onBeforeUnmount(() => {
+  animInstance?.destroy()
+});
 </script>

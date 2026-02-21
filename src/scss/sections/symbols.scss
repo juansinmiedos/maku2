@@ -1,18 +1,47 @@
 .symbols-section {
   display: flex;
-  // width: 100%;
-  height: calc(830px - 160px);
+  min-height: calc(830px - 160px);
   padding: 80px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 67px;
 
+  @include until($large-width) {
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  @include until($medium-width) {
+    min-height: calc(830px - 96px);
+    padding: 48px;
+  }
+
+  @include until($small-width) {
+    min-height: auto;
+    padding: 32px 24px;
+  }
+
   & .container {
     display: flex;
     align-items: flex-start;
     flex: 1 0 0;
     align-self: stretch;
+
+    @include until($large-width) {
+      gap: 16px;
+    }
+
+    @include until($medium-width) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex: 1 0 0;
+      align-self: stretch;
+      gap: 0px;
+    }
   }
 
   & .title-lg {
@@ -24,6 +53,14 @@
       width: 100%;
       max-width: 416px;
     }
+
+    @include until($medium-width) {
+      margin-bottom: 123.5px;
+    }
+
+    @include until($small-width) {
+      margin-bottom: 37px;
+    }
   }
 
   & .body-wrapper {
@@ -32,6 +69,33 @@
     align-items: flex-start;
     flex: 1 0 0;
     align-self: stretch;
+  }
+
+  & h1 {
+    text-indent: 2em;
+    align-self: stretch;
+
+    @include until($large-width) {
+      text-indent: 1.2em;
+      flex: 1 0 0;
+      letter-spacing: -2.54px;
+    }
+
+    @include until($medium-width) {
+      margin-bottom: 123.5px;
+    }
+
+    @include until($small-width) {
+      display: none;
+    }
+  }
+
+  & h4 {
+    margin-bottom: 97px;
+
+    @include from($small-width) {
+      display: none;
+    }
   }
 
   & .body {

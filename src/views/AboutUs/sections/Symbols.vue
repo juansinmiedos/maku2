@@ -4,7 +4,8 @@
       <p class="title-lg">Long before brands existed,<br />people left marks.</p>
 
       <div class="body-wrapper">
-        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Symbols carved into stone. Signs painted on walls. Traces that remained long after the moment passed.</h1>
+        <h1>Symbols carved into stone. Signs painted on walls. Traces that remained long after the moment passed.</h1>
+        <h4>Symbols carved into stone. Signs painted on walls. Traces that remained long after the moment passed.</h4>
 
         <div class="body">
           <div class="body-container">

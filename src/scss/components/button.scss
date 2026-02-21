@@ -1,18 +1,90 @@
+.button-wrapper {
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 2px 1px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
 button {
-  // display: flex;
-  color: $surface-white;
+  z-index: 0;
+  grid-column-gap: 2.5rem;
+  grid-row-gap: 2.5rem;
   background-color: $surface-black;
-  font-size: $button-size;
-  font-weight: $medium;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 24px;
-  // height: 40px;
-  // justify-content: center;
-  // align-items: center;
-  // gap: 10px;
+  color: $surface-white;
+  cursor: pointer;
+  border-radius: 999999px;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 3rem;
+  padding-left: 1.5rem;
+  padding-right: .25rem;
+  text-decoration: none;
+  display: inline-flex;
+  transition: all 1150ms ease-in-out !important;
+
+  & .text{
+    z-index: 2;
+    color: $surface-white;
+    transition: color .2s;
+    transition: all 1150ms ease-in-out !important;
+  }
+
+  & .button_arrow_wrapper {
+    z-index: 2;
+    flex-flow: row;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+    margin-right: .3rem;
+    position: relative;
+    right: 5px;
+  }
+
+  & .arrow-button {
+    color: $surface-black;
+  }
+
+  & .arrow-icon {
+    width: 16px;
+    height: 16px;
+    overflow: visible;
+    position: relative;
+  }
+
+  & .circle{
+    transform: translateY(-50%) scale(1);
+    transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    z-index: 1;
+    pointer-events: none;
+    background-color: $surface-yellow;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 50%;
+    right: .25rem;
+  }
 
   &:hover {
-    cursor: pointer;
+    background-color: $surface-yellow;
+    transition: all 0.5s ease-in-out;
+    transition-delay: 0.2s;
+
+    & .text {
+      color: #3b0b0b !important;
+      transition: all 150ms ease-in-out !important;
+    }
+
+    & .circle {
+      transform: translateY(-50%) scale(17);
+    }
   }
 }
