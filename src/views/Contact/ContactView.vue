@@ -1,7 +1,7 @@
 <template>
   <section class="contact-section">
     <div class="box">
-      <!-- stepper -->
+      <TheStepper v-model="state.step" :steps="3" />
 
       <div class="flex column" style="gap: 12px;">
         <h4>The bold ones act first.</h4>
@@ -18,7 +18,7 @@
         />
       </div>
 
-      <TheButton>Continue</TheButton>
+      <TheButton @click="nextStep">Continue</TheButton>
     </div>
   </section>
 </template>
@@ -26,10 +26,16 @@
 <script setup>
 import { reactive } from 'vue'
 
-import TheButton from '@/components/atoms/TheButton.vue'
+import TheStepper from '@/components/atoms/TheStepper.vue'
 import TheInput from '@/components/atoms/TheInput.vue'
+import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
+  step: 1,
   field: "Juan Vidal"
 })
+
+function nextStep() {
+  state.step++
+}
 </script>
