@@ -8,14 +8,41 @@
         <p class="title-sm">Hi there! We’re excited to connect. To help us hit the ground running and tailor our strategy for maximum impact, please fill out the form below.</p>
       </div>
 
-      <!-- form -->
-      <div>
-        <TheInput
-          v-model="state.field"
-          label="First name"
-          name="firstName"
-          type="text"
-        />
+      <!-- Step 1 -->
+      <div v-show="state.step === 1">
+        <p class="title-lg" style="margin-bottom: 20px;">Personal Information</p>
+
+        <div class="flex wrap" style="gap: 12px;">
+          <div class="flex" style="gap: 12px;">
+            <TheInput
+              v-model="state.firstName"
+              label="First name"
+              name="firstName"
+              type="text"
+            />
+
+            <TheInput
+              v-model="state.lastName"
+              label="Last name"
+              name="lastName"
+              type="text"
+            />
+          </div>
+
+          <TheInput
+            v-model="state.phoneNumber"
+            label="Phone number (WhatsApp)"
+            name="phoneNumber"
+            type="text"
+          />
+  
+          <TheInput
+            v-model="state.email"
+            label="Email address"
+            name="email"
+            type="text"
+          />
+        </div>
       </div>
 
       <TheButton @click="nextStep">Continue</TheButton>
@@ -32,7 +59,11 @@ import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
   step: 1,
-  field: "Juan Vidal"
+
+  firstName: "",
+  lastName: "",
+  phoneNumber: "",
+  email: "",
 })
 
 function nextStep() {

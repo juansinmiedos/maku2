@@ -1,5 +1,6 @@
 .input-wrapper {
   position: relative;
+  width: 100%;
 
   & label {
     display: flex;
@@ -31,6 +32,7 @@
   & input {
     display: flex;
     height: calc(56px - 24px - 12px);
+    width: calc(100% - 40px);
     padding: 24px 20px 12px;
     justify-content: center;
     align-items: center;
