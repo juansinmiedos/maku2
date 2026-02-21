@@ -48,6 +48,7 @@
 
     @include until ($large-width) {
       align-self: stretch;
+      max-width: none;
     }
 
     @include until($small-width) {
@@ -69,11 +70,11 @@
       align-self: stretch;
 
       &.our-brand-k {
-        background: no-repeat center url("../../assets/our-brand-k.png");
+        background: no-repeat center / cover url("../../assets/our-brand-k.png");
       }
 
       &.our-brand-yellow {
-        background: no-repeat center url("../../assets/our-brand-yellow.png");
+        background: no-repeat center / cover url("../../assets/our-brand-yellow.png");
       }
     }
     

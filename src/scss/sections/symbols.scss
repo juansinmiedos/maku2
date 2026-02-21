@@ -16,7 +16,14 @@
   }
 
   & .title-lg {
-    flex: 1 0 0;
+    @include from($large-width) {
+      flex: 1 0 0;
+    }
+
+    @include until($large-width) {
+      width: 100%;
+      max-width: 416px;
+    }
   }
 
   & .body-wrapper {
