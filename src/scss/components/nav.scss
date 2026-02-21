@@ -6,6 +6,8 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  backdrop-filter: blur(10px);
 
   @include until($medium-width) {
     width: calc(100% - 96px);
@@ -107,7 +109,7 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    border-top: 1px solid $neutral-100;
+    // border-top: 1px solid $neutral-100;
     z-index: 1;
 
     &.open {
