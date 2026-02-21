@@ -15,7 +15,9 @@
               <!-- <h4 class="h4-until-small">Grow stronger</h4> -->
             </div>
 
-            <TheButton>Learn more</TheButton>
+            <div>
+              <TheButton>Learn more</TheButton>
+            </div>
           </div>
         </div>
       </div>
