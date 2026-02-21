@@ -9,6 +9,27 @@
       </div>
 
       <!-- form -->
+      <div>
+        <TheInput
+          v-model="state.field"
+          label="First name"
+          name="firstName"
+          type="text"
+        />
+      </div>
+
+      <TheButton>Continue</TheButton>
     </div>
   </section>
 </template>
+
+<script setup>
+import { reactive } from 'vue'
+
+import TheButton from '@/components/atoms/TheButton.vue'
+import TheInput from '@/components/atoms/TheInput.vue'
+
+const state = reactive({
+  field: "Juan Vidal"
+})
+</script>
