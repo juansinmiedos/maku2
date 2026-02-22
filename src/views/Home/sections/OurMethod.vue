@@ -18,8 +18,6 @@
       <h3 v-else class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h3>
     </div>
 
-    <BrandMarquee />
-
     <TheButton v-if="windowIsSmall">Have a project in mind? Let’s talk</TheButton>
   </section>
 </template>
@@ -29,7 +27,6 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 import TheButton from '@/components/atoms/TheButton.vue'
-import BrandMarquee from './components/BrandMarquee.vue'
 
 const router = useRouter()
 
