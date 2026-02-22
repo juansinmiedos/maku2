@@ -1,10 +1,13 @@
 .button-wrapper {
-  cursor: pointer;
   border-radius: 999px;
   padding: 2px 1px;
   display: inline-block;
   position: relative;
   overflow: hidden;
+
+  &.disabled {
+    cursor: not-allowed;
+  }
 }
 
 button {
@@ -93,6 +96,11 @@ button {
     &.negative {
       background-color: $surface-black;
     }
+  }
+
+  &.disabled {
+    filter: grayscale(100%);
+    pointer-events: none;
   }
 
   &:hover {

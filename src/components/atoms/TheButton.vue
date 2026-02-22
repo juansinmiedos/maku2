@@ -1,6 +1,6 @@
 <template>
-  <div class="button-wrapper">
-    <button :class="type">
+  <div class="button-wrapper" :class="{ disabled: isDisabled }">
+    <button :class="{ negative: type === 'negative', disabled: isDisabled }" :disabled="isDisabled" @click="emitsClick">
       <span class="text" :class="type"><slot></slot></span>
 
       <div aria-hidden="true" class="button_arrow_wrapper">
@@ -22,11 +22,21 @@
 </template>
 
 <script setup>
-defineProps({
+
+const emit = defineEmits([ "click" ])
+
+const props = defineProps({
   type: String,
   arrowDirection: {
     type: String,
     default: "right",
   },
+  isDisabled: Boolean
 })
+
+function emitsClick(e) {
+  if (!props.isDisabled) {
+    emit("click", e)
+  }
+}
 </script>
