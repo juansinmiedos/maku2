@@ -71,6 +71,10 @@ button {
     height: 16px;
     overflow: visible;
     position: relative;
+
+    &.down {
+      transform: rotate(90deg);
+    }
   }
 
   & .circle{

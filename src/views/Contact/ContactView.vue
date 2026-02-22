@@ -171,7 +171,7 @@
       </div>
 
       <TheButton v-if="state.step <= 3" @click="nextStep">Continue</TheButton>
-      <TheButton v-else @click="downloadServiceSheet">Download our service sheet</TheButton>
+      <TheButton v-else arrowDirection="down" @click="downloadServiceSheet">Download our service sheet</TheButton>
     </div>
   </section>
 </template>
