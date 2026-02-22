@@ -9,7 +9,7 @@
             <p class="p-lg">Strategy shouldn’t be defined by industry, but by brand. Working across industries helps us avoid formulas and build strategies that are truly distinctive.</p>
           </div>
 
-          <TheButton v-if="!windowIsSmall">Have a project in mind? Let’s talk</TheButton>
+          <TheButton v-if="!windowIsSmall" type="negative">Have a project in mind? Let’s talk</TheButton>
         </div>
       </div>
 

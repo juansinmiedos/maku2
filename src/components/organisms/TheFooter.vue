@@ -9,7 +9,7 @@
             <h3 v-else>The bold ones act first.</h3>
           </div>
           
-           <TheButton>Enter Your Email</TheButton>
+           <TheButton type="negative">Enter Your Email</TheButton>
         </div>
       </div>
 

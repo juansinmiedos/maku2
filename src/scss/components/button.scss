@@ -27,11 +27,20 @@ button {
   display: inline-flex;
   transition: all 1150ms ease-in-out !important;
 
+  &.negative {
+    background-color: $surface-white;
+    color: $surface-black;
+  }
+
   & .text{
     z-index: 2;
     color: $surface-white;
     transition: color .2s;
     transition: all 1150ms ease-in-out !important;
+
+    &.negative {
+      color: $surface-black;
+    }
   }
 
   & .button_arrow_wrapper {
@@ -50,6 +59,10 @@ button {
 
   & .arrow-button {
     color: $surface-black;
+
+    &.negative {
+      color: $surface-white;
+    }
   }
 
   & .arrow-icon {
@@ -71,6 +84,10 @@ button {
     position: absolute;
     top: 50%;
     right: .25rem;
+
+    &.negative {
+      background-color: $surface-black;
+    }
   }
 
   &:hover {
@@ -79,8 +96,12 @@ button {
     transition-delay: 0.2s;
 
     & .text {
-      color: #3b0b0b !important;
+      color: $surface-black !important;
       transition: all 150ms ease-in-out !important;
+
+      &.negative {
+        color: $surface-white !important;
+      }
     }
 
     & .circle {

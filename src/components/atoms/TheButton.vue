@@ -1,10 +1,10 @@
 <template>
   <div class="button-wrapper">
-    <button>
-      <span class="text"><slot></slot></span>
+    <button :class="type">
+      <span class="text" :class="type"><slot></slot></span>
 
       <div aria-hidden="true" class="button_arrow_wrapper">
-        <div class="arrow-button">
+        <div class="arrow-button" :class="type">
           <svg class="arrow-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
             <mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
               <rect width="16" height="16" fill="#D9D9D9"></rect>
@@ -16,9 +16,13 @@
           </svg>
         </div>
       </div>
-      <div aria-hidden="true" class="circle"></div>
+      <div aria-hidden="true" class="circle" :class="type"></div>
     </button>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+defineProps({
+  type: String
+})
+</script>

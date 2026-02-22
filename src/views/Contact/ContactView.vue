@@ -160,6 +160,11 @@
         </div>
       </div>
 
+      <!-- Step 3 -->
+      <div v-show="state.step === 3" class="flex column">
+        dropdown
+      </div>
+
       <TheButton v-if="state.step <= 3" @click="nextStep">Continue</TheButton>
       <TheButton v-else @click="downloadServiceSheet">Download our service sheet</TheButton>
     </div>
@@ -178,13 +183,15 @@ import TheCheckbox from '@/components/atoms/TheCheckbox.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
-  step: 4,
+  step: 1,
 
+  // Form 1
   firstName: "",
   lastName: "",
   phoneNumber: "",
   email: "",
 
+  // Form 2
   businessName: "",
   website: "",
   businessType: "",
@@ -201,6 +208,8 @@ const state = reactive({
   marketing: false,
   packaging: false,
   other: false,
+
+  // Form 3
 })
 
 function nextStep() {
