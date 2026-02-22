@@ -14,7 +14,7 @@
         <p class="title-lg" style="margin-bottom: 20px;">Personal Information</p>
 
         <div class="flex wrap" style="gap: 12px;">
-          <div class="flex" style="gap: 12px;">
+          <div class="w-100 flex" style="gap: 12px;">
             <TheInput
               v-model="state.firstName"
               label="First name"

@@ -8,16 +8,32 @@
     background: no-repeat center / cover url("../../assets/contact-bg.svg");
   }
 
+  @include until($medium-width) {
+    padding: 0px;
+  }
+
   & .box {
     display: flex;
     width: 100%;
-    max-width: calc(448px - 48px);
-    padding: 24px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
-    align-self: stretch;
-    border-radius: 24px;
     background: $surface-white;
+    align-self: stretch;
+    
+    @include from($medium-width) {
+      max-width: calc(448px - 48px);
+      padding: 24px;
+      gap: 32px;
+      border-radius: 24px;
+    }
+
+    @include until($medium-width) {
+      max-width: calc(100% - 96px);
+      padding: 48px;
+      padding-top: calc(72px + 48px);
+      gap: 67px;
+      // justify-content: center;
+      // align-items: center;
+    }
   }
 }
