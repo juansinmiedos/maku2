@@ -13,7 +13,7 @@
 
   <div v-if="step === 4" class="flex column" style="gap: 16px;">
     <p class="title-lg">Thank you! We’ve received your information. </p>
-    <p class="title-sm">TYou’ll get a confirmation email shortly, and we’ll be in touch soon to continue the conversation.In the meantime, you can download our services sheet below.</p>
+    <p class="title-sm">You’ll get a confirmation email shortly, and we’ll be in touch soon to continue the conversation.In the meantime, you can download our services sheet below.</p>
   </div>
 </template>
 

@@ -6,7 +6,6 @@
       <div class="menu">
         <div class="links">
           <RouterLink to="/about-us">About Us</RouterLink>
-          <RouterLink to="/services">Services</RouterLink>
           <RouterLink to="/projects">Projects</RouterLink>
           <RouterLink to="/contact">Contact</RouterLink>
         </div>
@@ -24,7 +23,6 @@
     <div class="mobile-menu" :class="{ open: drawerIsOpen }">
       <div v-if="drawerIsOpen">
         <span class="title-lg link">About Us</span>
-        <span class="title-lg link">Services</span>
         <span class="title-lg link">Projects</span>
         <span class="title-lg link">Contact</span>
       </div>

@@ -72,11 +72,9 @@
   }
 
   & h1 {
-    text-indent: 2em;
     align-self: stretch;
 
     @include until($large-width) {
-      text-indent: 1.2em;
       flex: 1 0 0;
       letter-spacing: -2.54px;
     }

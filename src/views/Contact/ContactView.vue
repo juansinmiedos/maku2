@@ -189,7 +189,7 @@ import TheDropdown from '@/components/atoms/TheDropdown.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
-  step: 3,
+  step: 1,
 
   // Form 1
   firstName: "",
