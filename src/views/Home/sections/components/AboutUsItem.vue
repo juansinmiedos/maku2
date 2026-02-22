@@ -3,7 +3,7 @@
     <img :src="getImage()" />
 
     <div class="body">
-      <p class="title-lg">{{ data.title }}</p>
+      <p class="w-100 title-lg">{{ data.title }}</p>
       <p class="p-md">{{ data.body }}</p>
     </div>
   </div>
