@@ -2,7 +2,7 @@
   <section class="our-brand-section">
     <div class="top">
       <p class="title-lg">About our brand</p>
-      <TheButton>Have a project in mind? Let’s talk</TheButton>
+      <TheButton @click="goToContact">Have a project in mind? Let’s talk</TheButton>
     </div>
 
     <div class="bottom">
@@ -12,8 +12,12 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
 import TheButton from '@/components/atoms/TheButton.vue'
 import OurBrandItem from './components/OurBrandItem.vue'
+
+const router = useRouter()
 
 const brandItems = [
   {
@@ -29,4 +33,8 @@ const brandItems = [
     text: "Because when something is built with meaning, it doesn’t disappear. It stays. It’s recognized. It leaves a mark.",
   },
 ]
+
+function goToContact() {
+  router.push({ name: "Contact" })
+}
 </script>

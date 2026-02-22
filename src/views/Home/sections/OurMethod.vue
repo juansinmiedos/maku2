@@ -9,7 +9,7 @@
             <p class="p-lg">Strategy shouldn’t be defined by industry, but by brand. Working across industries helps us avoid formulas and build strategies that are truly distinctive.</p>
           </div>
 
-          <TheButton v-if="!windowIsSmall" type="negative">Have a project in mind? Let’s talk</TheButton>
+          <TheButton v-if="!windowIsSmall" type="negative" @click="goToContact">Have a project in mind? Let’s talk</TheButton>
         </div>
       </div>
 
@@ -26,9 +26,12 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
 import TheButton from '@/components/atoms/TheButton.vue'
 import BrandMarquee from './components/BrandMarquee.vue'
+
+const router = useRouter()
 
 const windowIsSmall = ref(false)
 const windowIsMedium = ref(false)
@@ -49,5 +52,9 @@ function resizeController() {
     windowIsSmall.value = false
     windowIsMedium.value = false
   }
+}
+
+function goToContact() {
+  router.push({ name: "Contact" })
 }
 </script>

@@ -9,7 +9,7 @@
             <h3 v-else>The bold ones act first.</h3>
           </div>
           
-           <TheButton type="negative">Enter Your Email</TheButton>
+           <TheButton type="negative" @click="goToContact">Enter Your Email</TheButton>
         </div>
       </div>
 
@@ -61,7 +61,11 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
 import TheButton from '../atoms/TheButton.vue'
+
+const router = useRouter()
 
 const windowIsSmall = ref(false)
 const windowIsMedium = ref(false)
@@ -82,5 +86,9 @@ function resizeController() {
     windowIsSmall.value = false
     windowIsMedium.value = false
   }
+}
+
+function goToContact() {
+  router.push({ name: "Contact" })
 }
 </script>

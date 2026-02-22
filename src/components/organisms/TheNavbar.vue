@@ -10,7 +10,7 @@
           <RouterLink to="/contact">Contact</RouterLink>
         </div>
 
-        <TheButton>Let’s  Leave A Mark</TheButton>
+        <TheButton @click="goToContact">Let’s  Leave A Mark</TheButton>
       </div>
 
       <div class="menu-button" :class="{ open: drawerIsOpen }" @click="toggleDrawer">
@@ -49,5 +49,9 @@ function goToHome() {
 
 function toggleDrawer() {
   drawerIsOpen.value = !drawerIsOpen.value
+}
+
+function goToContact() {
+  router.push({ name: "Contact" })
 }
 </script>

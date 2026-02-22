@@ -16,7 +16,7 @@
             </div>
 
             <div>
-              <TheButton>Learn more</TheButton>
+              <TheButton @click="goToContact">Learn more</TheButton>
             </div>
           </div>
         </div>
@@ -27,10 +27,13 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue"
+import { useRouter } from 'vue-router'
 import lottie from "lottie-web"
 import animationData from "@/assets/grow-stronger.json"
 
 import TheButton from '@/components/atoms/TheButton.vue'
+
+const router = useRouter()
 
 const growStronger = ref(null)
 let animInstance = null
@@ -47,5 +50,9 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   animInstance?.destroy()
-});
+})
+
+function goToContact() {
+  router.push({ name: "Contact" })
+}
 </script>
