@@ -1,7 +1,7 @@
 <template>
   <div>
     <Hero />
-    <BrandMarquee />>
+    <BrandMarquee />
     <WhoWeAre />
     <AboutUs />
     <OurMethod />

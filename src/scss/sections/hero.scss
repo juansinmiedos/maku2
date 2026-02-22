@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  background: linear-gradient(180deg, #E3FF17 0%, #FFF 100%);
+  background: linear-gradient(180deg, $surface-yellow 0%, $surface-white 100%);
 
   @include until($large-width) {
     height: calc(830px - 64px);
