@@ -13,13 +13,23 @@
         </div>
       </div>
 
-      <div class="bottom">
+      <div class="bottom medium-up">
         <div class="projects">
-          <ProjectItem v-for="(project, i) in mainProjects" :key="i" v-bind="project" :style="`min-width: ${project.minWidth}px;`" />
+          <ProjectItem v-for="(project, i) in projects.slice(0, 2)" :key="i" v-bind="project" :style="`min-width: ${project.minWidth}%;`" />
         </div>
 
         <div class="projects secondary">
-          <ProjectItem v-for="(project, i) in secondaryProjects" :key="i" v-bind="project" />
+          <ProjectItem v-for="(project, i) in projects.slice(2, 5)" :key="i" v-bind="project" />
+        </div>
+      </div>
+
+      <div class="bottom until-medium">
+        <div class="projects">
+          <ProjectItem v-for="(project, i) in projects.slice(0, 1)" :key="i" v-bind="project" :style="`min-width: ${project.minWidth}%;`" />
+        </div>
+
+        <div class="projects secondary">
+          <ProjectItem v-for="(project, i) in projects.slice(1, 5)" :key="i" v-bind="project" />
         </div>
       </div>
     </div>
@@ -37,19 +47,17 @@ const router = useRouter()
 
 const windowIsSmall = ref(false)
 const windowIsMedium = ref(false)
-const mainProjects = [
+const projects = [
   {
     imageUrl: "https://media.istockphoto.com/id/1446478805/photo/a-chef-is-finishing-the-preparation-of-the-plate.jpg?s=612x612&w=0&k=20&c=OoFoYYJ0_eun72wlt-lDzlYjY-CaLwphDgUyIApDu_I=",
-    text: "Chevere"
+    text: "Chevere",
   },
   {
     imageUrl: "https://media.istockphoto.com/id/1411606505/photo/waiter-adding-sauce-on-mussels-during-catering.jpg?s=612x612&w=0&k=20&c=sLY1ILsEs4knFb7VECSWUBHqr1zEpIg6JK2eE_FWVvA=",
     text: "Arona",
-    minWidth: 715,
+    minWidth: 55.86,
   },
-]
-const secondaryProjects = [
-{
+  {
     imageUrl: "https://media.istockphoto.com/id/1446478827/photo/a-chef-is-cooking-in-his-restaurants-kitchen.jpg?s=612x612&w=0&k=20&c=jwKJmGErrLe2XsTWNYEEyiNicudYVA4j8jvnTiJdp58=",
     text: "Archibald"
   },
