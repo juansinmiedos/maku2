@@ -45,6 +45,53 @@
         </div>
       </div>
 
+      <!-- Step 2 -->
+      <div v-show="state.step === 2">
+        <p class="title-lg" style="margin-bottom: 20px;">Business Information</p>
+
+        <div class="flex wrap" style="gap: 12px;">
+          <TheInput
+            v-model="state.businessName"
+            label="Business name"
+            name="businessName"
+            type="text"
+          />
+  
+          <TheInput
+            v-model="state.website"
+            label="Business website"
+            name="website"
+            type="text"
+          />
+
+          <TheInput
+            v-model="state.businessType"
+            label="Business type"
+            name="businessType"
+            type="text"
+          />
+
+          <TheInput
+            v-model="state.instagram"
+            label="Instagram account"
+            name="instagram"
+            type="text"
+          />
+
+          <TheInput
+            v-model="state.brand"
+            label="Tell us about your brand"
+            name="brand"
+            type="text"
+          />
+
+          <TheTextArea
+            v-model="state.reference"
+            label="Do you have any reference or competitors you would like to include?"
+          />
+        </div>
+      </div>
+
       <TheButton @click="nextStep">Continue</TheButton>
     </div>
   </section>
@@ -55,15 +102,23 @@ import { reactive } from 'vue'
 
 import TheStepper from '@/components/atoms/TheStepper.vue'
 import TheInput from '@/components/atoms/TheInput.vue'
+import TheTextArea from '@/components/atoms/TheTextArea.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
-  step: 1,
+  step: 2,
 
   firstName: "",
   lastName: "",
   phoneNumber: "",
   email: "",
+
+  businessName: "",
+  website: "",
+  businessType: "",
+  instagram: "",
+  brand: "",
+  reference: "",
 })
 
 function nextStep() {
