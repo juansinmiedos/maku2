@@ -23,6 +23,10 @@
     font-weight: 600;
     line-height: 36px; /* 200% */
 
+    &.disabled {
+      color: $neutral-500;
+    }
+
     &:hover {
       cursor: pointer;
     }
