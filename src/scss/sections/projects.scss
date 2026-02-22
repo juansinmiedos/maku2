@@ -1,12 +1,9 @@
-.our-method-section {
+.projects-section {
   display: flex;
-  min-height: calc(830px - 80px);
   padding: 80px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 56px;
-  background: $surface-yellow;
 
   @include until($large-width) {
     align-self: stretch;
@@ -31,21 +28,16 @@
     gap: 55px;
   }
 
-  & .top {
+  & .container {
     display: flex;
-    width: 100%;
-    max-width: 2260px;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex: 1 0 0;
-
-    @include until($small-width) {
-      gap: 55px;
-    }
+    justify-content: center;
+    align-items: flex-end;
+    gap: 67px;
+    align-self: stretch;
   }
 
-  & .container {
+  & .top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -129,56 +121,37 @@
     }
   }
 
-  & .slogan {
-    width: 100%;
-    max-width: 1094px;
-
-    @include until($large-width) {
-      max-width: none;
-    }
-
-    @include until($small-width) {
-      line-height: normal;
-      letter-spacing: -0.96px;
-    }
+  & .bottom {
+    display: flex;
+    width: 1170px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 67px;
   }
 
-  & .marquee {
+  & .projects {
     display: flex;
-    width: 100%;
-    height: 148px;
-    // align-items: center;
-    // flex-shrink: 0;
-    // aspect-ratio: 635/37;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
 
-    @include until($small-width) {
-      height: 85.63px;
-    }
+    // &.main {}
 
-
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
+    // &.secondary {
+    //   height: 432px;// 390px;
+    // }
   }
+}
 
-  & .marquee-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: marquee-content 15s linear infinite;
-    padding-left: 100%;
-    text-indent: 0;
-    // gap: 9.202px;
-  }
+.project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
 
-  & .marquee-item {
-    height: 100%;
-    min-width: 309.25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 9.202px;
+  & .image {
+    height: 432px;
+    align-self: stretch;
   }
 }
