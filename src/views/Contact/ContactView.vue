@@ -3,10 +3,7 @@
     <div class="box">
       <TheStepper v-model="state.step" :steps="3" />
 
-      <div class="flex column" style="gap: 12px;">
-        <h4>The bold ones act first.</h4>
-        <p class="title-sm">Hi there! We’re excited to connect. To help us hit the ground running and tailor our strategy for maximum impact, please fill out the form below.</p>
-      </div>
+      <FormDescriptions :step="state.step" />
 
       <!-- Step 1 -->
       <div v-show="state.step === 1">
@@ -47,7 +44,7 @@
 
       <!-- Step 2 -->
       <div v-show="state.step === 2" class="flex column" style="gap: 32px;">
-        <p class="title-lg" style="margin-bottom: 20px;">Business Information</p>
+        <p class="title-lg">Business Information</p>
 
         <div class="flex wrap" style="gap: 12px;">
           <TheInput
@@ -123,9 +120,9 @@
 
           <div class="w-100 flex" style="gap: 10px;">
             <TheCheckbox
-              v-model="state.website"
+              v-model="state.websiteCommerce"
               label="Website/E-commerce"
-              name="website"
+              name="websiteCommerce"
             />
 
             <TheCheckbox
@@ -168,6 +165,7 @@
 import { reactive } from 'vue'
 
 import TheStepper from '@/components/atoms/TheStepper.vue'
+import FormDescriptions from './sections/FormDescriptions.vue'
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheTextArea from '@/components/atoms/TheTextArea.vue'
 import TheCheckbox from '@/components/atoms/TheCheckbox.vue'
@@ -188,11 +186,11 @@ const state = reactive({
   brand: "",
   reference: "",
   // checkboxes
-  naming: true,
+  naming: false,
   branding: false,
   visualIdentity: false,
   socialMediaStrategy: false,
-  website: false,
+  websiteCommerce: false,
   contentCreation: false,
   marketing: false,
   packaging: false,
