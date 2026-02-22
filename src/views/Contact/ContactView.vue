@@ -3,6 +3,10 @@
     <div class="box">
       <TheStepper v-model="state.step" :steps="3" />
 
+      <div v-if="state.step === 4" class="w-100 flex justify-center">
+        <CheckIcon />
+      </div>
+
       <FormDescriptions :step="state.step" />
 
       <!-- Step 1 -->
@@ -156,7 +160,8 @@
         </div>
       </div>
 
-      <TheButton @click="nextStep">Continue</TheButton>
+      <TheButton v-if="state.step <= 3" @click="nextStep">Continue</TheButton>
+      <TheButton v-else @click="downloadServiceSheet">Download our service sheet</TheButton>
     </div>
   </section>
 </template>
@@ -165,6 +170,7 @@
 import { reactive } from 'vue'
 
 import TheStepper from '@/components/atoms/TheStepper.vue'
+import CheckIcon from './sections/CheckIcon.vue'
 import FormDescriptions from './sections/FormDescriptions.vue'
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheTextArea from '@/components/atoms/TheTextArea.vue'
@@ -172,7 +178,7 @@ import TheCheckbox from '@/components/atoms/TheCheckbox.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
-  step: 2,
+  step: 4,
 
   firstName: "",
   lastName: "",
