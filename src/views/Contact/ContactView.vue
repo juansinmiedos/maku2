@@ -161,8 +161,13 @@
       </div>
 
       <!-- Step 3 -->
-      <div v-show="state.step === 3" class="flex column">
-        dropdown
+      <div v-show="state.step === 3" class="w-100 flex column">
+        <TheDropdown
+          v-model="state.budget"
+          label="How much are you willing to invest in the project? (MXN)"
+          name="budget"
+          :options="state.options"
+        />
       </div>
 
       <TheButton v-if="state.step <= 3" @click="nextStep">Continue</TheButton>
@@ -180,10 +185,11 @@ import FormDescriptions from './sections/FormDescriptions.vue'
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheTextArea from '@/components/atoms/TheTextArea.vue'
 import TheCheckbox from '@/components/atoms/TheCheckbox.vue'
+import TheDropdown from '@/components/atoms/TheDropdown.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
-  step: 1,
+  step: 3,
 
   // Form 1
   firstName: "",
@@ -210,9 +216,26 @@ const state = reactive({
   other: false,
 
   // Form 3
+  budget: "",
+  options: [
+    {
+      text: "1,000-2,000 USD",
+      value: "1,000-2,000 USD",
+    },
+    {
+      text: "2,000-3,500 USD",
+      value: "2,000-3,500 USD",
+    },
+    {
+      text: "3,500-5,000 USD",
+      value: "3,500-5,000 USD",
+    },
+  ],
 })
 
 function nextStep() {
   state.step++
 }
+
+function downloadServiceSheet() {}
 </script>

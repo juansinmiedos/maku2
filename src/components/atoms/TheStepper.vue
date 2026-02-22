@@ -34,7 +34,7 @@ const props = defineProps({
 })
 
 function goBack() {
-  if (props.modelValue >= 2 && props.modelValue < steps + 1) {
+  if (props.modelValue >= 2 && props.modelValue < props.steps + 1) {
     emit("update:modelValue", props.modelValue - 1)
   }
 }

@@ -30,6 +30,7 @@ button {
   &.negative {
     background-color: $surface-white;
     color: $surface-black;
+    border: $surface-white 1px solid;
   }
 
   & .text{
