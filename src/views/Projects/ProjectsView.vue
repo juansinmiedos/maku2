@@ -32,7 +32,9 @@
     </div>
 
     <div class="projects-container">
-      <ProjectItem v-for="(project, i) in projects" :key="i" v-bind="project" />
+      <div class="grid" :style="`grid-template-columns: repeat(3,1fr); grid-column-gap: 16px;grid-row-gap: 67px;`">
+        <ProjectItem v-for="(project, i) in projects" :key="i" v-bind="project" />
+      </div>
     </div>
   </section>
 </template>

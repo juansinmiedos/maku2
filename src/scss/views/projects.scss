@@ -60,9 +60,16 @@
     display: flex;
     padding: 80px 112px;
     align-items: flex-start;
-    gap: 67px 16px;
     align-self: stretch;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+
+    & .grid {
+      display: grid;
+      justify-content: center;
+      align-items: stretch;
+      height: auto;
+      width: 100%;
+    }
   }
 }
 
