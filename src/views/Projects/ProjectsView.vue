@@ -25,7 +25,8 @@
         </div>
 
         <div class="view-control">
-          b
+          <ControlViewButton v-model="state.controlViewButton" icon="multiple" />
+          <ControlViewButton v-model="state.controlViewButton" icon="single" />
         </div>
       </div>
     </div>
@@ -39,6 +40,7 @@
 import { reactive } from 'vue'
 
 import TheLabel from '@/components/atoms/TheLabel.vue'
+import ControlViewButton from './components/ControlViewButton.vue'
 // import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
@@ -63,6 +65,8 @@ const state = reactive({
   ],
 
   selectedLabels: [],
+
+  controlViewButton: "multiple",
 })
 
 function toggleLabelSelection(value) {
