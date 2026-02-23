@@ -33,14 +33,18 @@
 
     <div class="projects-container">
       <div class="grid" :style="`grid-template-columns: repeat(3,1fr); grid-column-gap: 16px;grid-row-gap: 67px;`">
-        <ProjectItem v-for="(project, i) in projects" :key="i" v-bind="project" />
+        <ProjectItem
+          v-for="(project, i) in filteredProjects"
+          :key="i"
+          v-bind="project"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 import projects from '@/data/projects'
 
 import TheLabel from '@/components/atoms/TheLabel.vue'
@@ -70,6 +74,16 @@ const state = reactive({
   selectedCategories: [],
 
   controlViewButton: "multiple",
+})
+
+const filteredProjects = computed(() => {
+  if (state.selectedCategories.length === 0) {
+    return projects
+  } else {
+    return projects.filter(project => {
+      return project.categories.find(category => state.selectedCategories.includes(category))
+    })
+  }
 })
 
 function toggleCatSelection(value) {
