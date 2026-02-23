@@ -33,11 +33,13 @@
 
     <div class="projects-container">
       <div class="grid" :style="`grid-template-columns: repeat(3,1fr); grid-column-gap: 16px;grid-row-gap: 67px;`">
-        <ProjectItem
-          v-for="(project, i) in filteredProjects"
-          :key="i"
-          v-bind="project"
-        />
+        <transition-group name="fade">
+          <ProjectItem
+            v-for="(project, i) in filteredProjects"
+            :key="i"
+            v-bind="project"
+          />
+        </transition-group>
       </div>
     </div>
   </section>

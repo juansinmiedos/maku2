@@ -92,6 +92,27 @@
   }
 }
 
+/* Animation styles for transition-group */
+.fade {
+  backface-visibility: hidden;
+  z-index: 1;
+}
+
+/* appearing */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+/* appear at / disappear to */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-leave-from,
+.fade-enter-to { opacity: 1 }
+
 .project-item-2 {
   display: flex;
   flex-direction: column;
@@ -104,5 +125,9 @@
   & .image {
     height: 391px;
     align-self: stretch;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
