@@ -7,6 +7,7 @@
         <div class="labels-section">
           <div class="top">
             <h2>Our Projects</h2>
+            <h4>Our Projects</h4>
   
             <div class="labels-container">
               <TheLabel :isActive="state.selectedCategories.length === 0" @click="state.selectedCategories = []">All</TheLabel>

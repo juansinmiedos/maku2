@@ -18,6 +18,10 @@
       padding: 120px 48px 40px;
     }
 
+    @include until($small-width) {
+      padding: 104px 24px 26px;
+    }
+
     & .container {
       display: flex;
       min-height: 206px;
@@ -73,6 +77,18 @@
         }
       }
 
+      & h2 {
+        @include until($small-width) {
+          display: none;
+        }
+      }
+
+      & h4 {
+        @include from($small-width) {
+          display: none;
+        }
+      }
+
       & .labels-container {
         display: flex;
         align-items: flex-start;
@@ -91,6 +107,10 @@
         align-items: flex-end;
         flex: 1 0 0;
         align-self: stretch;
+
+        // @include until($small-width) {
+        //   display: none;
+        // }
       }
     }
 
@@ -100,7 +120,12 @@
       flex-wrap: wrap;
 
       @include until($medium-width) {
-        height: 62px;;
+        height: 62px;
+        min-width: 80px;
+      }
+
+      @include until($small-width) {
+        height: auto;
         min-width: 80px;
       }
     }
@@ -128,6 +153,20 @@
       }
 
       margin-right: 8px;
+    }
+
+    @include until($small-width) {
+      margin-bottom: 26px;
+
+      & > div {
+        &:first-child {
+          margin-left: 24px;
+        }
+  
+        &:last-child {
+          margin-right: 24px;
+        }
+      }
     }
   }
 
