@@ -1,1 +1,20 @@
-.label {}
+.label {
+  display: flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 24px;
+  background: $neutral-100;
+  transition: 0.4s;
+
+  &.active {
+    background-color: $surface-black;
+    color: $surface-white;
+  }
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+  }
+}

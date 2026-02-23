@@ -1,7 +1,7 @@
 .projects {
   &-header {
     display: flex;
-    padding: 80px 112px;
+    padding: 152px 112px 80px 112px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -18,13 +18,41 @@
       }
     }
 
-    & .controls {
+    & .labels-section {
       display: flex;
       max-width: 1090px;
       flex-direction: column;
       align-items: flex-start;
       align-self: stretch;
-      gap: 34px;
+
+      & .top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 34px;
+        align-self: stretch;
+      }
+
+      & .container {
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 8px;
+        flex: 1 0 0;
+        flex-wrap: wrap;
+      }
+
+      & .bottom {
+        display: flex;
+        align-items: flex-end;
+        flex: 1 0 0;
+        align-self: stretch;
+      }
+    }
+
+    & .view-control {
+      display: flex;
+      align-items: center;
     }
   }
 }
