@@ -178,12 +178,46 @@
     padding: 80px 112px;
     align-items: flex-start;
     align-self: stretch;
+
     & .grid {
       display: grid;
+      grid-column-gap: 16px;
+      grid-row-gap: 67px;
+      grid-template-columns: repeat(4,1fr);
       justify-content: center;
       align-items: stretch;
       height: auto;
       width: 100%;
+    }
+
+    @include until($large-width) {
+      padding: 80px;
+
+      & .grid {
+        grid-column-gap: 16px;
+        grid-row-gap: 56px;
+        grid-template-columns: repeat(3,1fr);
+      }
+    }
+
+    @include until($medium-width) {
+      padding: 48px;
+
+      & .grid {
+        grid-column-gap: 16px;
+        grid-row-gap: 67px;
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @include until($small-width) {
+      padding: 0px 24px 24px;
+
+      & .grid {
+        grid-column-gap: 16px;
+        grid-row-gap: 26px;
+        grid-template-columns: repeat(1,1fr);
+      }
     }
   }
 }

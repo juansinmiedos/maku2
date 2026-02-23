@@ -45,7 +45,7 @@
     </div>
 
     <div v-if="state.controlViewButton === 'multiple'" class="projects-view-container-grid">
-      <div class="grid" :style="`grid-template-columns: repeat(3,1fr); grid-column-gap: 16px;grid-row-gap: 67px;`">
+      <div class="grid">
         <transition-group name="fade">
           <ProjectItem
             v-for="(project, i) in filteredProjects"
