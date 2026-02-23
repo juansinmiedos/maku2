@@ -1,4 +1,4 @@
-.projects {
+.projects-view {
   &-header {
     display: flex;
     padding: 152px 112px 80px 112px;
@@ -7,14 +7,40 @@
     align-items: center;
     gap: 67px;
 
+    @include until($large-width) {
+      padding: 152px 80px 80px;
+      justify-content: space-between;
+      align-items: flex-start;
+      align-self: stretch;
+    }
+
+    @include until($medium-width) {
+      padding: 120px 48px 48px;
+    }
+
     & .container {
       display: flex;
       min-height: 206px;
       align-items: flex-start;
       align-self: stretch;
 
+      @include until($large-width) {
+        min-height: auto;
+      }
+
       & > p {
         flex: 1 0 0;
+      }
+    }
+
+    & .title-lg {
+      @include until($large-width) {
+        width: 100%;
+        min-width: 416px;
+      }
+
+      @include until($medium-width) {
+        display: none;
       }
     }
 
@@ -31,6 +57,11 @@
         align-items: flex-start;
         gap: 34px;
         align-self: stretch;
+
+        @include until($medium-width) {
+          width: 100%;
+          gap: 40px;
+        }
       }
 
       & .container {
@@ -40,6 +71,18 @@
         gap: 8px;
         flex: 1 0 0;
         flex-wrap: wrap;
+
+        // @include until($medium-width) {
+        //   display: inline;
+        //   // overflow-x: visible;
+
+        //   // min-width: 200vw;
+        //   width: 100%;
+        //   overflow-x: scroll;
+        //   // overflow: auto;
+        //   min-height: 42px;
+        //   white-space: nowrap;
+        // }
       }
 
       & .bottom {
@@ -53,16 +96,20 @@
     & .view-control {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
+
+      @include until($medium-width) {
+        height: 62px;;
+        min-width: 80px;
+      }
     }
   }
 
-  &-container {
+  &-container-grid {
     display: flex;
     padding: 80px 112px;
     align-items: flex-start;
     align-self: stretch;
-    // flex-wrap: wrap;
-
     & .grid {
       display: grid;
       justify-content: center;

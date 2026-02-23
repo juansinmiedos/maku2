@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="projects-header">
+    <div class="projects-view-header">
       <div class="container">
         <p class="title-lg">Long before brands existed,<br />people left marks.</p>
 
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div class="projects-container">
+    <div v-if="state.controlViewButton === 'multiple'" class="projects-view-container-grid">
       <div class="grid" :style="`grid-template-columns: repeat(3,1fr); grid-column-gap: 16px;grid-row-gap: 67px;`">
         <transition-group name="fade">
           <ProjectItem
@@ -42,6 +42,8 @@
         </transition-group>
       </div>
     </div>
+
+    <div v-else>single</div>
   </section>
 </template>
 
