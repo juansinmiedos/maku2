@@ -55,6 +55,15 @@
       align-items: center;
     }
   }
+
+  &-container {
+    display: flex;
+    padding: 80px 112px;
+    align-items: flex-start;
+    gap: 67px 16px;
+    align-self: stretch;
+    flex-wrap: wrap;
+  }
 }
 
 .control-view-button {
@@ -73,5 +82,20 @@
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.project-item-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1 0 0;
+  align-self: stretch;
+
+  & .image {
+    height: 391px;
+    align-self: stretch;
   }
 }

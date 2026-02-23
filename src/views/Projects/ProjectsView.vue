@@ -9,15 +9,15 @@
             <h2>Our Projects</h2>
   
             <div class="container">
-              <TheLabel :isActive="state.selectedLabels.length === 0" @click="state.selectedLabels = []">All</TheLabel>
+              <TheLabel :isActive="state.selectedCategories.length === 0" @click="state.selectedCategories = []">All</TheLabel>
 
               <TheLabel
-                v-for="(label, i) in state.labelOptions"
+                v-for="(category, i) in state.categories"
                 :key="i"
-                :value="label"
-                :isActive="state.selectedLabels.includes(label)"
-                @click="toggleLabelSelection"
-              >{{ label }}</TheLabel>
+                :value="category"
+                :isActive="state.selectedCategories.includes(category)"
+                @click="toggleCatSelection"
+              >{{ category }}</TheLabel>
             </div>
           </div>
 
@@ -31,20 +31,22 @@
       </div>
     </div>
 
-    <!-- body -->
-    <div class="projects-container"></div>
+    <div class="projects-container">
+      <ProjectItem v-for="(project, i) in projects" :key="i" v-bind="project" />
+    </div>
   </section>
 </template>
 
 <script setup>
 import { reactive } from 'vue'
+import projects from '@/data/projects'
 
 import TheLabel from '@/components/atoms/TheLabel.vue'
 import ControlViewButton from './components/ControlViewButton.vue'
-// import TheButton from '@/components/atoms/TheButton.vue'
+import ProjectItem from './components/ProjectItem.vue'
 
 const state = reactive({
-  labelOptions: [
+  categories: [
     "Brand Storytelling",
     "Naming & Concept Creation",
     "Brand Strategy",
@@ -63,18 +65,17 @@ const state = reactive({
     "UX/UI Strategy",
     "Copywriting for Web & Digital",
   ],
-
-  selectedLabels: [],
+  selectedCategories: [],
 
   controlViewButton: "multiple",
 })
 
-function toggleLabelSelection(value) {
-  if (state.selectedLabels.includes(value)) {
-    const index = state.selectedLabels.findIndex(item => item === value)
-    state.selectedLabels.splice(index, 1)
+function toggleCatSelection(value) {
+  if (state.selectedCategories.includes(value)) {
+    const index = state.selectedCategories.findIndex(item => item === value)
+    state.selectedCategories.splice(index, 1)
   } else {
-    state.selectedLabels.push(value)
+    state.selectedCategories.push(value)
   }
 }
 </script>
