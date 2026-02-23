@@ -15,7 +15,7 @@
     }
 
     @include until($medium-width) {
-      padding: 120px 48px 48px;
+      padding: 120px 48px 40px;
     }
 
     & .container {
@@ -26,6 +26,11 @@
 
       @include until($large-width) {
         min-height: auto;
+      }
+
+      @include until($medium-width) {
+        width: 100%;
+        justify-content: space-between;
       }
 
       & > p {
@@ -51,6 +56,10 @@
       align-items: flex-start;
       align-self: stretch;
 
+      @include until($medium-width) {
+        width: 100%;
+      }
+
       & .top {
         display: flex;
         flex-direction: column;
@@ -64,7 +73,7 @@
         }
       }
 
-      & .container {
+      & .labels-container {
         display: flex;
         align-items: flex-start;
         align-content: flex-start;
@@ -72,17 +81,9 @@
         flex: 1 0 0;
         flex-wrap: wrap;
 
-        // @include until($medium-width) {
-        //   display: inline;
-        //   // overflow-x: visible;
-
-        //   // min-width: 200vw;
-        //   width: 100%;
-        //   overflow-x: scroll;
-        //   // overflow: auto;
-        //   min-height: 42px;
-        //   white-space: nowrap;
-        // }
+        @include until($medium-width) {
+          display: none;
+        }
       }
 
       & .bottom {
@@ -102,6 +103,31 @@
         height: 62px;;
         min-width: 80px;
       }
+    }
+  }
+
+  & .scrollable-label-container {
+    margin-bottom: 48px;
+    flex: none;
+    display: block;
+    width: calc(100%);
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+    & > div {
+      &:first-child {
+        margin-left: 48px;
+      }
+
+      &:last-child {
+        margin-right: 48px;
+      }
+
+      margin-right: 8px;
     }
   }
 

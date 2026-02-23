@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="projects-view">
     <div class="projects-view-header">
       <div class="container">
         <p class="title-lg">Long before brands existed,<br />people left marks.</p>
@@ -8,7 +8,7 @@
           <div class="top">
             <h2>Our Projects</h2>
   
-            <div class="container">
+            <div class="labels-container">
               <TheLabel :isActive="state.selectedCategories.length === 0" @click="state.selectedCategories = []">All</TheLabel>
 
               <TheLabel
@@ -29,6 +29,18 @@
           <ControlViewButton v-model="state.controlViewButton" icon="single" />
         </div>
       </div>
+    </div>
+
+    <div class="scrollable-label-container">
+      <TheLabel :isActive="state.selectedCategories.length === 0" @click="state.selectedCategories = []">All</TheLabel>
+
+      <TheLabel
+        v-for="(category, i) in state.categories"
+        :key="i"
+        :value="category"
+        :isActive="state.selectedCategories.includes(category)"
+        @click="toggleCatSelection"
+      >{{ category }}</TheLabel>
     </div>
 
     <div v-if="state.controlViewButton === 'multiple'" class="projects-view-container-grid">
