@@ -44,19 +44,8 @@
       >{{ category }}</TheLabel>
     </div>
 
-    <div v-if="state.controlViewButton === 'multiple'" class="projects-view-container-grid">
-      <div class="grid">
-        <transition-group name="fade">
-          <ProjectItem
-            v-for="(project, i) in filteredProjects"
-            :key="i"
-            v-bind="project"
-          />
-        </transition-group>
-      </div>
-    </div>
-
-    <div v-else>single</div>
+    <ProjectsContainerGrid v-if="state.controlViewButton === 'multiple'" :projects="filteredProjects" />
+    <ProjectsContainerSlider v-else :projects="filteredProjects" />
   </section>
 </template>
 
@@ -66,7 +55,8 @@ import projects from '@/data/projects'
 
 import TheLabel from '@/components/atoms/TheLabel.vue'
 import ControlViewButton from './components/ControlViewButton.vue'
-import ProjectItem from './components/ProjectItem.vue'
+import ProjectsContainerGrid from './components/ProjectsContainerGrid.vue'
+import ProjectsContainerSlider from './components/ProjectsContainerSlider.vue'
 
 const state = reactive({
   categories: [
