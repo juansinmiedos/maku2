@@ -1,6 +1,6 @@
 <template>
-  <div class="button-wrapper" :class="{ disabled: isDisabled }">
-    <button :class="{ negative: type === 'negative', disabled: isDisabled }" :disabled="isDisabled" @click="emitsClick">
+  <div class="button-wrapper" :class="{ disabled: isDisabled, block: isBlock }">
+    <button :class="{ negative: type === 'negative', disabled: isDisabled, block: isBlock }" :disabled="isDisabled" @click="emitsClick">
       <span class="text" :class="type"><slot></slot></span>
 
       <div aria-hidden="true" class="button_arrow_wrapper">
@@ -16,7 +16,7 @@
           </svg>
         </div>
       </div>
-      <div aria-hidden="true" class="circle" :class="type"></div>
+      <div aria-hidden="true" class="circle" :class="{ negative: type === 'negative', block: isBlock }"></div>
     </button>
   </div>
 </template>
@@ -31,7 +31,8 @@ const props = defineProps({
     type: String,
     default: "right",
   },
-  isDisabled: Boolean
+  isDisabled: Boolean,
+  isBlock: Boolean,
 })
 
 function emitsClick(e) {
