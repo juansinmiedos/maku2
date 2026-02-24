@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav :class="{ open: drawerIsOpen }">
     <div class="container">
       <img src="../../assets/maku-logo.svg" alt="logo" @click="goToHome" />
 
@@ -21,13 +21,13 @@
     </div>
 
     <div class="mobile-menu" :class="{ open: drawerIsOpen }">
-      <div v-if="drawerIsOpen">
-        <span class="title-lg link">About Us</span>
-        <span class="title-lg link">Projects</span>
-        <span class="title-lg link">Contact</span>
+      <div class="mobile-options" v-if="drawerIsOpen">
+        <RouterLink to="/about-us" class="title-lg link" @click="toggleDrawer">About Us</RouterLink>
+        <RouterLink to="/projects" class="title-lg link" @click="toggleDrawer">Projects</RouterLink>
+        <RouterLink to="/contact" class="title-lg link" @click="toggleDrawer">Contact</RouterLink>
       </div>
 
-      <TheButton v-if="drawerIsOpen" :class="{ open: drawerIsOpen }">Let’s  Leave A Mark</TheButton>
+      <TheButton v-if="drawerIsOpen" :class="{ open: drawerIsOpen }">Let’s  talk</TheButton>
     </div>
   </nav>
 </template>
@@ -45,6 +45,11 @@ const drawerIsOpen = ref(false)
 
 function goToHome() {
   router.push({ name: "Home" })
+  closeDrawer()
+}
+
+function closeDrawer() {
+  drawerIsOpen.value = false
 }
 
 function toggleDrawer() {

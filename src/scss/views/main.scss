@@ -4,7 +4,7 @@
   height: 200vh;
   background: $surface-yellow;
   background: linear-gradient(180deg, $surface-yellow 0%, $surface-yellow 50%, transparent 100%);
-  z-index: 9999;
+  z-index: 1000;
   transform: translateY(0);
   transition: transform 2.2s cubic-bezier(.77,0,.18,1);
 }
