@@ -1,6 +1,6 @@
 export default [
   {
-    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772035429/atwnpl7elvdcqyabcldc.png",
+    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772062022/zwhob0vft7qedxucy4w4.png",
     text: "Chevere",
     categories: [
       "Brand Storytelling",
@@ -8,7 +8,7 @@ export default [
     ],
   },
   {
-    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772035473/vmaa63ouzlevyizvjvzq.png",
+    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772061843/incxry5hajsjzubnq5iw.png",
     text: "Arona",
     categories: [
       "Naming & Concept Creation",
@@ -18,7 +18,7 @@ export default [
     minWidth: 55.86,
   },
   {
-    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772035428/kgbahwyvkphrmvejtw7c.png",
+    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772062021/k815l4p5dwd0cudxyncm.png",
     text: "Archibald",
     categories: [
       "Pitch Decks",
@@ -27,7 +27,7 @@ export default [
     ],
   },
   {
-    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772035428/jdt8asb45l7ve4csolu0.png",
+    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772062021/q2tpnfc4sqrw0ug4ptdy.png",
     text: "Altitude",
     categories: [
       "Brand Books",
@@ -36,7 +36,7 @@ export default [
     ],
   },
   {
-    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772035428/xpiqhod5plnrmylly0qu.png",
+    imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772062021/ihskrre8rts7g3kkymbb.png",
     text: "Atipico",
     categories: [
       "Content Creation",
