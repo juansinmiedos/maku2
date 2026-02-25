@@ -28,8 +28,8 @@
     }
 
     @include until($medium-width) {
-      max-width: calc(100% - 96px);
-      padding: 48px;
+      max-width: calc(100% - 48px);
+      padding: 24px;
       padding-top: calc(72px + 48px);
       gap: 67px;
     }
