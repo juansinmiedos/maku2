@@ -12,3 +12,38 @@
 .loader.slide-up {
   transform: translateY(-100%);
 }
+
+/* Scroll Reveal (CSS-only) */
+@supports (animation-timeline: view()) {
+  .reveal {
+    /* Estado inicial */
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+
+    /* Animación */
+    animation-name: reveal-up;
+    animation-duration: 0.8s; /* ~duration: 800 */
+    animation-timing-function: ease; /* easing: 'ease' */
+    animation-fill-mode: both;
+
+    /* “ScrollReveal” en CSS */
+    animation-timeline: view();
+    /* “viewFactor: 0.2” → comienza cuando ~20% del elemento entra */
+    animation-range: entry 20% cover 35%;
+  }
+
+  @keyframes reveal-up {
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

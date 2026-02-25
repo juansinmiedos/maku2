@@ -2,12 +2,12 @@
   <div>
     <Hero />
     <BrandMarquee />
-    <WhoWeAre />
-    <AboutUs />
-    <OurMethod />
-    <Projects />
+    <WhoWeAre class="reveal" />
+    <AboutUs class="reveal" />
+    <OurMethod class="reveal" />
+    <Projects class="reveal" />
     <Marquee />
-    <Services />
+    <Services class="reveal" />
   </div>
 </template>
 
