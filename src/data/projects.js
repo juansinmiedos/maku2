@@ -14,6 +14,8 @@ export default [
       "Naming & Concept Creation",
       "Brand Strategy",
     ],
+    // for home only:
+    minWidth: 55.86,
   },
   {
     imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772035428/kgbahwyvkphrmvejtw7c.png",
