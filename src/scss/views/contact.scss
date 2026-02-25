@@ -6,6 +6,7 @@
     align-items: center;
     align-self: stretch;
     background: no-repeat center / cover url("../../assets/contact-bg.svg");
+    min-height: 622px;
   }
 
   @include until($medium-width) {
@@ -18,7 +19,6 @@
     flex-direction: column;
     align-items: flex-start;
     background: $surface-white;
-    align-self: stretch;
     
     @include from($medium-width) {
       max-width: calc(448px - 48px);
