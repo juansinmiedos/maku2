@@ -1,9 +1,9 @@
 <template>
   <div class="button-wrapper" :class="{ disabled: isDisabled, block: isBlock }">
-    <button :class="{ negative: type === 'negative', disabled: isDisabled, block: isBlock }" :disabled="isDisabled" @click="emitsClick">
-      <span class="text" :class="type"><slot></slot></span>
+    <button :class="{ negative: type === 'negative', disabled: isDisabled, block: isBlock, loading: isLoading }" :disabled="isDisabled" @click="emitsClick">
+      <span class="text" :class="{ negative: type === 'negative', loading: isLoading }"><slot></slot></span>
 
-      <div aria-hidden="true" class="button_arrow_wrapper">
+      <div aria-hidden="true" class="button_arrow_wrapper" :class="{ loading: isLoading }">
         <div class="arrow-button" :class="type">
           <svg class="arrow-icon" :class="arrowDirection" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
             <mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
@@ -16,7 +16,11 @@
           </svg>
         </div>
       </div>
-      <div aria-hidden="true" class="circle" :class="{ negative: type === 'negative', block: isBlock }"></div>
+      <div aria-hidden="true" class="circle" :class="{ negative: type === 'negative', block: isBlock, loading: isLoading }"></div>
+
+      <div v-if="isLoading" class="loader-wrapper">
+        <div class="loader-icon"></div>
+      </div>
     </button>
   </div>
 </template>
@@ -33,6 +37,7 @@ const props = defineProps({
   },
   isDisabled: Boolean,
   isBlock: Boolean,
+  isLoading: Boolean,
 })
 
 function emitsClick(e) {

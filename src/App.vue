@@ -24,6 +24,6 @@ onMounted(() => {
     loader.classList.add("slide-up")
     setTimeout(() => loader.remove(), 3000)
 
-  }, 50);
+  }, 100);
 })
 </script>
