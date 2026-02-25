@@ -69,7 +69,7 @@ onMounted(() => {
 })
 
 function resizeController() {
-  if (window.innerWidth <= 380) {
+  if (window.innerWidth <= 520) {
     windowIsSmall.value = true
   } else {
     windowIsSmall.value = false

@@ -1,6 +1,8 @@
 <template>
   <section class="our-method-section">
     <div class="top">
+      <p v-if="windowIsSmall" class="slogan"><span>Because when you highlight the best of your brand… <strong>people notice.  And they buy.</strong></span></p>
+
       <div class="container">
         <p class="title" :class="windowIsSmall ? 'title-sm' : 'title-lg'">Our Method</p>
         <div class="body-wrapper">
@@ -13,9 +15,9 @@
         </div>
       </div>
 
-      <h4 v-if="windowIsSmall" class="slogan"><span class="text-regular">Because when you highlight the best of your brand…</span> people notice.  And they buy.</h4>
-      <h2 v-else-if="windowIsMedium" class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h2>
-      <h3 v-else class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h3>
+      
+      <h3 v-if="windowIsMedium" class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h3>
+      <h2 v-if="!windowIsMedium && !windowIsSmall" class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h2>
     </div>
 
     <TheButton v-if="windowIsSmall">Have a project in mind? Let’s talk</TheButton>
@@ -39,10 +41,10 @@ onMounted(() => {
 })
 
 function resizeController() {
-  if (window.innerWidth <= 380) {
+  if (window.innerWidth <= 520) {
     windowIsSmall.value = true
     windowIsMedium.value = false
-  } else if (window.innerWidth <= 830 && window.innerWidth > 380) {
+  } else if (window.innerWidth <= 830 && window.innerWidth > 520) {
     windowIsSmall.value = false
     windowIsMedium.value = true
   } else {
