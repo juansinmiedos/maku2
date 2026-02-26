@@ -7,6 +7,8 @@ export default [
       "Brand Storytelling",
       "Naming & Concept Creation",
     ],
+    place: "México",
+    year: "2021",
   },
   {
     id: "arona",
@@ -16,6 +18,8 @@ export default [
       "Naming & Concept Creation",
       "Brand Strategy",
     ],
+    place: "México",
+    year: "2021",
     // for home only:
     minWidth: 55.86,
   },
@@ -28,6 +32,8 @@ export default [
       "Full Brand Systems",
       "Visual Identity Design",
     ],
+    place: "México",
+    year: "2021",
   },
   {
     id: "altitude",
@@ -38,6 +44,8 @@ export default [
       "Packaging & Collaterals",
       "Social Media Strategy",
     ],
+    place: "México",
+    year: "2021",
   },
   {
     id: "atipico",
@@ -48,5 +56,7 @@ export default [
       "Creative & Digital Campaigns",
       "AI-Driven Campaigns",
     ],
+    place: "México",
+    year: "2021",
   },
 ]
