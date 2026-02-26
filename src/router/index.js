@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const loadHomeView = () => () => import(`../views/Home/HomeView.vue`)
 const loadAboutUsView = () => () => import(`../views/AboutUs/AboutUsView.vue`)
 const loadProjectsView = () => () => import(`../views/Projects/ProjectsView.vue`)
+const loadProjectDetailView = () => () => import(`../views/ProjectDetail/ProjectDetailView.vue`)
 const loadContactView = () => () => import(`../views/Contact/ContactView.vue`)
 
 const router = createRouter({
@@ -22,6 +23,11 @@ const router = createRouter({
       path: "/projects",
       name: "Projects",
       component: loadProjectsView()
+    },
+    {
+      path: "/projects/:id",
+      name: "ProjectDetail",
+      component: loadProjectDetailView()
     },
     {
       path: "/contact",
