@@ -6,11 +6,11 @@
 
     <section class="images-section">
       <div v-for="(url, i) in images" :key="i">
-        <img class="image" :src="url" />
+        <img class="image" :src="url" @click="openImageModal(url)" />
       </div>
     </section>
 
-    <!-- modal -->
+    <ImageModal v-model:show="state.imageModal" v-model:url="state.selectedImageUrl" />
 
     <section class="related-projects">
       <p class="title-lg">More Projects</p>
@@ -26,11 +26,19 @@
 </template>
 
 <script setup>
+import { reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import projects from '@/data/projects'
 
+import ImageModal from './components/ImageModal.vue'
+
 const route = useRoute()
 const router = useRouter()
+
+const state = reactive({
+  imageModal: false,
+  selectedImageUrl: "",
+})
 
 const projectData = projects.find(project => project.id === route.params.id)
 const images = [
@@ -48,6 +56,11 @@ const images = [
   "https://media.istockphoto.com/id/1172877148/photo/pouring-red-wine.jpg?s=612x612&w=0&k=20&c=5ulFO6kgoNH4Mj0QFUqNWB_-QTinyhdBSeWF8K0WENs=",
 ]
 const relatedProducts = projects.filter(project => project.id !== route.params.id)
+
+function openImageModal(url) {
+  state.selectedImageUrl = url
+  state.imageModal = true
+}
 
 function goToProjectDetailView(id) {
   router.push({ name: "ProjectDetail", params: { id }, })

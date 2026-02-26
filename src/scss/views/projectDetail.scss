@@ -75,3 +75,42 @@
     }
   }
 }
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  visibility: hidden;
+  backdrop-filter: blur(0px) brightness(1);
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &.active {
+    visibility: visible;
+    backdrop-filter: blur(8px) brightness(0.5);
+  }
+
+  & .box {
+    width: 70%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & img {
+    cursor: default;
+    border-radius: 12px;
+    max-width: none;
+    max-height: none;
+    border-radius: 12px;
+    display: block;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
