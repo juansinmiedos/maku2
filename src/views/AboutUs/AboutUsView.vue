@@ -1,10 +1,10 @@
 <template>
   <div>
     <Hero />
-    <Symbols />
-    <OurBrand />
-    <Marquee />
-    <Founder />
+    <Symbols class="reveal" />
+    <OurBrand class="reveal" />
+    <Marquee class="reveal" />
+    <Founder class="reveal" />
   </div>
 </template>
 

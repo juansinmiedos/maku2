@@ -19,7 +19,6 @@
     /* Estado inicial */
     opacity: 0;
     transform: translateY(24px);
-    filter: blur(3px);
 
     /* Animación */
     animation-name: reveal-up;
@@ -34,7 +33,7 @@
   }
 
   @keyframes reveal-up {
-    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 

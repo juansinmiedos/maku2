@@ -8,7 +8,7 @@
     <RouterView />
   </main>
 
-  <TheFooter />
+  <TheFooter class="reveal" />
 </template>
 
 <script setup>
