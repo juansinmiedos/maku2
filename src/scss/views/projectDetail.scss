@@ -108,6 +108,8 @@
     max-height: none;
     border-radius: 12px;
     display: block;
+    opacity: 0;
+    transition: all 0.2s;
 
     &.active {
       opacity: 1;
