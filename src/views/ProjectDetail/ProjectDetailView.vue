@@ -17,7 +17,7 @@
 
       <div class="container">
         <div v-for="(project, i) in relatedProducts" :key="i" class="project-card" @click="goToProjectDetailView(project.id)">
-          <div class="image" :style="`background: no-repeat top / contain url(${project.imageUrl});`"></div>
+          <div class="image" :style="`background: no-repeat center / cover url(${project.imageUrl});`"></div>
           <p class="title-lg">{{ project.text }}</p>
         </div>
       </div>
