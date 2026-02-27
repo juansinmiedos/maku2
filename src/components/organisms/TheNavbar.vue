@@ -10,7 +10,7 @@
           <RouterLink to="/contact">Contact</RouterLink>
         </div>
 
-        <TheButton @click="goToContact">Let’s  Leave A Mark</TheButton>
+        <TheButton @click="goToContact">Contact Us</TheButton>
       </div>
 
       <div class="menu-button" :class="{ open: drawerIsOpen }" @click="toggleDrawer">
