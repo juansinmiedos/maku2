@@ -132,6 +132,10 @@
     gap: 2px;
     align-self: stretch;
     word-break: break-all;
+    
+    & > a {
+      color: $surface-black;
+    }
   }
 
   & .bottom-small-up {

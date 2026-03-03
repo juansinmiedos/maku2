@@ -21,8 +21,8 @@
         <div class="body-container">
           <p class="uppercase text-neutral-500" :class="windowIsMedium ? 'overline-sm' : 'overline-md'">Contact</p>
           <div class="contact-details">
-            <a>michellepeniche@maku.agency</a>
-            <a>+52 (62) 4320 0680</a>
+            <a href="mailto:michellepeniche@maku.agency">michellepeniche@maku.agency</a>
+            <a href="tel:+526243200680">+52 (62) 4320 0680</a>
           </div>
         </div>
         <div class="body-container">
