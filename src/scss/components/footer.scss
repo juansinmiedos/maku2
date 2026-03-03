@@ -123,6 +123,10 @@
     flex: 1 0 0;
     // align-self: stretch;
     gap: 9px;
+
+    & > a {
+      color: $surface-black;
+    }
   }
 
   & .contact-details {
