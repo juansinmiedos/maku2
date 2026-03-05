@@ -192,6 +192,10 @@
         width: calc(33.33%);
       }
     }
+
+    & > a {
+      color: $surface-black
+    }
     
     .links {
       display: flex;
@@ -203,6 +207,10 @@
 
       @include until($large-width) {
         width: calc(66.67%);
+      }
+
+      & > a {
+        color: $surface-black
       }
     }
 

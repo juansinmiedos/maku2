@@ -42,8 +42,8 @@
           <p class="title-md">Maku Agency 2026</p>
         </div>
         <div class="links">
-          <a class="w-100 text-semi-bold">Legal</a>
-          <a class="w-100 text-semi-bold">Privacy Policy</a>
+          <router-link :to="{ name: 'Legal' }" class="w-100 text-semi-bold">Legal</router-link>
+          <router-link :to="{ name: 'Privacy' }" class="w-100 text-semi-bold">Privacy Policy</router-link>
         </div>
       </div>
     </div>
@@ -53,8 +53,8 @@
     <div class="bottom-until-small">
       <div class="bottom">
         <p>Maku Agency 2026</p>
-        <a class="w-50 text-semi-bold">Legal</a>
-        <a class="w-50 text-semi-bold">Privacy Policy</a>
+        <router-link :to="{ name: 'Legal' }" class="w-100 text-semi-bold">Legal</router-link>
+        <router-link :to="{ name: 'Privacy' }" class="w-100 text-semi-bold">Privacy Policy</router-link>
       </div>
     </div>
   </footer>

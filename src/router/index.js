@@ -5,6 +5,8 @@ const loadAboutUsView = () => () => import(`../views/AboutUs/AboutUsView.vue`)
 const loadProjectsView = () => () => import(`../views/Projects/ProjectsView.vue`)
 const loadProjectDetailView = () => () => import(`../views/ProjectDetail/ProjectDetailView.vue`)
 const loadContactView = () => () => import(`../views/Contact/ContactView.vue`)
+const loadLegalView = () => () => import(`../views/LegalView.vue`)
+const loadPrivcyView = () => () => import(`../views/PrivacyView.vue`)
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +35,16 @@ const router = createRouter({
       path: "/contact",
       name: "Contact",
       component: loadContactView()
+    },
+    {
+      path: "/legal",
+      name: "Legal",
+      component: loadLegalView()
+    },
+    {
+      path: "/privacy",
+      name: "Privacy",
+      component: loadPrivcyView()
     },
   ],
   scrollBehavior (to, from, savedPosition) {
