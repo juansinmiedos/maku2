@@ -1,6 +1,4 @@
 .hero {
-  
-
   // display: flex;
   // width: calc(100% - 160px);
   // height: calc(830px - 64px);
@@ -37,4 +35,16 @@
   //     max-width: none;
   //   }
   // }
+}
+
+.desktop-hero {
+  @include until($medium-width) {
+    display: none;
+  }
+}
+
+.mobile-hero {
+  @include from($medium-width) {
+    display: none;
+  }
 }
