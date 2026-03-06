@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue"
+import { ref, computed } from "vue"
 
 const images = ref([
   { id: 1, src: "https://cdn.pixabay.com/photo/2017/08/15/08/23/stars-2643089__340.jpg" },
@@ -47,7 +47,7 @@ const images = ref([
   { id: 8, src: "https://cdn.pixabay.com/photo/2011/12/15/11/32/pismis-24-11186__340.jpg" }
 ])
 
-const selectedIndex = ref(3)
+const selectedIndex = ref(0)
 const startX = ref(0)
 
 const orderedImages = computed(() => {
@@ -57,13 +57,13 @@ const orderedImages = computed(() => {
 function getClass(index) {
   const diff = index - selectedIndex.value
 
+  if (diff <= -2) return "hideLeft"
+  // if (diff === -2) return "prevLeftSecond"
+  if (diff === -1) return "prevLeftSecond" // prev
   if (diff === 0) return "selected"
-  if (diff === -1) return "prev"
-  if (diff === 1) return "next"
-  if (diff === -2) return "prevLeftSecond"
-  if (diff === 2) return "nextRightSecond"
-  if (diff < -2) return "hideLeft"
-  if (diff > 2) return "hideRight"
+  if (diff === 1) return "nextRightSecond" // next
+  // if (diff === 2) return "nextRightSecond"
+  if (diff >= 2) return "hideRight"
 }
 
 function next() {
@@ -96,20 +96,17 @@ function onUp(e) {
   if (diff > 0) next()
   else prev()
 }
-
-onMounted(() => {
-  document.querySelector(".wrapper")?.focus()
-})
 </script>
 
 <style scoped>
-html, body, main, .wrapper {
+.wrapper {
   width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
   background-color: #8EC5FC;
-  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
 }
 
 #carousel {
@@ -119,44 +116,82 @@ html, body, main, .wrapper {
   transform: translateY(-50%);
   overflow: hidden;
 }
-
 #carousel div {
   position: absolute;
-  transition: transform 400ms, left 400ms, opacity 400ms;
+  transition: transform 400ms, left 400ms, opacity 400ms, z-index 0s;
   opacity: 1;
 }
-
 #carousel div img {
-  width: 400px;
+  width: 819px;
+/* height: 977.357px; */
+
+  /* width: 400px; */
   transition: width 400ms;
-  user-drag: none;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  border-radius: 10px;
+   -webkit-user-drag: none;
+   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+   border-radius: 10px;
+}
+#carousel div.hideLeft {
+  left: 0%;
+  opacity: 0;
+  transform: translateY(50%) translateX(-50%);
+}
+#carousel div.hideLeft img {
+  width: 200px;
+}
+#carousel div.hideRight {
+  left: 100%;
+  opacity: 0;
+  transform: translateY(50%) translateX(-50%);
+}
+#carousel div.hideRight img {
+  width: 200px;
+}
+#carousel div.prev {
+  z-index: 5;
+  left: 30%;
+  transform: translateY(50px) translateX(-50%);
+}
+#carousel img:hover {
+  cursor: 
+}
+#carousel div.prev img {
+  width: 300px;
+}
+#carousel div.prevLeftSecond {
+  z-index: 4;
+  left: 15%;
+  transform: translateY(50%) translateX(-50%);
+  opacity: 0.7;
+}
+#carousel div.prevLeftSecond img {
+  width: 200px;
+}
+#carousel div.selected {
+  z-index: 10;
+  left: 50%;
+  transform: translateY(0px) translateX(-50%);
+}
+#carousel div.next {
+  z-index: 5;
+  left: 70%;
+  transform: translateY(50px) translateX(-50%);
+}
+#carousel div.next img {
+  width: 300px;
+}
+#carousel div.nextRightSecond {
+  z-index: 4;
+  left: 85%;
+  transform: translateY(50%) translateX(-50%);
+  opacity: 0.7;
+}
+#carousel div.nextRightSecond img {
+  width: 200px;
 }
 
-/* mismas clases originales */
+/*previous or next buttons css*/
 
-.hideLeft { left: 0%; opacity: 0; transform: translateY(50%) translateX(-50%); }
-.hideLeft img { width: 200px; }
-
-.hideRight { left: 100%; opacity: 0; transform: translateY(50%) translateX(-50%); }
-.hideRight img { width: 200px; }
-
-.prev { z-index: 5; left: 30%; transform: translateY(50px) translateX(-50%); }
-.prev img { width: 300px; }
-
-.prevLeftSecond { z-index: 4; left: 15%; transform: translateY(50%) translateX(-50%); opacity: 0.7; }
-.prevLeftSecond img { width: 200px; }
-
-.selected { z-index: 10; left: 50%; transform: translateY(0px) translateX(-50%); }
-
-.next { z-index: 5; left: 70%; transform: translateY(50px) translateX(-50%); }
-.next img { width: 300px; }
-
-.nextRightSecond { z-index: 4; left: 85%; transform: translateY(50%) translateX(-50%); opacity: 0.7; }
-.nextRightSecond img { width: 200px; }
-
-/* botones (copiados igual) */
 .buttons {
   position: fixed;
   left: 50%;
@@ -164,5 +199,106 @@ html, body, main, .wrapper {
   bottom: 100px;
 }
 
-/* puedes copiar aquí todo el CSS completo de los botones original */
+.button-82-pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-82-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.button-82-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(340deg 100% 16%) 0%,
+    hsl(340deg 100% 32%) 8%,
+    hsl(340deg 100% 32%) 92%,
+    hsl(340deg 100% 16%) 100%
+  );
+}
+
+.button-82-front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+@media (min-width: 768px) {
+  .button-82-front {
+    font-size: 1.25rem;
+    padding: 12px 42px;
+  }
+}
+
+.button-82-pushable:hover {
+  filter: brightness(110%);
+  -webkit-filter: brightness(110%);
+}
+
+.button-82-pushable:hover .button-82-front {
+  transform: translateY(-6px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.button-82-pushable:hover .button-82-shadow {
+  transform: translateY(4px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.button-82-pushable:focus:not(:focus-visible) {
+  outline: none;
+}
 </style>
