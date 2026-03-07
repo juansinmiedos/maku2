@@ -45,8 +45,7 @@
     </div>
 
     <ProjectsContainerGrid v-if="state.controlViewButton === 'multiple'" :projects="filteredProjects" />
-    <CarrouselTest v-else />
-    <!-- <ProjectsContainerSlider v-else :projects="filteredProjects" /> -->
+    <ProjectsContainerSlider v-else :projects="filteredProjects" />
   </section>
 </template>
 
@@ -58,7 +57,6 @@ import TheLabel from '@/components/atoms/TheLabel.vue'
 import ControlViewButton from './components/ControlViewButton.vue'
 import ProjectsContainerGrid from './components/ProjectsContainerGrid.vue'
 import ProjectsContainerSlider from './components/ProjectsContainerSlider.vue'
-import CarrouselTest from './components/CarrouselTest.vue'
 
 const state = reactive({
   categories: [
