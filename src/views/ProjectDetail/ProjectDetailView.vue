@@ -1,5 +1,6 @@
 <template>
   <div class="project-detail-view">
+    <div class="white-space"></div>
     <div class="header" :style="`background: no-repeat center / cover url(${projectData.imageUrl});`"></div>
 
     <!-- title -->
@@ -16,7 +17,7 @@
       <p class="title-lg">More Projects</p>
 
       <div class="container">
-        <div v-for="(project, i) in relatedProducts" :key="i" class="project-card" @click="goToProjectDetailView(project.id)">
+        <div v-for="(project, i) in state.relatedProducts" :key="i" class="project-card" @click="goToProjectDetailView(project.id)">
           <div class="image" :style="`background: no-repeat center / cover url(${project.imageUrl});`"></div>
           <p class="title-lg">{{ project.text }}</p>
         </div>
@@ -26,7 +27,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useMainStore } from '@/stores/main.store'
 
@@ -39,6 +40,7 @@ const store = useMainStore()
 const state = reactive({
   imageModal: false,
   selectedImageUrl: "",
+  relatedProducts: [],
 })
 
 const projectData = store.state.projects.find(project => project.id === route.params.id)
@@ -56,7 +58,20 @@ const images = [
   "https://media.istockphoto.com/id/1411606505/photo/waiter-adding-sauce-on-mussels-during-catering.jpg?s=612x612&w=0&k=20&c=sLY1ILsEs4knFb7VECSWUBHqr1zEpIg6JK2eE_FWVvA=",
   "https://media.istockphoto.com/id/1172877148/photo/pouring-red-wine.jpg?s=612x612&w=0&k=20&c=5ulFO6kgoNH4Mj0QFUqNWB_-QTinyhdBSeWF8K0WENs=",
 ]
-const relatedProducts = store.state.projects.filter(project => project.id !== route.params.id)
+
+onMounted(() => {
+  resizeController()
+  window.addEventListener("resize", () => resizeController())
+})
+
+function resizeController() {
+  const filteredProducts = store.state.projects.filter(project => project.id !== route.params.id)
+  if (window.innerWidth > 830) {
+    state.relatedProducts = filteredProducts
+  } else {
+    state.relatedProducts=  filteredProducts.slice(0, 2)
+  }
+}
 
 function openImageModal(url) {
   state.selectedImageUrl = url

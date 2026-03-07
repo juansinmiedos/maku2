@@ -27,7 +27,7 @@
         </div>
         <div class="body-container">
           <p class="uppercase text-neutral-500" :class="windowIsMedium ? 'overline-sm' : 'overline-md'">Follow us</p>
-          <a href="https://www.instagram.com/maku.agency" target="_blank">Instragram @maku.agency</a>
+          <a href="https://www.instagram.com/maku.agency" target="_blank">Instragram</a>
           <a href="https://www.tiktok.com/@maku.agency" target="_blank">Tiktok</a>
           <a href="https://www.linkedin.com/company/makuagency" target="_blank">LinkedIn</a>
         </div>
