@@ -51,12 +51,14 @@
 
 <script setup>
 import { reactive, computed } from 'vue'
-import projects from '@/data/projects'
+import { useMainStore } from '@/stores/main.store'
 
 import TheLabel from '@/components/atoms/TheLabel.vue'
 import ControlViewButton from './components/ControlViewButton.vue'
 import ProjectsContainerGrid from './components/ProjectsContainerGrid.vue'
 import ProjectsContainerSlider from './components/ProjectsContainerSlider.vue'
+
+const store = useMainStore()
 
 const state = reactive({
   categories: [
@@ -85,9 +87,9 @@ const state = reactive({
 
 const filteredProjects = computed(() => {
   if (state.selectedCategories.length === 0) {
-    return projects
+    return store.state.projects
   } else {
-    return projects.filter(project => {
+    return store.state.projects.filter(project => {
       return project.categories.find(category => state.selectedCategories.includes(category))
     })
   }

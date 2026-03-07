@@ -28,19 +28,20 @@
 <script setup>
 import { reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import projects from '@/data/projects'
+import { useMainStore } from '@/stores/main.store'
 
 import ImageModal from './components/ImageModal.vue'
 
 const route = useRoute()
 const router = useRouter()
+const store = useMainStore()
 
 const state = reactive({
   imageModal: false,
   selectedImageUrl: "",
 })
 
-const projectData = projects.find(project => project.id === route.params.id)
+const projectData = store.state.projects.find(project => project.id === route.params.id)
 const images = [
   "https://media.istockphoto.com/id/2149515192/photo/chef-preparing-a-seafood-starter.jpg?s=612x612&w=0&k=20&c=cnCIfCjk9fd_U4RP9h53vLi7CFGmXk0JQE-U43WWKMg=",
   "https://media.istockphoto.com/id/1404204719/photo/unrecognizable-multiracial-female-and-male-friends-having-the-dinner-at-the-restaurant-balcony.jpg?s=612x612&w=0&k=20&c=0w9dYREjATPfYPaathelh9XGbfLtA8vR27WcUlkNUrg=",
@@ -55,7 +56,7 @@ const images = [
   "https://media.istockphoto.com/id/1411606505/photo/waiter-adding-sauce-on-mussels-during-catering.jpg?s=612x612&w=0&k=20&c=sLY1ILsEs4knFb7VECSWUBHqr1zEpIg6JK2eE_FWVvA=",
   "https://media.istockphoto.com/id/1172877148/photo/pouring-red-wine.jpg?s=612x612&w=0&k=20&c=5ulFO6kgoNH4Mj0QFUqNWB_-QTinyhdBSeWF8K0WENs=",
 ]
-const relatedProducts = projects.filter(project => project.id !== route.params.id)
+const relatedProducts = store.state.projects.filter(project => project.id !== route.params.id)
 
 function openImageModal(url) {
   state.selectedImageUrl = url
