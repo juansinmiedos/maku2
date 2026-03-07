@@ -1,6 +1,12 @@
 <template>
   <div class="projects-view-container-single" @keydown="handleKey" tabindex="0">
-    <div class="carrousel">
+    <div
+      class="carrousel"
+      @mousedown="onDown"
+      @mouseup="onUp"
+      @touchstart="onDown"
+      @touchend="onUp"
+    >
       <div
         v-for="(project, i) in projects"
         :key="i"
@@ -36,6 +42,7 @@ const props = defineProps({
 })
 
 const selectedIndex = ref(0)
+const startX = ref(0)
 
 function handleKey(e) {
   if (e.key === "ArrowRight") next()
@@ -64,9 +71,25 @@ function next() {
   }
 }
 
+function onDown(e) {
+  startX.value = e.touches ? e.touches[0].clientX : e.clientX
+}
+
+function onUp(e) {
+  const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX
+  const diff = startX.value - endX
+
+  if (Math.abs(diff) < 10) return
+
+  if (diff > 0) next()
+  else prev()
+}
+
 function selectImage(i) {
   if (i !== selectedIndex.value) {
     selectedIndex.value = i
+  } else {
+    // ir a a detalle
   }
 }
 </script>
