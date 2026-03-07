@@ -15,7 +15,7 @@
         <img
           :src="project.imageUrl"
           draggable="false"
-          @click="selectImage(i)"
+          @click="selectImage(i, project.id)"
         />
       </div>
     </div>
@@ -35,7 +35,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const props = defineProps({
   projects: Array,
@@ -43,6 +46,10 @@ const props = defineProps({
 
 const selectedIndex = ref(0)
 const startX = ref(0)
+
+watch(() => props.projects, () => {
+  selectedIndex.value = 0
+})
 
 function handleKey(e) {
   if (e.key === "ArrowRight") next()
@@ -85,11 +92,11 @@ function onUp(e) {
   else prev()
 }
 
-function selectImage(i) {
+function selectImage(i, id) {
   if (i !== selectedIndex.value) {
     selectedIndex.value = i
   } else {
-    // ir a a detalle
+    router.push({ name: "ProjectDetail", params: { id }, })
   }
 }
 </script>

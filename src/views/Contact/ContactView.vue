@@ -1,5 +1,4 @@
 <template>
-  <CarrouselTest />
   <section class="contact-section">
     <div class="box">
       <TheStepper v-model="state.step" :steps="3" />
@@ -180,7 +179,6 @@
 <script setup>
 import { reactive } from 'vue'
 
-import CarrouselTest from '../Projects/components/CarrouselTest.vue'
 import TheStepper from '@/components/atoms/TheStepper.vue'
 import CheckIcon from './sections/CheckIcon.vue'
 import FormDescriptions from './sections/FormDescriptions.vue'
