@@ -131,48 +131,6 @@
     }
   }
 
-  & .scrollable-label-container {
-    margin-bottom: 48px;
-    flex: none;
-    display: block;
-    width: calc(100%);
-    white-space: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    
-    & > div {
-      &:first-child {
-        margin-left: 48px;
-      }
-
-      &:last-child {
-        margin-right: 48px;
-      }
-
-      margin-right: 8px;
-    }
-    @include from($medium-width) {
-      display: none;
-    }
-
-    @include until($small-width) {
-      margin-bottom: 26px;
-
-      & > div {
-        &:first-child {
-          margin-left: 24px;
-        }
-  
-        &:last-child {
-          margin-right: 24px;
-        }
-      }
-    }
-  }
-
   &-container-grid {
     display: flex;
     padding: 80px 112px;

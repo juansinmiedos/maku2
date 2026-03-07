@@ -7,7 +7,7 @@ export default [
       "Brand Storytelling",
       "Naming & Concept Creation",
     ],
-    place: "México",
+    place: "Mexico City, MX",
     year: "2021",
   },
   {

@@ -3,7 +3,38 @@
     <div class="white-space"></div>
     <div class="header" :style="`background: no-repeat center / cover url(${projectData.imageUrl});`"></div>
 
-    <!-- title -->
+    <div class="title">
+      <div class="container">
+        <p class="title-lg">{{ projectData.place }}<br />{{ projectData.year }}</p>
+
+        <div class="labels-section">
+          <div class="top">
+            <h2>{{ projectData.text }}</h2>
+            <h4>{{ projectData.text }}</h4>
+
+            <div class="labels-container">
+              <TheLabel
+                v-for="(category, i) in projectData.categories"
+                :key="i"
+                :value="category"
+                isActive
+              >{{ category }}</TheLabel>
+            </div>
+          </div>
+
+          <div class="bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scrollable-label-container">
+      <TheLabel
+        v-for="(category, i) in projectData.categories"
+        :key="i"
+        :value="category"
+        isActive
+      >{{ category }}</TheLabel>
+    </div>
 
     <section class="images-section">
       <div v-for="(url, i) in images" :key="i">
@@ -31,6 +62,7 @@ import { reactive, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useMainStore } from '@/stores/main.store'
 
+import TheLabel from '@/components/atoms/TheLabel.vue'
 import ImageModal from './components/ImageModal.vue'
 
 const route = useRoute()
