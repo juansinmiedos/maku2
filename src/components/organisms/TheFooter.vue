@@ -9,7 +9,8 @@
             <h3 v-else>The bold ones act first.</h3>
           </div>
           
-           <TheButton type="negative" @click="goToContact">Enter Your Email</TheButton>
+          <TheButton type="negative" @click="goToContact">Enter Your Email</TheButton>
+          <TheInputButton @click="goToContact">Enter Your Email</TheInputButton>
         </div>
       </div>
 
@@ -65,6 +66,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 import TheButton from '../atoms/TheButton.vue'
+import TheInputButton from '../atoms/TheInputButton.vue'
 
 const router = useRouter()
 
