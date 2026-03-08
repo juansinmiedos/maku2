@@ -170,7 +170,7 @@
         />
       </div>
 
-      <TheButton v-if="state.step <= 3" @click="nextStep">Continue</TheButton>
+      <TheButton v-if="state.step <= 3" :isLoading="state.buttonIsLoading" @click="nextStep">Continue</TheButton>
       <TheButton v-else arrowDirection="down" @click="downloadServiceSheet">Download our service sheet</TheButton>
     </div>
   </section>
@@ -190,6 +190,7 @@ import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
   step: 1,
+  buttonIsLoading: false,
 
   // Form 1
   firstName: "",
@@ -234,7 +235,8 @@ const state = reactive({
 })
 
 function nextStep() {
-  state.step++
+  state.buttonIsLoading = true
+  // state.step++
 }
 
 function downloadServiceSheet() {}
