@@ -1,11 +1,23 @@
 <template>
   <div class="input-button-wrapper">
-    <button class="input-button" :class="{ loading: isLoading }" @click="emitsClick">
-      <span class="text" :class="{ loading: isLoading }"><slot></slot></span>
+    <div class="input-button">
+      <input
+        v-if="!isLoading && !isSent"
+        ref="input"
+        :value="modelValue"
+        placeholder="Enter Your Email"
+        type="email"
+        @input="updateValue"
+      />
+      <span class="blank" v-else-if="isLoading">Enviando...</span>
+      <span class="blank" v-else-if="isSent">Thank you!</span>
 
-      <div aria-hidden="true" class="button_arrow_wrapper" :class="{ loading: isLoading }">
+      <div class="button_arrow_wrapper" @click="emitsClick">
         <div class="arrow-button">
-          <svg class="arrow-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <svg v-if="isSent" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 25 18" fill="none">
+            <path d="M1 10L8 17L24 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg v-else class="arrow-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
             <mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
               <rect width="16" height="16" fill="#D9D9D9"></rect>
             </mask>
@@ -16,24 +28,32 @@
           </svg>
         </div>
       </div>
-      <div aria-hidden="true" class="circle" :class="{ loading: isLoading }"></div>
-
-      <div v-if="isLoading" class="loader-wrapper">
-        <div class="loader-icon"></div>
-      </div>
-    </button>
+      <div class="circle" :class="{ loading: isLoading || isSent }" @click="emitsClick"></div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue"
 
-const emit = defineEmits([ "click" ])
+const input = ref(null)
+
+const emit = defineEmits([ "update:modelValue", "click" ])
 
 const props = defineProps({
+  modelValue: {},
   isLoading: Boolean,
+  isSent: Boolean,
 })
 
+function updateValue() {
+  const value = input.value.value
+  emit("update:modelValue", value)
+}
+
 function emitsClick(e) {
-  emit("click", e)
+  if (!props.isLoading && !props.isSent) {
+    emit("click", e)
+  }
 }
 </script>

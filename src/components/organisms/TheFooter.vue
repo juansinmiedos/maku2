@@ -9,8 +9,15 @@
             <h3 v-else>The bold ones act first.</h3>
           </div>
           
-          <TheButton type="negative" @click="goToContact">Enter Your Email</TheButton>
-          <TheInputButton @click="goToContact">Enter Your Email</TheInputButton>
+          <div>
+            <TheInputButton
+              v-model="emailField"
+              :isLoading="emailIsSending"
+              :isSent="emailIsSent"
+              @click="sendEmail"
+            ></TheInputButton>
+            <p v-show="emailFieldHasError" style="font-size: 12px; margin-left: 20px; margin-top: 4px;">Escribe un correo válido</p>
+          </div>
         </div>
       </div>
 
@@ -73,6 +80,11 @@ const router = useRouter()
 const windowIsSmall = ref(false)
 const windowIsMedium = ref(false)
 
+const emailField = ref("")
+const emailFieldHasError = ref(false)
+const emailIsSending = ref(false)
+const emailIsSent = ref(false)
+
 onMounted(() => {
   resizeController()
   window.addEventListener("resize", () => resizeController())
@@ -93,5 +105,21 @@ function resizeController() {
 
 function goToContact() {
   router.push({ name: "Contact" })
+}
+
+function sendEmail() {
+  // add regex to test email format
+  emailFieldHasError.value = emailField.value === ""
+
+  if (!emailFieldHasError.value) {
+    console.log("sendEmail:")
+    console.log(emailField.value)
+    emailIsSending.value = true
+  
+    setTimeout(() => {
+      emailIsSending.value = false
+      emailIsSent.value = true
+    }, 3000)
+  }
 }
 </script>
