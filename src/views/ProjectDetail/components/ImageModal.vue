@@ -1,5 +1,5 @@
 <template>
-  <div class="image-modal" :class="{ active: show }" @click="clearAndCloseModal">
+  <div class="image-modal" :class="{ active: show }" @keydown="handleKey" tabindex="0" @click="clearAndCloseModal">
     <div class="box" ref="box">
       <img ref="image" :src="url" :class="{ active: show }" @load="fitImage" @click.stop />
     </div>
@@ -49,7 +49,21 @@ const fitImage = async () => {
     img.style.height = "100%";
     img.style.width = "auto";
   }
-};
+}
+
+function handleKey(e) {
+  console.log("handleKey")
+  if (e.key === "ArrowRight") next()
+  if (e.key === "ArrowLeft") prev()
+}
+
+function prev() {
+  console.log("prev")
+}
+
+function next() {
+  console.log("next")
+}
 
 function clearAndCloseModal() {
   emit("update:show", false)
