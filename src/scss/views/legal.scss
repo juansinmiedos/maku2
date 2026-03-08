@@ -1,0 +1,60 @@
+.legal-view {
+  display: flex;
+  padding: 80px;
+  padding-top: calc(80px + 72px);
+  align-self: stretch;
+  flex-direction: column;
+
+  @include until($medium-width) {
+    padding: 48px;
+    padding-top: calc(48px + 68px);
+  }
+
+  @include until($small-width) {
+    padding: 32px 24px;
+    padding-top: calc(32px + 68px);
+  }
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+
+    @include until($medium-width) {
+      flex-direction: column;
+      gap: 63px;
+    }
+
+    @include until($medium-width) {
+      gap: 26px;
+    }
+  }
+
+  & .title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+
+    & > h2 {
+      @include until($small-width) {
+        display: none;
+      }
+    }
+
+    & > h4 {
+      @include from($small-width) {
+        display: none;
+      }
+    }
+  }
+
+  & .body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 64px;
+    flex: 1 0 0;
+  }
+}
