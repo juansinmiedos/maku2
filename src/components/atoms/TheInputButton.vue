@@ -9,7 +9,7 @@
         type="email"
         @input="updateValue"
       />
-      <span class="blank" v-else-if="isLoading">Enviando...</span>
+      <span class="blank" v-else-if="isLoading">Sending...</span>
       <span class="blank" v-else-if="isSent">Thank you!</span>
 
       <div class="button_arrow_wrapper" @click="emitsClick">
