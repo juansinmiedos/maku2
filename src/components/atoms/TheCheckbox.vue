@@ -28,7 +28,7 @@ defineProps({
 })
 
 function updateValue() {
-  const value = input.value.value
+  const value = input.value.checked
   emit("update:modelValue", value)
 }
 </script>

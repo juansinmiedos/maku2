@@ -170,14 +170,33 @@
         />
       </div>
 
-      <TheButton v-if="state.step <= 3" :isLoading="state.buttonIsLoading" @click="nextStep">Continue</TheButton>
-      <TheButton v-else arrowDirection="down" @click="downloadServiceSheet">Download our service sheet</TheButton>
+      <TheButton
+        v-if="state.step === 1"
+        :isDisabled="firstButtonIsDisabled"
+        @click="nextStep"
+      >Continue</TheButton>
+      <TheButton
+        v-if="state.step === 2"
+        :isDisabled="secondButtonIsDisabled"
+        @click="nextStep"
+      >Continue</TheButton>
+      <TheButton
+        v-if="state.step === 3"
+        :isDisabled="thirdButtonIsDisabled"
+        :isLoading="state.formIsSending"
+        @click="nextStep"
+      >Continue</TheButton>
+      <TheButton
+        v-else-if="state.step === 4"
+        arrowDirection="down"
+        @click="downloadServiceSheet"
+      >Download our service sheet</TheButton>
     </div>
   </section>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 
 import TheStepper from '@/components/atoms/TheStepper.vue'
 import CheckIcon from './sections/CheckIcon.vue'
@@ -190,7 +209,7 @@ import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
   step: 1,
-  buttonIsLoading: false,
+  formIsSending: false,
 
   // Form 1
   firstName: "",
@@ -232,6 +251,32 @@ const state = reactive({
       value: "3,500-5,000 USD",
     },
   ],
+})
+
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+const firstButtonIsDisabled = computed(() => {
+  return (
+    state.firstName === "" ||
+    state.lastName === "" ||
+    state.phoneNumber.length !== 10 ||
+    !emailRegex.test(state.email)
+  )
+})
+const secondButtonIsDisabled = computed(() => {
+  return (
+    state.businessName === "" ||
+    state.website === "" ||
+    state.businessType === "" ||
+    state.instagram === "" ||
+    state.brand === "" ||
+    state.reference === ""
+  )
+})
+const thirdButtonIsDisabled = computed(() => {
+  return (
+    state.budget === ""
+  )
 })
 
 function nextStep() {
