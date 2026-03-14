@@ -235,9 +235,16 @@ const state = reactive({
 })
 
 function nextStep() {
-  state.buttonIsLoading = true
-  // state.step++
+  state.step++
 }
 
-function downloadServiceSheet() {}
+function downloadServiceSheet() {
+  const fileUrl = "public/service-sheet.pdf"
+  const link = document.createElement('a')
+  link.href = fileUrl
+  link.download = 'MAKU - SELECTED SERVICES.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 </script>
