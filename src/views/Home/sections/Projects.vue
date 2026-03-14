@@ -15,7 +15,7 @@
 
       <div class="bottom medium-up">
         <div class="projects">
-          <ProjectItem v-for="(project, i) in store.state.projects.slice(0, 2)" :key="i" v-bind="project" :style="`min-width: ${project.minWidth}%;`" />
+          <ProjectItem v-for="(project, i) in store.state.projects.slice(0, 2)" :key="i" v-bind="project" :style="i === store.state.projects.slice(0, 2).length - 1 ? `min-width: 55.86%;` : ''" />
         </div>
 
         <div class="projects secondary">
@@ -25,7 +25,7 @@
 
       <div class="bottom until-medium">
         <div class="projects">
-          <ProjectItem v-for="(project, i) in store.state.projects.slice(0, 1)" :key="i" v-bind="project" :style="`min-width: ${project.minWidth}%;`" />
+          <ProjectItem v-for="(project, i) in store.state.projects.slice(0, 1)" :key="i" v-bind="project" />
         </div>
 
         <div class="projects secondary">
