@@ -12,49 +12,6 @@
   &.block {
     width: 100%;
   }
-
-  & .loader-wrapper{
-    z-index: 1;
-    width: 65px;
-    height: 40px;
-    background-color: $surface-yellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 999999px;
-
-    & .loader-icon {
-      width: 65px;
-      display: grid;
-      --mask: 
-        radial-gradient(12px at left 15px top 50%, #0000 95%, #000),
-        radial-gradient(12px at right 15px top 50%, #0000 95%, #000);
-      -webkit-mask: var(--mask);
-              mask: var(--mask);
-      -webkit-mask-composite: source-in;
-              mask-composite: intersect;
-      animation: l1 1s infinite alternate;
-
-      &:before, &:after {
-        content: "";
-        grid-area: 1/1;
-        height: 30px;
-        aspect-ratio: 1;
-        background: $surface-black;
-        border-radius: 50%;
-      }
-
-      &:after {
-        margin-left: auto;
-      }
-    }
-
-    @keyframes l1 {
-      to {
-        width: 40px;
-      }
-    }
-  }
   
   button {
     z-index: 0;
@@ -81,12 +38,6 @@
       width: 100%;
     }
   
-    &.loading{
-      transition: all 500ms ease-in-out !important;
-      grid-column-gap: 0;
-      padding: 0px 10px;
-    }
-  
     &.negative {
       background-color: $surface-white;
       color: $surface-black;
@@ -104,8 +55,7 @@
       }
   
       &.loading {
-        color: transparent;
-        width: 0px;
+        color: $surface-black;
       }
     }
   
@@ -121,10 +71,6 @@
       margin-right: .3rem;
       position: relative;
       right: 5px;
-  
-      &.loading {
-        display: none;
-      }
     }
   
     & .arrow-button {
@@ -184,10 +130,6 @@
   
         &.negative {
           color: $surface-white !important;
-        }
-  
-        &.loading {
-          color: transparent
         }
       }
   
