@@ -13,8 +13,7 @@ export const useMainStore = defineStore("main", () => {
     try {
       const res = await getProjectsRequest()
       state.projects = res.data
-      // console.log(res.data)
-    } catch(erros) {
+    } catch(error) {
       console.error(error)
     }
   }
