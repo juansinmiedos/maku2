@@ -1,5 +1,7 @@
 import { defineStore } from "pinia"
 import { reactive } from "vue"
+import { getProjectsRequest } from "@/services/projects"
+
 import projects from "@/data/projects"
 
 export const useMainStore = defineStore("main", () => {
@@ -7,7 +9,18 @@ export const useMainStore = defineStore("main", () => {
     projects: [ ...projects ]
   })
 
+  async function getProjects() {
+    try {
+      const res = await getProjectsRequest()
+      state.projects = res.data
+      // console.log(res.data)
+    } catch(erros) {
+      console.error(error)
+    }
+  }
+
   return {
     state,
+    getProjects
   }
 })

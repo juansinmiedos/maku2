@@ -9,8 +9,8 @@
 
         <div class="labels-section">
           <div class="top">
-            <h2>{{ projectData.text }}</h2>
-            <h4>{{ projectData.text }}</h4>
+            <h2>{{ projectData.title }}</h2>
+            <h4>{{ projectData.title }}</h4>
 
             <div class="labels-container">
               <TheLabel
@@ -48,9 +48,9 @@
       <p class="title-lg">More Projects</p>
 
       <div class="container">
-        <div v-for="(project, i) in state.relatedProducts" :key="i" class="project-card" @click="goToProjectDetailView(project.id)">
+        <div v-for="(project, i) in state.relatedProducts" :key="i" class="project-card" @click="goToProjectDetailView(project.name)">
           <div class="image" :style="`background: no-repeat center / cover url(${project.imageUrl});`"></div>
-          <p class="title-lg">{{ project.text }}</p>
+          <p class="title-lg">{{ project.title }}</p>
         </div>
       </div>
     </section>
@@ -75,7 +75,7 @@ const state = reactive({
   relatedProducts: [],
 })
 
-const projectData = store.state.projects.find(project => project.id === route.params.id)
+const projectData = store.state.projects.find(project => project.name === route.params.id)
 
 onMounted(() => {
   resizeController()
@@ -83,7 +83,7 @@ onMounted(() => {
 })
 
 function resizeController() {
-  const filteredProducts = store.state.projects.filter(project => project.id !== route.params.id)
+  const filteredProducts = store.state.projects.filter(project => project.name !== route.params.id)
   if (window.innerWidth > 830) {
     state.relatedProducts = filteredProducts
   } else {
@@ -96,7 +96,7 @@ function openImageModal(url) {
   state.imageModal = true
 }
 
-function goToProjectDetailView(id) {
-  router.push({ name: "ProjectDetail", params: { id }, })
+function goToProjectDetailView(name) {
+  router.push({ name: "ProjectDetail", params: { id: name }, })
 }
 </script>

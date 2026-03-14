@@ -1,7 +1,7 @@
 <template>
   <div class="project-item" @click="goToProjectDetailView">
     <div class="image" :style="`background: no-repeat center / cover url(${props.imageUrl});`"></div>
-    <p class="title-lg">{{ text }}</p>
+    <p class="title-lg">{{ title }}</p>
   </div>
 </template>
 
@@ -11,12 +11,12 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const props = defineProps({
-  id: String,
+  name: String,
   imageUrl: String,
-  text: String,
+  title: String,
 })
 
 function goToProjectDetailView() {
-  router.push({ name: "ProjectDetail", params: { id: props.id }, })
+  router.push({ name: "ProjectDetail", params: { id: props.name }, })
 }
 </script>
