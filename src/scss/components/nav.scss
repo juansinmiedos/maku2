@@ -113,7 +113,8 @@ nav {
     transition: height 0.2s ease-out;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
+    gap: 8px;
     align-items: flex-start;
     z-index: 999;
 

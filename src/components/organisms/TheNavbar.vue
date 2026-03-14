@@ -28,7 +28,7 @@
       </div>
 
       <div class="w-100">
-        <TheButton v-if="drawerIsOpen" :class="{ open: drawerIsOpen }" isBlock>Let’s  talk</TheButton>
+        <TheButton v-if="drawerIsOpen" :class="{ open: drawerIsOpen }">Let’s  talk</TheButton>
       </div>
     </div>
   </nav>
