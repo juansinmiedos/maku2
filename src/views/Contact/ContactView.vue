@@ -184,7 +184,7 @@
         v-if="state.step === 3"
         :isDisabled="thirdButtonIsDisabled"
         :isLoading="state.formIsSending"
-        @click="nextStep"
+        @click="sendForm"
       >Continue</TheButton>
       <TheButton
         v-else-if="state.step === 4"
@@ -197,6 +197,7 @@
 
 <script setup>
 import { reactive, computed } from 'vue'
+import { useMainStore } from '@/stores/main.store'
 
 import TheStepper from '@/components/atoms/TheStepper.vue'
 import CheckIcon from './sections/CheckIcon.vue'
@@ -206,6 +207,8 @@ import TheTextArea from '@/components/atoms/TheTextArea.vue'
 import TheCheckbox from '@/components/atoms/TheCheckbox.vue'
 import TheDropdown from '@/components/atoms/TheDropdown.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
+
+const mainStore = useMainStore()
 
 const state = reactive({
   step: 1,
@@ -291,5 +294,39 @@ function downloadServiceSheet() {
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+}
+
+async function sendForm() {
+  try {
+    state.formIsSending= true
+    const body = {
+      firstName: state.firstName,
+      lastName: state.lastName,
+      phoneNumber: state.phoneNumber,
+      email: state.email,
+      businessName: state.businessName,
+      website: state.website,
+      businessType: state.businessType,
+      instagram: state.instagram,
+      brand: state.brand,
+      reference: state.reference,
+      naming: state.naming,
+      branding: state.branding,
+      visualIdentity: state.visualIdentity,
+      socialMediaStrategy: state.socialMediaStrategy,
+      websiteCommerce: state.websiteCommerce,
+      contentCreation: state.contentCreation,
+      marketing: state.marketing,
+      packaging: state.packaging,
+      other: state.other,
+      budget: state.budget,
+    }
+    await mainStore.sendForm(body) 
+    nextStep()
+  } catch (error) {
+    // unhandled
+  } finally {
+    state.formIsSending= false
+  }
 }
 </script>
