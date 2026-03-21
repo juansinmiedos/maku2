@@ -14,10 +14,12 @@
 @import "components/inputButton.scss";
 @import "components/label.scss";
 @import "components/nav.scss";
+@import "components/projectBox.scss";
 @import "components/stepper.scss";
 @import "sections/marquee.scss";
 
 // Views
+@import "views/adminProjects.scss";
 @import "views/contact.scss";
 @import "views/legal.scss";
 @import "views/main.scss";

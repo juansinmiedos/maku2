@@ -1,0 +1,15 @@
+.project-box {
+  display: flex;
+  width: calc(100% - 48px);
+  background: $neutral-100;
+  padding: 12px 24px;
+  border-radius: 24px;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.4s;
+
+  &:hover {
+    // cursor: pointer;
+    filter: brightness(95%);
+  }
+}

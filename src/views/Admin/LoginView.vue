@@ -2,8 +2,8 @@
   <section class="contact-section">
     <div class="box">
       <p class="title-lg">Log in</p>
-      <div>
-
+      
+      <div class="w-100">
         <div class="flex wrap" style="gap: 12px;">
           <TheInput
             v-model="state.user"
@@ -47,7 +47,7 @@ async function logIn() {
   try {
     state.loading = true
     // enviar
-    router.push({ name: "Projects" })
+    router.push({ name: "AdminProjects" })
   } catch(error) {
     console.log("An error ocurred while logging in")
     console.log(error)

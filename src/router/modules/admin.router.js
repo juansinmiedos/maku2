@@ -15,12 +15,12 @@ export default [
       },
       {
         path: "projects",
-        name: "Projects",
+        name: "AdminProjects",
         component: loadComponent("ProjectsView"),
       },
       {
         path: "projects/:id",
-        name: "ProjectDetail",
+        name: "AdminProjectDetail",
         component: loadComponent("ProjectDetailView"),
       },
       {
