@@ -8,11 +8,11 @@ const router = createRouter({
   routes: [
     ...PublicRoutes,
     ...AdminRoutes,
-    // {
-    //   path: '/:pathMatch(.*)*',
-    //   name: "NoRouteView",
-    //   component: loadComponent("NoRouteView"),
-    // },
+    {
+      path: '/:pathMatch(.*)*',
+      name: "NoRouteView",
+      redirect: "/home",
+    },
   ],
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
