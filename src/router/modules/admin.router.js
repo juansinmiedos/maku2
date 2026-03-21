@@ -12,13 +12,22 @@ export default [
         path: "login",
         name: "Login",
         component: loadComponent("LoginView"),
-      }
+      },
+      {
+        path: "projects",
+        name: "Projects",
+        component: loadComponent("ProjectsView"),
+      },
+      {
+        path: "projects/:id",
+        name: "ProjectDetail",
+        component: loadComponent("ProjectDetailView"),
+      },
+      {
+        path: "projects/new",
+        name: "NewProject",
+        component: loadComponent("NewProjectView"),
+      },
     ],
   },
 ]
-
-// children
-// login
-// proyectos
-// detalle de proyectos
-// proyecto nuevo
