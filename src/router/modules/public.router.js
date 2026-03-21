@@ -6,7 +6,6 @@ const loadProjectDetailView = () => () => import(`../../views/ProjectDetail/Proj
 const loadContactView = () => () => import(`../../views/Contact/ContactView.vue`)
 const loadLegalView = () => () => import(`../../views/LegalView.vue`)
 const loadPrivcyView = () => () => import(`../../views/PrivacyView.vue`)
-const loadAdminView = () => () => import(`../../views/Admin/AdminView.vue`)
 
 export default [
   {
@@ -16,44 +15,39 @@ export default [
     redirect: "/home",
     children: [
       {
-        path: "/",
+        path: "home",
         name: "Home",
         component: loadHomeView(),
       },
       {
-        path: "/about-us",
+        path: "about-us",
         name: "AboutUs",
         component: loadAboutUsView()
       },
       {
-        path: "/projects",
+        path: "projects",
         name: "Projects",
         component: loadProjectsView()
       },
       {
-        path: "/projects/:id",
+        path: "projects/:id",
         name: "ProjectDetail",
         component: loadProjectDetailView()
       },
       {
-        path: "/contact",
+        path: "contact",
         name: "Contact",
         component: loadContactView()
       },
       {
-        path: "/legal",
+        path: "legal",
         name: "Legal",
         component: loadLegalView()
       },
       {
-        path: "/privacy",
+        path: "privacy",
         name: "Privacy",
         component: loadPrivcyView()
-      },
-      {
-        path: "/admin",
-        name: "Admin",
-        component: loadAdminView()
       },
     ],
   },
