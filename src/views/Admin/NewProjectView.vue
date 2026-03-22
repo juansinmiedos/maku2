@@ -71,7 +71,7 @@
       </div>
 
       <div class="w-100 flex justify-end">
-        <TheButton>Save project</TheButton>
+        <TheButton :isLoading="state.loading" @click="saveProject">Save project</TheButton>
       </div>
     </div>
   </section>
@@ -80,6 +80,7 @@
 <script setup>
 import { reactive, computed, onMounted } from 'vue'
 import { useMainStore } from '@/stores/main.store'
+import { useRouter } from 'vue-router'
 
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheDropdown from '@/components/atoms/TheDropdown.vue'
@@ -89,13 +90,18 @@ import TheImagePreview from '@/components/atoms/TheImagePreview.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
 const store = useMainStore()
+const router = useRouter()
 
 const state = reactive({
+  loading: false, 
+
   title: "",
   place: "",
   year: "",
   relatedProject: "",
   relatedProjects: [],
+
+  // categories
 
   mainImageFile: null,
 
@@ -137,5 +143,36 @@ function deleteSecondaryImage(index) {
   state.secondaryImagesFiles.splice(index, 1)
 }
 
-function saveProject() {}
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = error => reject(error)
+  })
+}
+
+async function saveProject() {
+  try {
+    state.loading = true
+    const mainImage = await fileToBase64(state.mainImageFile)
+    const body = {
+      title: state.title,
+      mainImage,
+      // categories
+      place: state.place,
+      year: state.year,
+      // images,
+      // relatedProjects
+    }
+    console.log({body})
+    const project = await store.createProject(body)
+    console.log({project})
+    router.push({ name: "AdminProjectDetail", params: { id: project.name } })
+  } catch (error) {
+    //
+  } finally {
+    state.loading = false
+  }
+}
 </script>
