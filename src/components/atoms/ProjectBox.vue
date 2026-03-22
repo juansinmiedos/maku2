@@ -5,7 +5,7 @@
     </div>
 
     <div>
-      <TheButton @click="goToDetailView">Administrar proyecto</TheButton>
+      <TheButton @click="goToDetailView">Manage project</TheButton>
     </div>
   </div>
 </template>

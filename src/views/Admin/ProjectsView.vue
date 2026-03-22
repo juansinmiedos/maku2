@@ -4,7 +4,7 @@
       <h1>Projects</h1>
 
       <div>
-        <TheButton>Agregar un nuevo projecto</TheButton>
+        <TheButton @click="goToNewProjectView">Add new project</TheButton>
       </div>
     </div>
 
@@ -22,11 +22,17 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useMainStore } from '@/stores/main.store'
+import { useRouter } from 'vue-router'
 
 import TheButton from '@/components/atoms/TheButton.vue'
 import ProjectBox from '@/components/atoms/ProjectBox.vue'
 
 const store = useMainStore()
+const router = useRouter()
 
 onMounted(() => store.getProjects())
+
+function goToNewProjectView() {
+  router.push({ name: "NewProject" })
+}
 </script>
