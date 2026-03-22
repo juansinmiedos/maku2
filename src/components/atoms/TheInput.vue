@@ -1,12 +1,13 @@
 <template>
   <div class="input-wrapper">
-    <label :for="name" :class="{ filled: isFocus || modelValue !== '' }">{{ label }}</label>
+    <label :for="name" :class="{ filled: isFocus || modelValue !== '' || placeholder !== '' }">{{ label }}</label>
 
     <input
       ref="input"
       :value="modelValue"
       :name="name"
       :type="type"
+      :placeholder="placeholder"
       @focus="focusHandler(true)"
       @focusout="focusHandler(false)"
       @input="updateValue"
@@ -38,6 +39,10 @@ defineProps({
         "hidden",
       ].includes(v)
     },
+  },
+  placeholder: {
+    type: String,
+    default: "",
   },
 })
 
