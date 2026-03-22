@@ -55,12 +55,17 @@
 
       <div class="images-container">
         <h4>Main image</h4>
-        main image section
+        <TheImagePreview v-if="state.mainImageFile" :file="state.mainImageFile" />
+        <TheImageLoader v-else v-model:file="state.mainImageFile" id="mainFile" />
       </div>
 
       <div class="images-container">
         <h4>Project images</h4>
-        secondary images section
+        
+        <div class="flex wrap" style="gap: 12px;">
+          <TheImagePreview v-for="(file, i) in state.secondaryImagesFiles" :key="i" :file="file" />
+          <TheImageLoader @update:file="processSecondaryImages" id="secondaryFiles" />
+        </div>
       </div>
 
       <div class="w-100 flex justify-end">
@@ -77,6 +82,8 @@ import { useMainStore } from '@/stores/main.store'
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheDropdown from '@/components/atoms/TheDropdown.vue'
 import TheLabel from '@/components/atoms/TheLabel.vue'
+import TheImageLoader from '@/components/atoms/TheImageLoader.vue'
+import TheImagePreview from '@/components/atoms/TheImagePreview.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
 const store = useMainStore()
@@ -87,6 +94,9 @@ const state = reactive({
   year: "",
   relatedProject: "",
   relatedProjects: [],
+
+  mainImageFile: "",
+  secondaryImagesFiles: [],
 })
 
 const relatedProjectsOptions = computed(() => store.state.projects.filter(project => {
@@ -112,6 +122,10 @@ function addSelectedProject(id) {
 
 function removeProject(id) {
   state.relatedProjects = state.relatedProjects.filter(project => project.id !== id)
+}
+
+function processSecondaryImages(e) {
+  state.secondaryImagesFiles.push(e)
 }
 
 function saveProject() {}
