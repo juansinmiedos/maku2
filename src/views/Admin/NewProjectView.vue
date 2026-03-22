@@ -53,11 +53,13 @@
         </div>
       </div>
 
-      <div>
+      <div class="images-container">
+        <h4>Main image</h4>
         main image section
       </div>
 
-      <div>
+      <div class="images-container">
+        <h4>Project images</h4>
         secondary images section
       </div>
 

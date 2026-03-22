@@ -4,4 +4,13 @@
   padding: 80px 112px 80px 112px;
   flex-direction: column;
   gap: 67px;
+
+  & .images-container {
+    border-radius: 12px;
+    background-color: $neutral-100;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 }

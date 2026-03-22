@@ -1,6 +1,12 @@
 <template>
   <section class="admin-projects-view">
-    <h2>Project Details</h2>
+    <div class="flex justify-space-between">
+      <h2>Project Details</h2>
+
+      <div>
+        <TheButton>Eliminar projecto</TheButton>
+      </div>
+    </div>
 
     <div class="w-100 flex column" style="gap: 24px;">
       <div class="flex" style="gap: 12px;">
