@@ -55,7 +55,7 @@
 
       <div class="images-container">
         <h4>Main image</h4>
-        <TheImagePreview v-if="state.mainImageFile" :file="state.mainImageFile" />
+        <TheImagePreview v-if="state.mainImageFile" v-model:file="state.mainImageFile" />
         <TheImageLoader v-else v-model:file="state.mainImageFile" id="mainFile" />
       </div>
 
@@ -63,8 +63,10 @@
         <h4>Project images</h4>
         
         <div class="flex wrap" style="gap: 12px;">
-          <TheImagePreview v-for="(file, i) in state.secondaryImagesFiles" :key="i" :file="file" />
-          <TheImageLoader @update:file="processSecondaryImages" id="secondaryFiles" />
+          <div v-for="(file, i) in state.secondaryImagesFiles" :key="i">
+            <TheImagePreview :file="file" @update:file="deleteSecondaryImage(i)" />
+          </div>
+          <TheImageLoader v-model:file="state.secondaryFile" @update:file="processSecondaryImages" id="secondaryFiles" />
         </div>
       </div>
 
@@ -95,7 +97,9 @@ const state = reactive({
   relatedProject: "",
   relatedProjects: [],
 
-  mainImageFile: "",
+  mainImageFile: null,
+
+  secondaryFile: null,
   secondaryImagesFiles: [],
 })
 
@@ -126,6 +130,11 @@ function removeProject(id) {
 
 function processSecondaryImages(e) {
   state.secondaryImagesFiles.push(e)
+  state.secondaryFile = null
+}
+
+function deleteSecondaryImage(index) {
+  state.secondaryImagesFiles.splice(index, 1)
 }
 
 function saveProject() {}

@@ -19,7 +19,7 @@
 const emit = defineEmits([ "update:file" ])
 
 defineProps({
-  file: {},
+  file: File,
   id: String,
   maxSize: [String, Number],
 })
