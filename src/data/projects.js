@@ -15,6 +15,7 @@ const images = [
 
 export default [
   {
+    _id: "chevere",
     id: "chevere",
     name: "chevere",
     imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772062022/zwhob0vft7qedxucy4w4.png",
@@ -28,6 +29,7 @@ export default [
     images,
   },
   {
+    _id: "arona",
     id: "arona",
     name: "arona",
     imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772061843/incxry5hajsjzubnq5iw.png",
@@ -43,6 +45,7 @@ export default [
     images,
   },
   {
+    _id: "archiblad",
     id: "archiblad",
     name: "archiblad",
     imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772062021/k815l4p5dwd0cudxyncm.png",
@@ -57,6 +60,7 @@ export default [
     images,
   },
   {
+    _id: "altitude",
     id: "altitude",
     name: "altitude",
     imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772062021/q2tpnfc4sqrw0ug4ptdy.png",
@@ -71,6 +75,7 @@ export default [
     images,
   },
   {
+    _id: "atipico",
     id: "atipico",
     name: "atipico",
     imageUrl: "https://res.cloudinary.com/juansinmiedos/image/upload/v1772062021/ihskrre8rts7g3kkymbb.png",
