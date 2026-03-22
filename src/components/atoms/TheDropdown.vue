@@ -6,6 +6,7 @@
       ref="input"
       :value="modelValue"
       :name="name"
+      :disabled="isDisabled"
       @input="updateValue"
     >
       <option value=""></option>
@@ -26,6 +27,7 @@ defineProps({
   options: Array,
   name: String,
   label: String,
+  isDisabled: Boolean,
 })
 
 function updateValue() {

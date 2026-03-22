@@ -30,7 +30,7 @@
 
         <TheDropdown
           v-model="state.relatedProjects"
-          label="Related projects"
+          label="Related projects (max. 3)"
           name="relatedProjects"
           :options="state.relatedProjectsOption"
         />
@@ -53,6 +53,10 @@
       <div>
         secondary images section
       </div>
+
+      <div class="w-100 flex justify-end">
+        <TheButton>Save project</TheButton>
+      </div>
     </div>
   </section>
 </template>
@@ -63,6 +67,7 @@ import { reactive } from 'vue'
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheDropdown from '@/components/atoms/TheDropdown.vue'
 import TheLabel from '@/components/atoms/TheLabel.vue'
+import TheButton from '@/components/atoms/TheButton.vue'
 
 const state = reactive({
   title: "",
