@@ -4,7 +4,7 @@
       <h2>Project Details</h2>
 
       <div>
-        <TheButton>Eliminar projecto</TheButton>
+        <TheButton :isLoading="state.loadingDelete" @click="deleteProject">Eliminar projecto</TheButton>
       </div>
     </div>
 
@@ -68,18 +68,58 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, onMounted } from 'vue'
+import { useMainStore } from '@/stores/main.store'
+import { useRoute, useRouter } from 'vue-router'
 
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheDropdown from '@/components/atoms/TheDropdown.vue'
 import TheLabel from '@/components/atoms/TheLabel.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
+const store = useMainStore()
+const route = useRoute()
+const router = useRouter()
+
 const state = reactive({
+  loadingDelete: false, 
+
+  _id: "",
   title: "",
   place: "",
   year: "",
-  relatedProjects: "",
-  relatedProjectsOption: []
+  relatedProject: "",
+  relatedProjects: [],
+
+  // categories
 })
+
+onMounted(() => getProjectDetails())
+
+async function getProjectDetails() {
+  try {
+    const projectName = route.params.name
+    const projectData = await store.getProjectDetails(projectName)
+    state._id = projectData._id
+    state.title = projectData.title
+    state.place = projectData.place
+    state.year = projectData.year
+
+    console.log(projectData)
+  } catch(error) {
+    // do something
+  }
+}
+
+async function deleteProject() {
+  try {
+    state.loading = true
+    await store.deleteProject(state._id)
+    router.push({ name: "AdminProjects" })
+  } catch(error) {
+    //
+  } finally {
+    state.loading = false
+  }
+}
 </script>

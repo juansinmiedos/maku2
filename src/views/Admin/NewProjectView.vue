@@ -165,12 +165,11 @@ async function saveProject() {
       // images,
       // relatedProjects
     }
-    console.log({body})
     const project = await store.createProject(body)
-    console.log({project})
-    router.push({ name: "AdminProjectDetail", params: { id: project.name } })
+    router.push({ name: "AdminProjectDetail", params: { name: project.name } })
   } catch (error) {
     //
+    console.log(error)
   } finally {
     state.loading = false
   }

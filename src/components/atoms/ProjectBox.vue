@@ -24,6 +24,6 @@ const props = defineProps({
 
 function goToDetailView() {
   console.log(props)
-  router.push({ name: "AdminProjectDetail", params: { id: props.name }})
+  router.push({ name: "AdminProjectDetail", params: { name: props.name }})
 }
 </script>

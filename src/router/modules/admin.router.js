@@ -19,7 +19,7 @@ export default [
         component: loadComponent("ProjectsView"),
       },
       {
-        path: "projects/:id",
+        path: "projects/:name",
         name: "AdminProjectDetail",
         component: loadComponent("ProjectDetailView"),
       },
