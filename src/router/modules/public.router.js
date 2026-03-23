@@ -30,7 +30,7 @@ export default [
         component: loadProjectsView()
       },
       {
-        path: "projects/:id",
+        path: "projects/:name",
         name: "ProjectDetail",
         component: loadProjectDetailView()
       },

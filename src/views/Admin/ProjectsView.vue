@@ -8,7 +8,6 @@
       </div>
     </div>
 
-    <!-- body -->
     <div class="w-100 flex column" style="gap: 12px;">
       <ProjectBox
         v-for="(project, i) in store.state.projects"

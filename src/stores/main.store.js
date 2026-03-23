@@ -10,17 +10,25 @@ import {
 } from "@/services/projects"
 import { sendFormRequest } from "@/services/form"
 
-import projects from "@/data/projects"
-
 export const useMainStore = defineStore("main", () => {
   const state = reactive({
-    projects: [ ...projects ]
+    projects: []
   })
 
   async function getProjects() {
     try {
       const res = await getProjectsRequest()
       state.projects = res.data
+    } catch(error) {
+      console.error(error)
+      throw error
+    }
+  }
+
+  async function getProjectDetails(name) {
+    try {
+      const res = await getProjectDetailsRequest(name)
+      return res.data[0]
     } catch(error) {
       console.error(error)
       throw error
@@ -58,6 +66,7 @@ export const useMainStore = defineStore("main", () => {
   return {
     state,
     getProjects,
+    getProjectDetails,
     createProject,
     deleteProject,
     sendForm

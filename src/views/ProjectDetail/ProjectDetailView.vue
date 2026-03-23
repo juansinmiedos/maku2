@@ -1,20 +1,20 @@
 <template>
   <div class="project-detail-view">
     <div class="white-space"></div>
-    <div class="header" :style="`background: no-repeat center / cover url(${projectData.imageUrl});`"></div>
+    <div class="header" :style="`background: no-repeat center / cover url(${state.projectData.imageUrl});`"></div>
 
     <div class="title">
       <div class="container">
-        <p class="title-lg">{{ projectData.place }}<br />{{ projectData.year }}</p>
+        <p class="title-lg">{{ state.projectData.place }}<br />{{ state.projectData.year }}</p>
 
         <div class="labels-section">
           <div class="top">
-            <h2>{{ projectData.title }}</h2>
-            <h4>{{ projectData.title }}</h4>
+            <h2>{{ state.projectData.title }}</h2>
+            <h4>{{ state.projectData.title }}</h4>
 
             <div class="labels-container">
               <TheLabel
-                v-for="(category, i) in projectData.categories"
+                v-for="(category, i) in state.projectData.categories"
                 :key="i"
                 :value="category"
                 isActive
@@ -29,7 +29,7 @@
 
     <div class="scrollable-label-container">
       <TheLabel
-        v-for="(category, i) in projectData.categories"
+        v-for="(category, i) in state.projectData.categories"
         :key="i"
         :value="category"
         isActive
@@ -37,7 +37,7 @@
     </div>
 
     <section class="images-section">
-      <div v-for="(url, i) in projectData.images" :key="i">
+      <div v-for="(url, i) in state.projectData.images" :key="i">
         <img class="image" :src="url" @click="openImageModal(url)" />
       </div>
     </section>
@@ -72,14 +72,14 @@ const store = useMainStore()
 const state = reactive({
   imageModal: false,
   selectedImageUrl: "",
+  projectData: {},
   relatedProducts: [],
 })
-
-const projectData = store.state.projects.find(project => project.name === route.params.id)
 
 onMounted(() => {
   resizeController()
   window.addEventListener("resize", () => resizeController())
+  getProjectDetails()
 })
 
 function resizeController() {
@@ -91,12 +91,22 @@ function resizeController() {
   }
 }
 
+async function getProjectDetails() {
+  try {
+    const projectName = route.params.name
+    const res = await store.getProjectDetails(projectName)
+    state.projectData = res
+  } catch(error) {
+    // do something
+  }
+}
+
 function openImageModal(url) {
   state.selectedImageUrl = url
   state.imageModal = true
 }
 
 function goToProjectDetailView(name) {
-  router.push({ name: "ProjectDetail", params: { id: name }, })
+  router.push({ name: "ProjectDetail", params: { name }, })
 }
 </script>
