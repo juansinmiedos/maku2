@@ -42,13 +42,18 @@
         />
       </div>
 
-      <div class="flex column" style="gap: 12px;">
-        <h4>Proyectos relacionados</h4>
+      <div v-if="state.relatedProjects.length > 0" class="flex column" style="gap: 12px;">
+        <h4>Related projects</h4>
+
+        <h5>(To remove a related project, click on its label)</h5>
 
         <div class="flex" style="gap: 8px;">
-          <TheLabel isActive>Project selected</TheLabel>
-          <TheLabel isActive>Project selected</TheLabel>
-          <TheLabel isActive>Project selected</TheLabel>
+          <TheLabel
+            v-for="(project, i) in state.relatedProjects"
+            :key="i"
+            isActive
+            @click="removeProject(project.id)"
+          >{{ project.title }}</TheLabel>
         </div>
       </div>
 
@@ -104,6 +109,7 @@ async function getProjectDetails() {
     state.title = projectData.title
     state.place = projectData.place
     state.year = projectData.year
+    state.relatedProjects = projectData.relatedProjects
 
     console.log(projectData)
   } catch(error) {

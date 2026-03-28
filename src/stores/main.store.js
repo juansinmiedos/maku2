@@ -28,7 +28,7 @@ export const useMainStore = defineStore("main", () => {
   async function getProjectDetails(name) {
     try {
       const res = await getProjectDetailsRequest(name)
-      return res.data[0]
+      return res.data
     } catch(error) {
       console.error(error)
       throw error

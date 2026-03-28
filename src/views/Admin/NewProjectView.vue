@@ -163,7 +163,7 @@ async function saveProject() {
       place: state.place,
       year: state.year,
       // images,
-      // relatedProjects
+      relatedProjects: state.relatedProjects.map(rp => rp.id)
     }
     const project = await store.createProject(body)
     router.push({ name: "AdminProjectDetail", params: { name: project.name } })
