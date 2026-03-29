@@ -7,6 +7,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import AboutUsItem from './components/AboutUsItem.vue'
@@ -15,19 +16,19 @@ const { t } = useI18n()
 
 const items = [
   {
-    icon: t("sections.aboutUs.items[0].icon"),
-    title: t("sections.aboutUs.items[0].title"),
-    body: t("sections.aboutUs.items[0].body"),
+    icon: "corn",
+    title: computed(() => t("sections.aboutUs.items[0].title")),
+    body: computed(() => t("sections.aboutUs.items[0].body")),
   },
   {
-    icon: t("sections.aboutUs.items[1].icon"),
-    title: t("sections.aboutUs.items[1].title"),
-    body: t("sections.aboutUs.items[1].body"),
+    icon: "bolt",
+    title: computed(() => t("sections.aboutUs.items[1].title")),
+    body: computed(() => t("sections.aboutUs.items[1].body")),
   },
   {
-    icon: t("sections.aboutUs.items[2].icon"),
-    title: t("sections.aboutUs.items[2].title"),
-    body: t("sections.aboutUs.items[2].body"),
+    icon: "speaker",
+    title: computed(() => t("sections.aboutUs.items[2].title")),
+    body: computed(() => t("sections.aboutUs.items[2].body")),
   },
 ]
 </script>

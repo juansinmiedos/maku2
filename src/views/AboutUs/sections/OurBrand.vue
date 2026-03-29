@@ -12,6 +12,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
@@ -24,15 +25,15 @@ const { t } = useI18n()
 const brandItems = [
   {
     image: "our-brand-k",
-    title: t("sections.ourBrand.items[0].title"),
-    subtitle: t("sections.ourBrand.items[0].subtitle"),
-    text: t("sections.ourBrand.items[0].text"),
+    title: computed(() => t("sections.ourBrand.items[0].title")),
+    subtitle: computed(() => t("sections.ourBrand.items[0].subtitle")),
+    text: computed(() => t("sections.ourBrand.items[0].text")),
   },
   {
     image: "our-brand-yellow",
-    title: t("sections.ourBrand.items[1].title"),
-    subtitle: t("sections.ourBrand.items[1].subtitle"),
-    text: t("sections.ourBrand.items[1].text"),
+    title: computed(() => t("sections.ourBrand.items[1].title")),
+    subtitle: computed(() => t("sections.ourBrand.items[1].subtitle")),
+    text: computed(() => t("sections.ourBrand.items[1].text")),
   },
 ]
 

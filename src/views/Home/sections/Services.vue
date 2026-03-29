@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import ServiceItem from './components/ServiceItem.vue'
@@ -26,41 +26,41 @@ const { t } = useI18n()
 
 const services = [
   {
-    title: t('sections.services.options[0].title'),
+    title: computed(() => t('sections.services.options[0].title')),
     points: [
-      t('sections.services.options[0].points[0]'),
-      t('sections.services.options[0].points[1]'),
-      t('sections.services.options[0].points[2]'),
-      t('sections.services.options[0].points[3]'),
-      t('sections.services.options[0].points[4]'),
-      t('sections.services.options[0].points[5]'),
+      computed(() => t('sections.services.options[0].points[0]')),
+      computed(() => t('sections.services.options[0].points[1]')),
+      computed(() => t('sections.services.options[0].points[2]')),
+      computed(() => t('sections.services.options[0].points[3]')),
+      computed(() => t('sections.services.options[0].points[4]')),
+      computed(() => t('sections.services.options[0].points[5]')),
     ],
   },
   {
-    title: t('sections.services.options[1].title'),
+    title: computed(() => t('sections.services.options[1].title')),
     points: [
-      t('sections.services.options[1].points[0]'),
-      t('sections.services.options[1].points[1]'),
-      t('sections.services.options[1].points[2]'),
+      computed(() => t('sections.services.options[1].points[0]')),
+      computed(() => t('sections.services.options[1].points[1]')),
+      computed(() => t('sections.services.options[1].points[2]')),
     ],
   },
   {
-    title: t('sections.services.options[2].title'),
+    title: computed(() => t('sections.services.options[2].title')),
     points: [
-      t('sections.services.options[2].points[0]'),
-      t('sections.services.options[2].points[1]'),
-      t('sections.services.options[2].points[2]'),
-      t('sections.services.options[2].points[3]'),
-      t('sections.services.options[2].points[4]'),
-      t('sections.services.options[2].points[5]'),
+      computed(() => t('sections.services.options[2].points[0]')),
+      computed(() => t('sections.services.options[2].points[1]')),
+      computed(() => t('sections.services.options[2].points[2]')),
+      computed(() => t('sections.services.options[2].points[3]')),
+      computed(() => t('sections.services.options[2].points[4]')),
+      computed(() => t('sections.services.options[2].points[5]')),
     ],
   },
   {
-    title: t('sections.services.options[3].title'),
+    title: computed(() => t('sections.services.options[3].title')),
     points: [
-      t('sections.services.options[3].points[0]'),
-      t('sections.services.options[3].points[1]'),
-      t('sections.services.options[3].points[2]'),
+      computed(() => t('sections.services.options[3].points[0]')),
+      computed(() => t('sections.services.options[3].points[1]')),
+      computed(() => t('sections.services.options[3].points[2]')),
     ],
   },
 ]

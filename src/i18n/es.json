@@ -115,17 +115,14 @@
     "aboutUs": {
       "items": [
         {
-          "icon": "corn",
           "title": "Crece más fuerte",
           "body": "Construye relaciones reales con tu audiencia ofreciendo valor."
         },
         {
-          "icon": "bolt",
           "title": "Escala más rápido",
           "body": "Incrementa ventas, expándete a nuevos mercados o lanza algo nuevo"
         },
         {
-          "icon": "speaker",
           "title": "Hazte escuchar",
           "body": "Haz que las personas conozcan tu marca, productos y servicios."
         }

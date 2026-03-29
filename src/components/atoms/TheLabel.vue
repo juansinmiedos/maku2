@@ -11,7 +11,7 @@ const emit = defineEmits([ "click" ])
 
 const props = defineProps({
   isActive: Boolean,
-  value: String,
+  value: [ String, Object ],
 })
 
 function handleClick() {
