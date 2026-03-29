@@ -83,6 +83,27 @@ nav {
     }
   }
 
+  & .locale-changer {
+    text-transform: uppercase;
+    font-weight: $semi-bold;
+    display: flex;
+    color: $neutral-400;
+
+    & .selected {
+      color: $surface-black
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  & .menu-button-wrapper {
+    @include from($medium-width) {
+      display: none;
+    }
+  }
+
   & .menu-button {
     display: flex;
     padding: 10px;
