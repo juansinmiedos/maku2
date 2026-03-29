@@ -1,8 +1,8 @@
 <template>
   <section class="our-brand-section">
     <div class="top">
-      <p class="title-lg">About our brand</p>
-      <TheButton @click="goToContact">Have a project in mind? Let’s talk</TheButton>
+      <p class="title-lg">{{ $t('sections.ourBrand.name') }}</p>
+      <TheButton @click="goToContact">{{ $t('sections.ourBrand.button') }}</TheButton>
     </div>
 
     <div class="bottom">
@@ -13,24 +13,26 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 import TheButton from '@/components/atoms/TheButton.vue'
 import OurBrandItem from './components/OurBrandItem.vue'
 
 const router = useRouter()
+const { t } = useI18n()
 
 const brandItems = [
   {
     image: "our-brand-k",
-    title: "MAKU means to leave a mark, something that is traced, recognized, and remembered.",
-    subtitle: "A mark that stays.",
-    text: "That meaning defines how we think about brands. Not as visuals or slogans, but as what remains after an experience. What people remember. What becomes part of their lives.",
+    title: t("sections.ourBrand.items[0].title"),
+    subtitle: t("sections.ourBrand.items[0].subtitle"),
+    text: t("sections.ourBrand.items[0].text"),
   },
   {
     image: "our-brand-yellow",
-    title: "Our yellow exists to highlight that mark, to bring forward what truly matters in every brand, business, and concept.",
-    subtitle: "Our colors",
-    text: "Because when something is built with meaning, it doesn’t disappear. It stays. It’s recognized. It leaves a mark.",
+    title: t("sections.ourBrand.items[1].title"),
+    subtitle: t("sections.ourBrand.items[1].subtitle"),
+    text: t("sections.ourBrand.items[1].text"),
   },
 ]
 

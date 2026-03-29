@@ -1,22 +1,20 @@
 <template>
   <section class="who-we-are-section">
     <div class="container">
-      <p class="title title-lg">Who We Are</p>
+      <p class="title title-lg">{{ $t('sections.whoWeAre.name') }}</p>
 
       <div class="body-wrapper">
-        <h1>MAKU is a strategic branding and marketing agency that highlights the best of your brand.</h1>
-        <h4>MAKU is a strategic branding and marketing agency that highlights the best of your brand.</h4>
+        <h1>{{ $t('sections.whoWeAre.title') }}</h1>
+        <h4>{{ $t('sections.whoWeAre.title') }}</h4>
         <div class="body">
           <div class="body-container">
             <div>
-              <h4>Through our proven ABCDS Method, we craft strategies and creative that help brands.</h4>
+              <h4>{{ $t('sections.whoWeAre.subtitle') }}</h4>
               <div ref="growStronger" class="lottie"></div>
-              <!-- <h3>Grow stronger</h3> -->
-              <!-- <h4 class="h4-until-small">Grow stronger</h4> -->
             </div>
 
             <div>
-              <TheButton @click="goToContact">Learn more</TheButton>
+              <TheButton @click="goToContact">{{ $t('sections.whoWeAre.learnMore') }}</TheButton>
             </div>
           </div>
         </div>

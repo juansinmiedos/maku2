@@ -1,0 +1,229 @@
+{
+  "common": {
+    "dontWait": "Don’t wait to get noticed",
+    "boldOnes": "The bold ones act first.",
+    "continue": "Continue",
+    "all": "All"
+  },
+  "navbar": {
+    "aboutUs": "About Us",
+    "projects": "Projects",
+    "contact": "Contact",
+    "contactUs": "Contact Us",
+    "letsTalk": "Let' talk"
+  },
+  "legal": {
+    "privacy": "Privacy Policy"
+  },
+  "footer": {
+    "ourApproach": "Our approach to your brand?",
+    "askForAudit": "Ask for a free 15-minute audit. We’ll review your current communication and tell you what’s getting in your way (and how to fix it).",
+    "validMail": "Enter a valid email",
+    "contact": "Contact",
+    "followUs": "Follow Us"
+  },
+  "components": {
+    "inputButton": {
+      "enterEmail": "Enter Your Email",
+      "thankYou": "Thank you!",
+      "sending": "Sending..."
+    },
+    "marqueeItem": {
+      "1": "Let’s Leave",
+      "2": "A Mark"
+    },
+    "stepper" : {
+      "back": "Back",
+      "step": "Step",
+      "of": "of",
+      "completed": "Completed!"
+    },
+    "projectBox": "Manage project"
+  },
+  "sections": {
+    "whoWeAre": {
+      "name": "Who We Are",
+      "title": "MAKU is a strategic branding and marketing agency that highlights the best of your brand.",
+      "subtitle": "Through our proven ABCDS Method, we craft strategies and creative that help brands.",
+      "learnMore": "Learn more"
+    },
+    "ourMethod": {
+      "name": "Our Method",
+      "title": "We’ve worked with over 55 brands across hospitality, retail, architecture, health, fashion, and more.",
+      "subtitle": "Strategy shouldn’t be defined by industry, but by brand. Working across industries helps us avoid formulas and build strategies that are truly distinctive.",
+      "button": "Have a project in mind? Let’s talk",
+      "slogan": {
+        "1": "Because when you highlight the best of your brand…",
+        "2": "people notice.  And they buy."
+      }
+    },
+    "projects": {
+      "name": "Projects",
+      "title": "Most brands come with a specific need. Our role is to understand what the brand actually needs to grow.",
+      "subtitle": "That means looking beyond the initial request and building strategies that strengthen the brand, its connection with customers, and its long-term performance.",
+      "button": "View all"
+    },
+    "services": {
+      "name": "Services",
+      "title": "Whether you’re launching something new or ready to evolve, we offer:",
+      "option": {
+        "1": {
+          "title": "Brand Strategy & Foundation"
+        }
+      },
+      "options": [
+        {
+          "title": "Brand Strategy & Foundation",
+          "points": [
+            "Brand Storytelling",
+            "Naming & Concept Creation",
+            "Brand Strategy",
+            "Pitch Decks",
+            "Full Brand Systems",
+            "Brand Storytelling"
+          ]
+        },
+        {
+          "title": "Identity Design",
+          "points": [
+            "Visual Identity Design",
+            "Brand Books",
+            "Packaging & Collaterals"
+          ]
+        },
+        {
+          "title": "Marketing & Communication",
+          "points": [
+            "Social Media Strategy",
+            "Content Creation",
+            "Creative & Digital Campaigns",
+            "AI-Driven Campaigns",
+            "Paid Advertising (Meta, Google, YouTube)",
+            "Launch Campaigns"
+          ]
+        },
+        {
+          "title": "Digital Presence & Conversion",
+          "points": [
+            "Website & Funnel Building",
+            "UX/UI Strategy",
+            "Copywriting for Web & Digital"
+          ]
+        }
+      ]
+    },
+    "aboutUs": {
+      "items": [
+        {
+          "icon": "corn",
+          "title": "Grow stronger",
+          "body": "Build real relationships with your audience by offering value."
+        },
+        {
+          "icon": "bolt",
+          "title": "Scale faster",
+          "body": "Grow sales, expand to new markets, or launch something new"
+        },
+        {
+          "icon": "speaker",
+          "title": "Speak Louder",
+          "body": "Familiarize people with your brand, products, and services."
+        }
+      ]
+    },
+    "symbols": {
+      "name": {
+        "1": "Long before brands existed,",
+        "2": "people left marks."
+      },
+      "title": "Symbols carved into stone. Signs painted on walls. Traces that remained long after the moment passed.",
+      "subtitle": {
+        "1": "We believe branding and marketing truly matter when they help a brand connect, stand out, and perform better as a business.",
+        "2": "At the core, the question is simple: why should people care about your brand? Our role is to help brands find that answer, and build the strategy to make it clear, relevant, and consistent."
+      }
+    },
+    "ourBrand": {
+      "name": "About our brand",
+      "button": "Have a project in mind? Let’s talk",
+      "items": [
+        {
+          "title": "MAKU means to leave a mark, something that is traced, recognized, and remembered.",
+          "subtitle": "A mark that stays.",
+          "text": "That meaning defines how we think about brands. Not as visuals or slogans, but as what remains after an experience. What people remember. What becomes part of their lives."
+        },
+        {
+          "title": "Our yellow exists to highlight that mark, to bring forward what truly matters in every brand, business, and concept.",
+          "subtitle": "Our colors",
+          "text": "Because when something is built with meaning, it doesn’t disappear. It stays. It’s recognized. It leaves a mark."
+        }
+      ]
+    },
+    "founder": {
+      "name": "About the founder",
+      "p": {
+        "1": "Michelle Peniche is a Marketing Specialist & MBA with a strong focus on brand strategy and startup concept creation. Passionate about marketing and creative thinking, she brings a strategic, business-driven approach to every project.",
+        "2": "Having lived in three countries and worked with global brands such as PepsiCo, Colgate, and Steve Madden, Michelle leads MAKU with a clear belief: brands grow when strategy and creativity work together."
+      }
+    },
+    "formDescriptions": {
+      "1": {
+        "subtitle": "Hi there! We’re excited to connect. To help us hit the ground running and tailor our strategy for maximum impact, please fill out the form below."
+      },
+      "2": {
+        "title": "How can we help your business grow?"
+      },
+      "3": {
+        "title": "Let’s talk about numbers",
+        "subtitle": "The price of our services may vary depending on the scope of the project, so it’s important for us to understand your budget from the start."
+      },
+      "4": {
+        "title": "Thank you! We’ve received your information.",
+        "subtitle": "You’ll get a confirmation email shortly, and we’ll be in touch soon to continue the conversation.In the meantime, you can download our services sheet below."
+      }
+    }
+  },
+  "views": {
+    "contact": {
+      "step": {
+        "1": {
+          "title": "Personal Information",
+          "firstName": "First name",
+          "lastName": "Last name",
+          "phone": "Phone number (WhatsApp)",
+          "email": "Email address"
+        },
+        "2": {
+          "title": "Business Information",
+          "businessName": "Business name",
+          "website": "Business website",
+          "businessType": "Business type",
+          "instagram": "Instagram account",
+          "brand": "Tell us about your brand",
+          "reference": "Do you have any reference or competitors you would like to include?",
+          "naming": "Naming",
+          "branding": "Branding",
+          "visualIdentity": "Visual Identity",
+          "socialMediaStrategy": "Social Media Strategy",
+          "websiteCommerce": "Website/E-commerce",
+          "contentCreation": "Content Creation (Photo & Video)",
+          "marketing": "Marketing Campaing",
+          "packaging": "Packaging & Product Design",
+          "other": "Other"
+        },
+        "3": {
+          "budget": "How much are you willing to invest in the project? (MXN)"
+        },
+        "4": {
+          "button": "Download our service sheet"
+        }
+      }
+    },
+    "projects": {
+      "name": {
+        "1": "Long before brands existed,",
+        "2":"people left marks."
+      },
+      "title": "Our Projects"
+    }
+  }
+}

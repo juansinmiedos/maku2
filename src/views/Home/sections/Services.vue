@@ -2,10 +2,10 @@
   <section class="services-section">
     <div class="container">
       <div class="top">
-        <p class="title" :class="windowIsSmall ? 'title-sm' : 'title-lg'">Services</p>
+        <p class="title" :class="windowIsSmall ? 'title-sm' : 'title-lg'">{{ $t('sections.services.name') }}</p>
 
         <div class="subtitle">
-          <p :class="{ 'title-lg': windowIsSmall }">Whether you’re launching something new or ready to evolve, we offer:</p>
+          <p :class="{ 'title-lg': windowIsSmall }">{{ $t('sections.services.title') }}</p>
         </div>
       </div>
 
@@ -18,45 +18,49 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 import ServiceItem from './components/ServiceItem.vue'
+
+const { t } = useI18n()
 
 const services = [
   {
-    title: "Brand Strategy & Foundation",
+    title: t('sections.services.options[0].title'),
     points: [
-      "Brand Storytelling",
-      "Naming & Concept Creation",
-      "Brand Strategy",
-      "Pitch Decks",
-      "Full Brand Systems",
-      "Brand Storytelling"
+      t('sections.services.options[0].points[0]'),
+      t('sections.services.options[0].points[1]'),
+      t('sections.services.options[0].points[2]'),
+      t('sections.services.options[0].points[3]'),
+      t('sections.services.options[0].points[4]'),
+      t('sections.services.options[0].points[5]'),
     ],
   },
   {
-    title: "Identity Design",
+    title: t('sections.services.options[1].title'),
     points: [
-      "Visual Identity Design",
-      "Brand Books",
-      "Packaging & Collaterals",
+      t('sections.services.options[1].points[0]'),
+      t('sections.services.options[1].points[1]'),
+      t('sections.services.options[1].points[2]'),
     ],
   },
   {
-    title: "Marketing & Communication",
+    title: t('sections.services.options[2].title'),
     points: [
-      "Social Media Strategy",
-      "Content Creation",
-      "Creative & Digital Campaigns",
-      "AI-Driven Campaigns",
-      "Paid Advertising (Meta, Google, YouTube)",
-      "Launch Campaigns"
+      t('sections.services.options[2].points[0]'),
+      t('sections.services.options[2].points[1]'),
+      t('sections.services.options[2].points[2]'),
+      t('sections.services.options[2].points[3]'),
+      t('sections.services.options[2].points[4]'),
+      t('sections.services.options[2].points[5]'),
     ],
   },
   {
-    title: "Digital Presence & Conversion",
+    title: t('sections.services.options[3].title'),
     points: [
-      "Website & Funnel Building",
-      "UX/UI Strategy",
-      "Copywriting for Web & Digital"
+      t('sections.services.options[3].points[0]'),
+      t('sections.services.options[3].points[1]'),
+      t('sections.services.options[3].points[2]'),
     ],
   },
 ]

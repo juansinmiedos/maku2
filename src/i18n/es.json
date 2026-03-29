@@ -1,0 +1,229 @@
+{
+  "common": {
+    "dontWait": "No esperes para hacerte notar",
+    "boldOnes": "Los audaces actúan primero.",
+    "continue": "Continuar",
+    "all": "Todos"
+  },
+  "navbar": {
+    "aboutUs": "Nosotros",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "contactUs": "Contáctanos",
+    "letsTalk": "Hablemos"
+  },
+  "legal": {
+    "privacy": "Política de privacidad"
+  },
+  "footer": {
+    "ourApproach": "¿Nuestro enfoque para tu marca?",
+    "askForAudit": "Solicita una auditoría gratuita de 15 minutos. Revisaremos tu comunicación actual y te diremos qué te está frenando (y cómo solucionarlo).",
+    "validMail": "Ingresa un correo válido",
+    "contact": "Contacto",
+    "followUs": "Síguenos"
+  },
+  "components": {
+    "inputButton": {
+      "enterEmail": "Ingresa tu correo",
+      "thankYou": "¡Gracias!",
+      "sending": "Enviando..."
+    },
+    "marqueeItem": {
+      "1": "Dejemos",
+      "2": "Huella"
+    },
+    "stepper": {
+      "back": "Atrás",
+      "step": "Paso",
+      "of": "de",
+      "completed": "¡Completado!"
+    },
+    "projectBox": "Gestionar proyecto"
+  },
+  "sections": {
+    "whoWeAre": {
+      "name": "Quiénes somos",
+      "title": "MAKU es una agencia estratégica de branding y marketing que resalta lo mejor de tu marca.",
+      "subtitle": "A través de nuestro método probado ABCDS, creamos estrategias y creatividad que ayudan a las marcas.",
+      "learnMore": "Saber más"
+    },
+    "ourMethod": {
+      "name": "Nuestro método",
+      "title": "Hemos trabajado con más de 55 marcas en hospitalidad, retail, arquitectura, salud, moda y más.",
+      "subtitle": "La estrategia no debe definirse por la industria, sino por la marca. Trabajar en distintas industrias nos ayuda a evitar fórmulas y construir estrategias realmente distintivas.",
+      "button": "¿Tienes un proyecto en mente? Hablemos",
+      "slogan": {
+        "1": "Porque cuando resaltas lo mejor de tu marca…",
+        "2": "la gente lo nota. Y compra."
+      }
+    },
+    "projects": {
+      "name": "Proyectos",
+      "title": "La mayoría de las marcas llegan con una necesidad específica. Nuestro rol es entender lo que realmente necesitan para crecer.",
+      "subtitle": "Eso implica ir más allá de la solicitud inicial y construir estrategias que fortalezcan la marca, su conexión con los clientes y su desempeño a largo plazo.",
+      "button": "Ver todos"
+    },
+    "services": {
+      "name": "Servicios",
+      "title": "Ya sea que estés lanzando algo nuevo o listo para evolucionar, ofrecemos:",
+      "option": {
+        "1": {
+          "title": "Estrategia de marca y fundamentos"
+        }
+      },
+      "options": [
+        {
+          "title": "Estrategia de marca y fundamentos",
+          "points": [
+            "Narrativa de marca",
+            "Naming y creación de concepto",
+            "Estrategia de marca",
+            "Pitch decks",
+            "Sistemas completos de marca",
+            "Narrativa de marca"
+          ]
+        },
+        {
+          "title": "Diseño de identidad",
+          "points": [
+            "Diseño de identidad visual",
+            "Manual de marca",
+            "Empaque y materiales"
+          ]
+        },
+        {
+          "title": "Marketing y comunicación",
+          "points": [
+            "Estrategia de redes sociales",
+            "Creación de contenido",
+            "Campañas creativas y digitales",
+            "Campañas impulsadas por IA",
+            "Publicidad pagada (Meta, Google, YouTube)",
+            "Campañas de lanzamiento"
+          ]
+        },
+        {
+          "title": "Presencia digital y conversión",
+          "points": [
+            "Desarrollo de sitios web y embudos",
+            "Estrategia UX/UI",
+            "Copywriting para web y digital"
+          ]
+        }
+      ]
+    },
+    "aboutUs": {
+      "items": [
+        {
+          "icon": "corn",
+          "title": "Crece más fuerte",
+          "body": "Construye relaciones reales con tu audiencia ofreciendo valor."
+        },
+        {
+          "icon": "bolt",
+          "title": "Escala más rápido",
+          "body": "Incrementa ventas, expándete a nuevos mercados o lanza algo nuevo"
+        },
+        {
+          "icon": "speaker",
+          "title": "Hazte escuchar",
+          "body": "Haz que las personas conozcan tu marca, productos y servicios."
+        }
+      ]
+    },
+    "symbols": {
+      "name": {
+        "1": "Mucho antes de que existieran las marcas,",
+        "2": "las personas dejaban huellas."
+      },
+      "title": "Símbolos tallados en piedra. Señales pintadas en paredes. Rastros que permanecían mucho después de que el momento pasara.",
+      "subtitle": {
+        "1": "Creemos que el branding y el marketing realmente importan cuando ayudan a una marca a conectar, destacar y rendir mejor como negocio.",
+        "2": "En esencia, la pregunta es simple: ¿por qué debería importarle a la gente tu marca? Nuestro rol es ayudar a encontrar esa respuesta y construir la estrategia para que sea clara, relevante y consistente."
+      }
+    },
+    "ourBrand": {
+      "name": "Sobre nuestra marca",
+      "button": "¿Tienes un proyecto en mente? Hablemos",
+      "items": [
+        {
+          "title": "MAKU significa dejar una huella, algo que se rastrea, reconoce y recuerda.",
+          "subtitle": "Una huella que permanece.",
+          "text": "Ese significado define cómo pensamos sobre las marcas. No como visuales o slogans, sino como lo que permanece después de una experiencia. Lo que la gente recuerda. Lo que se vuelve parte de su vida."
+        },
+        {
+          "title": "Nuestro amarillo existe para resaltar esa huella, para destacar lo que realmente importa en cada marca, negocio y concepto.",
+          "subtitle": "Nuestros colores",
+          "text": "Porque cuando algo se construye con significado, no desaparece. Permanece. Se reconoce. Deja huella."
+        }
+      ]
+    },
+    "founder": {
+      "name": "Sobre la fundadora",
+      "p": {
+        "1": "Michelle Peniche es especialista en marketing y cuenta con un MBA, con un fuerte enfoque en estrategia de marca y creación de conceptos para startups. Apasionada por el marketing y el pensamiento creativo, aporta un enfoque estratégico y orientado al negocio en cada proyecto.",
+        "2": "Habiendo vivido en tres países y trabajado con marcas globales como PepsiCo, Colgate y Steve Madden, Michelle lidera MAKU con una creencia clara: las marcas crecen cuando la estrategia y la creatividad trabajan juntas."
+      }
+    },
+    "formDescriptions": {
+      "1": {
+        "subtitle": "¡Hola! Nos emociona conectar contigo. Para comenzar con el pie derecho y adaptar nuestra estrategia al máximo impacto, por favor completa el siguiente formulario."
+      },
+      "2": {
+        "title": "¿Cómo podemos ayudar a crecer tu negocio?"
+      },
+      "3": {
+        "title": "Hablemos de números",
+        "subtitle": "El precio de nuestros servicios puede variar según el alcance del proyecto, por lo que es importante entender tu presupuesto desde el inicio."
+      },
+      "4": {
+        "title": "¡Gracias! Hemos recibido tu información.",
+        "subtitle": "Recibirás un correo de confirmación en breve y pronto nos pondremos en contacto para continuar la conversación. Mientras tanto, puedes descargar nuestra hoja de servicios a continuación."
+      }
+    }
+  },
+  "views": {
+    "contact": {
+      "step": {
+        "1": {
+          "title": "Información personal",
+          "firstName": "Nombre",
+          "lastName": "Apellido",
+          "phone": "Número telefónico (WhatsApp)",
+          "email": "Correo electrónico"
+        },
+        "2": {
+          "title": "Información del negocio",
+          "businessName": "Nombre del negocio",
+          "website": "Sitio web",
+          "businessType": "Tipo de negocio",
+          "instagram": "Cuenta de Instagram",
+          "brand": "Cuéntanos sobre tu marca",
+          "reference": "¿Tienes alguna referencia o competidor que quieras incluir?",
+          "naming": "Naming",
+          "branding": "Branding",
+          "visualIdentity": "Identidad visual",
+          "socialMediaStrategy": "Estrategia de redes sociales",
+          "websiteCommerce": "Sitio web / E-commerce",
+          "contentCreation": "Creación de contenido (Foto y video)",
+          "marketing": "Campaña de marketing",
+          "packaging": "Empaque y diseño de producto",
+          "other": "Otro"
+        },
+        "3": {
+          "budget": "¿Cuánto estás dispuesto a invertir en el proyecto? (MXN)"
+        },
+        "4": {
+          "button": "Descargar hoja de servicios"
+        }
+      }
+    },
+    "projects": {
+      "name": {
+        "1": "Mucho antes de que existieran las marcas,",
+        "2": "las personas dejaban huellas."
+      },
+      "title": "Nuestros proyectos"
+    }
+  }
+}

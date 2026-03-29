@@ -5,12 +5,18 @@
 
       <div class="menu">
         <div class="links">
-          <RouterLink to="/about-us">About Us</RouterLink>
-          <RouterLink to="/projects">Projects</RouterLink>
-          <RouterLink to="/contact">Contact</RouterLink>
+          <RouterLink to="/about-us">{{ $t('navbar.aboutUs') }}</RouterLink>
+          <RouterLink to="/projects">{{ $t('navbar.projects') }}</RouterLink>
+          <RouterLink to="/contact">{{ $t('navbar.contact') }}</RouterLink>
+        </div>
+        <!-- <div>en/es {{ $t('message') }}</div> -->
+        <div class="locale-changer">
+          <select v-model="$i18n.locale">
+            <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
+          </select>
         </div>
 
-        <TheButton @click="goToContact">Contact Us</TheButton>
+        <TheButton @click="goToContact">{{ $t('navbar.contactUs') }}</TheButton>
       </div>
 
       <div class="menu-button" :class="{ open: drawerIsOpen }" @click="toggleDrawer">
@@ -22,13 +28,13 @@
 
     <div class="mobile-menu" :class="{ open: drawerIsOpen }">
       <div class="mobile-options" v-if="drawerIsOpen">
-        <RouterLink to="/about-us" class="title-lg link" @click="toggleDrawer">About Us</RouterLink>
-        <RouterLink to="/projects" class="title-lg link" @click="toggleDrawer">Projects</RouterLink>
-        <RouterLink to="/contact" class="title-lg link" @click="toggleDrawer">Contact</RouterLink>
+        <RouterLink to="/about-us" class="title-lg link" @click="toggleDrawer">{{ $t('navbar.aboutUs') }}</RouterLink>
+        <RouterLink to="/projects" class="title-lg link" @click="toggleDrawer">{{ $t('navbar.projects') }}</RouterLink>
+        <RouterLink to="/contact" class="title-lg link" @click="toggleDrawer">{{ $t('navbar.contact') }}</RouterLink>
       </div>
 
       <div class="w-100">
-        <TheButton v-if="drawerIsOpen" :class="{ open: drawerIsOpen }">Let’s  talk</TheButton>
+        <TheButton v-if="drawerIsOpen" :class="{ open: drawerIsOpen }">{{ $t('navbar.letsTalk') }}</TheButton>
       </div>
     </div>
   </nav>

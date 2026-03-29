@@ -11,20 +11,20 @@
 
       <!-- Step 1 -->
       <div v-show="state.step === 1">
-        <p class="title-lg" style="margin-bottom: 20px;">Personal Information</p>
+        <p class="title-lg" style="margin-bottom: 20px;">{{ $t('views.contact.step.1.title') }}</p>
 
         <div class="flex wrap" style="gap: 12px;">
           <div class="w-100 flex" style="gap: 12px;">
             <TheInput
               v-model="state.firstName"
-              label="First name"
+              :label="$t('views.contact.step.1.firstName')"
               name="firstName"
               type="text"
             />
 
             <TheInput
               v-model="state.lastName"
-              label="Last name"
+              :label="$t('views.contact.step.1.lastName')"
               name="lastName"
               type="text"
             />
@@ -32,14 +32,14 @@
 
           <TheInput
             v-model="state.phoneNumber"
-            label="Phone number (WhatsApp)"
+            :label="$t('views.contact.step.1.phone')"
             name="phoneNumber"
             type="text"
           />
   
           <TheInput
             v-model="state.email"
-            label="Email address"
+            :label="$t('views.contact.step.1.email')"
             name="email"
             type="text"
           />
@@ -48,47 +48,47 @@
 
       <!-- Step 2 -->
       <div v-show="state.step === 2" class="flex column" style="gap: 32px;">
-        <p class="title-lg">Business Information</p>
+        <p class="title-lg">{{ $t('views.contact.step.2.title') }}</p>
 
         <div class="flex wrap" style="gap: 12px;">
           <TheInput
             v-model="state.businessName"
-            label="Business name"
+            :label="$t('views.contact.step.2.businessName')"
             name="businessName"
             type="text"
           />
   
           <TheInput
             v-model="state.website"
-            label="Business website"
+            :label="$t('views.contact.step.2.website')"
             name="website"
             type="text"
           />
 
           <TheInput
             v-model="state.businessType"
-            label="Business type"
+            :label="$t('views.contact.step.2.businessType')"
             name="businessType"
             type="text"
           />
 
           <TheInput
             v-model="state.instagram"
-            label="Instagram account"
+            :label="$t('views.contact.step.2.instagram')"
             name="instagram"
             type="text"
           />
 
           <TheInput
             v-model="state.brand"
-            label="Tell us about your brand"
+            :label="$t('views.contact.step.2.brand')"
             name="brand"
             type="text"
           />
 
           <TheTextArea
             v-model="state.reference"
-            label="Do you have any reference or competitors you would like to include?"
+            :label="$t('views.contact.step.2.reference')"
             name="reference"
           />
         </div>
@@ -97,13 +97,13 @@
           <div class="w-100 flex" style="gap: 10px;">
             <TheCheckbox
               v-model="state.naming"
-              label="Naming"
+              :label="$t('views.contact.step.2.naming')"
               name="naming"
             />
 
             <TheCheckbox
               v-model="state.branding"
-              label="Branding"
+              :label="$t('views.contact.step.2.branding')"
               name="branding"
             />
           </div>
@@ -111,13 +111,13 @@
           <div class="w-100 flex" style="gap: 10px;">
             <TheCheckbox
               v-model="state.visualIdentity"
-              label="Visual Identity"
+              :label="$t('views.contact.step.2.visualIdentity')"
               name="visualIdentity"
             />
 
             <TheCheckbox
               v-model="state.socialMediaStrategy"
-              label="Social Media Strategy"
+              :label="$t('views.contact.step.2.socialMediaStrategy')"
               name="socialMediaStrategy"
             />
           </div>
@@ -125,13 +125,13 @@
           <div class="w-100 flex" style="gap: 10px;">
             <TheCheckbox
               v-model="state.websiteCommerce"
-              label="Website/E-commerce"
+              :label="$t('views.contact.step.2.websiteCommerce')"
               name="websiteCommerce"
             />
 
             <TheCheckbox
               v-model="state.contentCreation"
-              label="Content Creation (Photo & Video)"
+              :label="$t('views.contact.step.2.contentCreation')"
               name="contentCreation"
             />
           </div>
@@ -139,13 +139,13 @@
           <div class="w-100 flex" style="gap: 10px;">
             <TheCheckbox
               v-model="state.marketing"
-              label="Marketing Campaing"
+              :label="$t('views.contact.step.2.marketing')"
               name="marketing"
             />
 
             <TheCheckbox
               v-model="state.packaging"
-              label="Packaging & Product Design"
+              :label="$t('views.contact.step.2.packaging')"
               name="packaging"
             />
           </div>
@@ -153,7 +153,7 @@
           <div class="w-100">
             <TheCheckbox
               v-model="state.other"
-              label="Other"
+              :label="$t('views.contact.step.2.other')"
               name="other"
             />
           </div>
@@ -164,7 +164,7 @@
       <div v-show="state.step === 3" class="w-100 flex column">
         <TheDropdown
           v-model="state.budget"
-          label="How much are you willing to invest in the project? (MXN)"
+          :label="$t('views.contact.step.3.budget')"
           name="budget"
           :options="state.options"
         />
@@ -174,23 +174,23 @@
         v-if="state.step === 1"
         :isDisabled="firstButtonIsDisabled"
         @click="nextStep"
-      >Continue</TheButton>
+      >{{ $t('common.continue') }}</TheButton>
       <TheButton
         v-if="state.step === 2"
         :isDisabled="secondButtonIsDisabled"
         @click="nextStep"
-      >Continue</TheButton>
+      >{{ $t('common.continue') }}</TheButton>
       <TheButton
         v-if="state.step === 3"
         :isDisabled="thirdButtonIsDisabled"
         :isLoading="state.formIsSending"
         @click="sendForm"
-      >Continue</TheButton>
+      >{{ $t('common.continue') }}</TheButton>
       <TheButton
         v-else-if="state.step === 4"
         arrowDirection="down"
         @click="downloadServiceSheet"
-      >Download our service sheet</TheButton>
+      >{{ $t('views.contact.step.4.button') }}</TheButton>
     </div>
   </section>
 </template>

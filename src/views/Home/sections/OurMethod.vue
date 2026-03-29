@@ -1,26 +1,26 @@
 <template>
   <section class="our-method-section">
     <div class="top">
-      <p v-if="windowIsSmall" class="slogan"><span>Because when you highlight the best of your brand… <strong>people notice.  And they buy.</strong></span></p>
+      <p v-if="windowIsSmall" class="slogan"><span>{{ $t('sections.ourMethod.slogan.1') }} <strong>{{ $t('sections.ourMethod.slogan.2') }}</strong></span></p>
 
       <div class="container">
-        <p class="title" :class="windowIsSmall ? 'title-sm' : 'title-lg'">Our Method</p>
+        <p class="title" :class="windowIsSmall ? 'title-sm' : 'title-lg'">{{ $t('sections.ourMethod.name') }}</p>
         <div class="body-wrapper">
           <div class="body-container">
-            <p class="title-lg">We’ve worked with over 55 brands across hospitality, retail, architecture, health, fashion, and more.</p>
-            <p class="p-lg">Strategy shouldn’t be defined by industry, but by brand. Working across industries helps us avoid formulas and build strategies that are truly distinctive.</p>
+            <p class="title-lg">{{ $t('sections.ourMethod.title') }}</p>
+            <p class="p-lg">{{ $t('sections.ourMethod.subtitle') }}</p>
           </div>
 
-          <TheButton v-if="!windowIsSmall" type="negative" @click="goToContact">Have a project in mind? Let’s talk</TheButton>
+          <TheButton v-if="!windowIsSmall" type="negative" @click="goToContact">{{ $t('sections.ourMethod.button') }}</TheButton>
         </div>
       </div>
 
       
-      <h3 v-if="windowIsMedium" class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h3>
-      <h2 v-if="!windowIsMedium && !windowIsSmall" class="slogan">Because when you highlight the best of your brand… people notice.  And they buy.</h2>
+      <h3 v-if="windowIsMedium" class="slogan">{{ $t('sections.ourMethod.slogan.1') }} {{ $t('sections.ourMethod.slogan.2') }}</h3>
+      <h2 v-if="!windowIsMedium && !windowIsSmall" class="slogan">{{ $t('sections.ourMethod.slogan.1') }} {{ $t('sections.ourMethod.slogan.2') }}</h2>
     </div>
 
-    <TheButton v-if="windowIsSmall">Have a project in mind? Let’s talk</TheButton>
+    <TheButton v-if="windowIsSmall">{{ $t('sections.ourMethod.button') }}</TheButton>
   </section>
 </template>
 

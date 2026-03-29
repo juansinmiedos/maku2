@@ -2,7 +2,7 @@
   <div class="button-wrapper" :class="{ disabled: isDisabled, block: isBlock }">
     <button :class="{ negative: type === 'negative', disabled: isDisabled, block: isBlock, loading: isLoading }" :disabled="isDisabled" @click="emitsClick">
       <span v-if="!isLoading" class="text" :class="{ negative: type === 'negative' }"><slot></slot></span>
-      <span v-else class="text" :class="{ negative: type === 'negative', loading: isLoading }">Sending...</span>
+      <span v-else class="text" :class="{ negative: type === 'negative', loading: isLoading }">{{ $t('components.inputButton.sending') }}</span>
 
 
       <div aria-hidden="true" class="button_arrow_wrapper">

@@ -2,14 +2,14 @@
   <section class="projects-section">
     <div class="container">
       <div class="top">
-        <p class="title" :class="windowIsSmall ? 'title-sm' : 'title-lg'">Projects</p>
+        <p class="title" :class="windowIsSmall ? 'title-sm' : 'title-lg'">{{ $t('sections.projects.name') }}</p>
         <div class="body-wrapper">
           <div class="body-container">
-            <p class="title-lg">Most brands come with a specific need. Our role is to understand what the brand actually needs to grow.</p>
-            <p class="p-lg">That means looking beyond the initial request and building strategies that strengthen the brand, its connection with customers, and its long-term performance.</p>
+            <p class="title-lg">{{ $t('sections.projects.title') }}</p>
+            <p class="p-lg">{{ $t('sections.projects.subtitle') }}</p>
           </div>
 
-          <TheButton v-if="!windowIsSmall" @click="goToProjects">View all</TheButton>
+          <TheButton v-if="!windowIsSmall" @click="goToProjects">{{ $t('sections.projects.button') }}</TheButton>
         </div>
       </div>
 

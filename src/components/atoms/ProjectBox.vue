@@ -5,7 +5,7 @@
     </div>
 
     <div>
-      <TheButton @click="goToDetailView">Manage project</TheButton>
+      <TheButton @click="goToDetailView">{{ $t('components.projectBox') }}</TheButton>
     </div>
   </div>
 </template>

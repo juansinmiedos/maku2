@@ -4,9 +4,9 @@
       <div class="title-section">
         <div class="title-container">
           <div class="text-wrapper">
-            <p :class="windowIsSmall ? 'title-md' : 'title-lg'">Don’t wait to get noticed</p>
-            <h4 v-if="windowIsSmall">The bold ones act first.</h4>
-            <h3 v-else>The bold ones act first.</h3>
+            <p :class="windowIsSmall ? 'title-md' : 'title-lg'">{{ $t('common.dontWait') }}</p>
+            <h4 v-if="windowIsSmall">{{ $t('common.boldOnes') }}</h4>
+            <h3 v-else>{{ $t('common.boldOnes') }}</h3>
           </div>
           
           <div>
@@ -16,25 +16,25 @@
               :isSent="emailIsSent"
               @click="sendEmail"
             ></TheInputButton>
-            <p v-show="emailFieldHasError" style="font-size: 12px; margin-left: 20px; margin-top: 4px;">Escribe un correo válido</p>
+            <p v-show="emailFieldHasError" style="font-size: 12px; margin-left: 20px; margin-top: 4px;">{{ $t('footer.validMail') }}</p>
           </div>
         </div>
       </div>
 
       <div class="body-section">
         <div class="body-container">
-          <p class="uppercase text-neutral-500" :class="windowIsMedium ? 'overline-sm' : 'overline-md'">Our approach to your brand?</p>
-          <p class="title-md">Ask for a free 15-minute audit. We’ll review your current communication and tell you what’s getting in your way (and how to fix it).</p>
+          <p class="uppercase text-neutral-500" :class="windowIsMedium ? 'overline-sm' : 'overline-md'">{{ $t('footer.ourApproach') }}</p>
+          <p class="title-md">{{ $t('footer.askForAudit') }}</p>
         </div>
         <div class="body-container">
-          <p class="uppercase text-neutral-500" :class="windowIsMedium ? 'overline-sm' : 'overline-md'">Contact</p>
+          <p class="uppercase text-neutral-500" :class="windowIsMedium ? 'overline-sm' : 'overline-md'">{{ $t('footer.contact') }}</p>
           <div class="contact-details">
             <a href="mailto:michellepeniche@maku.agency">michellepeniche@maku.agency</a>
             <a href="tel:+526243200680">+52 (62) 4320 0680</a>
           </div>
         </div>
         <div class="body-container">
-          <p class="uppercase text-neutral-500" :class="windowIsMedium ? 'overline-sm' : 'overline-md'">Follow us</p>
+          <p class="uppercase text-neutral-500" :class="windowIsMedium ? 'overline-sm' : 'overline-md'">{{ $t('footer.followUs') }}</p>
           <a href="https://www.instagram.com/maku.agency" target="_blank">Instragram</a>
           <a href="https://www.tiktok.com/@maku.agency" target="_blank">Tiktok</a>
           <a href="https://www.linkedin.com/company/makuagency" target="_blank">LinkedIn</a>
@@ -51,7 +51,7 @@
         </div>
         <div class="links">
           <router-link :to="{ name: 'Legal' }" class="w-100 text-semi-bold">Legal</router-link>
-          <router-link :to="{ name: 'Privacy' }" class="w-100 text-semi-bold">Privacy Policy</router-link>
+          <router-link :to="{ name: 'Privacy' }" class="w-100 text-semi-bold">{{ $t('legal.privacy') }}</router-link>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
       <div class="bottom">
         <p>Maku Agency 2026</p>
         <router-link :to="{ name: 'Legal' }" class="w-100 text-semi-bold">Legal</router-link>
-        <router-link :to="{ name: 'Privacy' }" class="w-100 text-semi-bold">Privacy Policy</router-link>
+        <router-link :to="{ name: 'Privacy' }" class="w-100 text-semi-bold">{{ $t('legal.privacy') }}</router-link>
       </div>
     </div>
   </footer>
@@ -72,7 +72,6 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
-import TheButton from '../atoms/TheButton.vue'
 import TheInputButton from '../atoms/TheInputButton.vue'
 
 const router = useRouter()

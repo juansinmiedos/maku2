@@ -13,9 +13,9 @@
           </defs>
         </svg>
 
-        <p>Back</p>
+        <p>{{ $t('components.stepper.back') }}</p>
       </div>
-      <p v-if="modelValue <= steps" class="title-md">Step {{ modelValue }} of {{ steps }}</p>
+      <p v-if="modelValue <= steps" class="title-md">{{ $t('components.stepper.step') }} {{ modelValue }} {{ $t('components.stepper.of') }} {{ steps }}</p>
       <p v-else>Completed!</p>
     </div>
 

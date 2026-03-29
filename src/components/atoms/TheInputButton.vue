@@ -5,12 +5,12 @@
         v-if="!isLoading && !isSent"
         ref="input"
         :value="modelValue"
-        placeholder="Enter Your Email"
+        :placeholder="$t('components.inputButton.enterEmail')"
         type="email"
         @input="updateValue"
       />
-      <span class="blank" v-else-if="isLoading">Sending...</span>
-      <span class="blank" v-else-if="isSent">Thank you!</span>
+      <span class="blank" v-else-if="isLoading">{{ $t('components.inputButton.sending') }}</span>
+      <span class="blank" v-else-if="isSent">{{ $t('components.inputButton.thankYou') }}</span>
 
       <div class="button_arrow_wrapper" @click="emitsClick">
         <div class="arrow-button">

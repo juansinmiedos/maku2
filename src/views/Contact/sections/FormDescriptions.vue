@@ -1,19 +1,19 @@
 <template>
   <div v-if="step === 1" class="flex column" style="gap: 12px;">
-    <h4>The bold ones act first.</h4>
-    <p class="title-sm">Hi there! We’re excited to connect. To help us hit the ground running and tailor our strategy for maximum impact, please fill out the form below.</p>
+    <h4>{{ $t('common.boldOnes') }}</h4>
+    <p class="title-sm">{{ $t('sections.formDescriptions.1.subtitle') }}</p>
   </div>
 
-  <p v-if="step === 2" class="title-lg">How can we help your business grow?</p>
+  <p v-if="step === 2" class="title-lg">{{ $t('sections.formDescriptions.2.title') }}</p>
 
   <div v-if="step === 3" class="flex column" style="gap: 16px;">
-    <p class="title-lg">Let’s talk about numbers</p>
-    <p class="title-sm">The price of our services may vary depending on the scope of the project, so it’s important for us to understand your budget from the start.</p>
+    <p class="title-lg">{{ $t('sections.formDescriptions.3.title') }}</p>
+    <p class="title-sm">{{ $t('sections.formDescriptions.3.subtitle') }}</p>
   </div>
 
   <div v-if="step === 4" class="flex column" style="gap: 16px;">
-    <p class="title-lg">Thank you! We’ve received your information. </p>
-    <p class="title-sm">You’ll get a confirmation email shortly, and we’ll be in touch soon to continue the conversation.In the meantime, you can download our services sheet below.</p>
+    <p class="title-lg">{{ $t('sections.formDescriptions.4.title') }}</p>
+    <p class="title-sm">{{ $t('sections.formDescriptions.4.subtitle') }}</p>
   </div>
 </template>
 

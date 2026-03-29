@@ -7,23 +7,27 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+
 import AboutUsItem from './components/AboutUsItem.vue'
+
+const { t } = useI18n()
 
 const items = [
   {
-    icon: "corn",
-    title: "Grow stronger",
-    body: "Build real relationships with your audience by offering value.",
+    icon: t("sections.aboutUs.items[0].icon"),
+    title: t("sections.aboutUs.items[0].title"),
+    body: t("sections.aboutUs.items[0].body"),
   },
   {
-    icon: "bolt",
-    title: "Scale faster",
-    body: "Grow sales, expand to new markets, or launch something new",
+    icon: t("sections.aboutUs.items[1].icon"),
+    title: t("sections.aboutUs.items[1].title"),
+    body: t("sections.aboutUs.items[1].body"),
   },
   {
-    icon: "speaker",
-    title: "Speak Louder",
-    body: "Familiarize people with your brand, products, and services.",
+    icon: t("sections.aboutUs.items[2].icon"),
+    title: t("sections.aboutUs.items[2].title"),
+    body: t("sections.aboutUs.items[2].body"),
   },
 ]
 </script>

@@ -2,15 +2,15 @@
   <section class="projects-view">
     <div class="projects-view-header">
       <div class="container">
-        <p class="title-lg">Long before brands existed,<br />people left marks.</p>
+        <p class="title-lg">{{ $t("views.projects.name.1") }}<br />{{ $t("views.projects.name.2") }}</p>
 
         <div class="labels-section">
           <div class="top">
-            <h2>Our Projects</h2>
-            <h4>Our Projects</h4>
+            <h2>{{ $t("views.projects.title") }}</h2>
+            <h4>{{ $t("views.projects.title") }}</h4>
   
             <div class="labels-container">
-              <TheLabel :isActive="state.selectedCategories.length === 0" @click="state.selectedCategories = []">All</TheLabel>
+              <TheLabel :isActive="state.selectedCategories.length === 0" @click="state.selectedCategories = []">{{ $t("common.all") }}</TheLabel>
 
               <TheLabel
                 v-for="(category, i) in state.categories"
@@ -52,6 +52,7 @@
 <script setup>
 import { reactive, computed } from 'vue'
 import { useMainStore } from '@/stores/main.store'
+import { useI18n } from 'vue-i18n'
 
 import TheLabel from '@/components/atoms/TheLabel.vue'
 import ControlViewButton from './components/ControlViewButton.vue'
@@ -59,26 +60,28 @@ import ProjectsContainerGrid from './components/ProjectsContainerGrid.vue'
 import ProjectsContainerSlider from './components/ProjectsContainerSlider.vue'
 
 const store = useMainStore()
+const { t } = useI18n()
 
 const state = reactive({
   categories: [
-    "Brand Storytelling",
-    "Naming & Concept Creation",
-    "Brand Strategy",
-    "Pitch Decks",
-    "Full Brand Systems",
-    "Visual Identity Design",
-    "Brand Books",
-    "Packaging & Collaterals",
-    "Social Media Strategy",
-    "Content Creation",
-    "Creative & Digital Campaigns",
-    "AI-Driven Campaigns",
-    "Paid Advertising (Meta, Google, YouTube)",
-    "Launch Campaigns",
-    "Website & Funnel Building",
-    "UX/UI Strategy",
-    "Copywriting for Web & Digital",
+    t('sections.services.options[0].points[0]'),
+    t('sections.services.options[0].points[1]'),
+    t('sections.services.options[0].points[2]'),
+    t('sections.services.options[0].points[3]'),
+    t('sections.services.options[0].points[4]'),
+    t('sections.services.options[0].points[5]'),
+    t('sections.services.options[1].points[0]'),
+    t('sections.services.options[1].points[1]'),
+    t('sections.services.options[1].points[2]'),
+    t('sections.services.options[2].points[0]'),
+    t('sections.services.options[2].points[1]'),
+    t('sections.services.options[2].points[2]'),
+    t('sections.services.options[2].points[3]'),
+    t('sections.services.options[2].points[4]'),
+    t('sections.services.options[2].points[5]'),
+    t('sections.services.options[3].points[0]'),
+    t('sections.services.options[3].points[1]'),
+    t('sections.services.options[3].points[2]')
   ],
   selectedCategories: [],
 
