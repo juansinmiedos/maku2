@@ -56,5 +56,15 @@
     align-items: flex-start;
     gap: 64px;
     flex: 1 0 0;
+
+    & .subtitle {
+      text-transform: uppercase;
+      font-weight: $semi-bold;
+    }
+
+    & a {
+      font-weight: $semi-bold;
+      color: $surface-black;
+    }
   }
 }

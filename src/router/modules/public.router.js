@@ -6,6 +6,7 @@ const loadProjectDetailView = () => () => import(`../../views/ProjectDetail/Proj
 const loadContactView = () => () => import(`../../views/Contact/ContactView.vue`)
 const loadLegalView = () => () => import(`../../views/LegalView.vue`)
 const loadPrivcyView = () => () => import(`../../views/PrivacyView.vue`)
+const loadCookieView = () => () => import(`../../views/CookieView.vue`)
 
 export default [
   {
@@ -48,6 +49,11 @@ export default [
         path: "privacy",
         name: "Privacy",
         component: loadPrivcyView()
+      },
+      {
+        path: "cookie",
+        name: "Cookie",
+        component: loadCookieView()
       },
     ],
   },
