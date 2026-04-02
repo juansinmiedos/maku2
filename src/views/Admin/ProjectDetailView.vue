@@ -63,8 +63,15 @@
         <!-- <TheImageLoader v-else v-model:file="state.mainImageFile" id="mainFile" /> -->
       </div>
 
-      <div>
-        secondary images section
+      <div class="images-container">
+        <h4>Project images</h4>
+        
+        <div class="flex wrap" style="gap: 12px;">
+          <div v-for="(url, i) in state.images" :key="i">
+            <TheImagePreview :url="url" />
+          </div>
+          <!-- <TheImageLoader v-model:file="state.secondaryFile" @update:file="processSecondaryImages" id="secondaryFiles" /> -->
+        </div>
       </div>
 
       <div class="w-100 flex justify-end">
@@ -98,6 +105,7 @@ const state = reactive({
   year: "",
   relatedProject: "",
   imageUrl: "",
+  images: [],
   relatedProjects: [],
 
   // categories
@@ -114,6 +122,7 @@ async function getProjectDetails() {
     state.place = projectData.place
     state.year = projectData.year
     state.imageUrl = projectData.imageUrl
+    state.images = projectData.images
     state.relatedProjects = projectData.relatedProjects
 
     console.log(projectData)

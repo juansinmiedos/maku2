@@ -153,7 +153,9 @@ async function saveProject() {
     // categories
     formData.append("place", state.place)
     formData.append("year", state.year)
-    // images,
+    state.secondaryImagesFiles.forEach(file => {
+      formData.append("images", file)
+    })
     formData.append("relatedProjects", state.relatedProjects.map(rp => rp.id))
 
     const project = await store.createProject(formData)
