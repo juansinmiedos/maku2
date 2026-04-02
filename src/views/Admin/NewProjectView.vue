@@ -143,29 +143,20 @@ function deleteSecondaryImage(index) {
   state.secondaryImagesFiles.splice(index, 1)
 }
 
-function fileToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = () => resolve(reader.result)
-    reader.onerror = error => reject(error)
-  })
-}
-
 async function saveProject() {
   try {
     state.loading = true
-    const mainImage = await fileToBase64(state.mainImageFile)
-    const body = {
-      title: state.title,
-      mainImage,
-      // categories
-      place: state.place,
-      year: state.year,
-      // images,
-      relatedProjects: state.relatedProjects.map(rp => rp.id)
-    }
-    const project = await store.createProject(body)
+    const formData = new FormData()
+
+    formData.append("title", state.title)
+    formData.append("mainImage", state.mainImageFile)
+    // categories
+    formData.append("place", state.place)
+    formData.append("year", state.year)
+    // images,
+    formData.append("relatedProjects", state.relatedProjects.map(rp => rp.id))
+
+    const project = await store.createProject(formData)
     router.push({ name: "AdminProjectDetail", params: { name: project.name } })
   } catch (error) {
     //
