@@ -1,7 +1,7 @@
 <template>
   <section class="admin-projects-view">
     <div class="flex justify-space-between">
-      <h2>Project Details</h2>
+      <h2><span @click="goToProjects" style="cursor: pointer;">Projects</span> > Project Details</h2>
 
       <div>
         <TheButton :isLoading="state.loadingDelete" @click="deleteProject">Eliminar projecto</TheButton>
@@ -57,8 +57,10 @@
         </div>
       </div>
 
-      <div>
-        main image section
+      <div class="images-container">
+        <h4>Main image</h4>
+        <TheImagePreview v-if="state.imageUrl" :url="state.imageUrl" />
+        <!-- <TheImageLoader v-else v-model:file="state.mainImageFile" id="mainFile" /> -->
       </div>
 
       <div>
@@ -80,6 +82,7 @@ import { useRoute, useRouter } from 'vue-router'
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheDropdown from '@/components/atoms/TheDropdown.vue'
 import TheLabel from '@/components/atoms/TheLabel.vue'
+import TheImagePreview from '@/components/atoms/TheImagePreview.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
 const store = useMainStore()
@@ -94,6 +97,7 @@ const state = reactive({
   place: "",
   year: "",
   relatedProject: "",
+  imageUrl: "",
   relatedProjects: [],
 
   // categories
@@ -109,6 +113,7 @@ async function getProjectDetails() {
     state.title = projectData.title
     state.place = projectData.place
     state.year = projectData.year
+    state.imageUrl = projectData.imageUrl
     state.relatedProjects = projectData.relatedProjects
 
     console.log(projectData)
@@ -117,11 +122,15 @@ async function getProjectDetails() {
   }
 }
 
+function goToProjects() {
+  router.push({ name: "AdminProjects" })
+}
+
 async function deleteProject() {
   try {
     state.loading = true
     await store.deleteProject(state._id)
-    router.push({ name: "AdminProjects" })
+    goToProjects()
   } catch(error) {
     //
   } finally {

@@ -2,6 +2,9 @@
   <div v-if="file" class="image-preview" :style="`background: no-repeat center / cover url(${src});`">
     <div class="close" @click="deleteFile">&times;</div>
   </div>
+  <div v-else-if="url" class="image-preview" :style="`background: no-repeat center / cover url(${url});`">
+    <div class="close" @click="deleteFile">&times;</div>
+  </div>
 </template>
 
 <script setup>
@@ -11,6 +14,7 @@ const emit = defineEmits([ "update:file" ])
 
 const props = defineProps({
   file: File,
+  url: String,
 })
 
 const src = computed(() => URL.createObjectURL(props.file))
