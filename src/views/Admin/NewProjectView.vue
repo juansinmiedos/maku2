@@ -1,6 +1,6 @@
 <template>
   <section class="admin-projects-view">
-    <h2>New Project</h2>
+    <h2><span @click="goToProjects" style="cursor: pointer;">Projects</span> > New Project</h2>
 
     <div class="w-100 flex column" style="gap: 24px;">
       <div class="flex" style="gap: 12px;">
@@ -71,7 +71,7 @@
       </div>
 
       <div class="w-100 flex justify-end">
-        <TheButton :isLoading="state.loading" @click="saveProject">Save project</TheButton>
+        <TheButton :isDisabled="buttonIsDisabled" :isLoading="state.loading" @click="saveProject">Save project</TheButton>
       </div>
     </div>
   </section>
@@ -118,8 +118,21 @@ const relatedProjectsOptions = computed(() => store.state.projects.filter(projec
     value: project._id
   }
 }))
+const buttonIsDisabled = computed(() => {
+  return (
+    state.title === "" ||
+    state.place === "" ||
+    state.year === "" ||
+    state.mainImageFile === null ||
+    state.secondaryImagesFiles.length === 0
+  )
+})
 
 onMounted(() => store.getProjects())
+
+function goToProjects() {
+  router.push({ name: "AdminProjects" })
+}
 
 function addSelectedProject(id) {
   const title = store.state.projects.find(project => project._id === id).title

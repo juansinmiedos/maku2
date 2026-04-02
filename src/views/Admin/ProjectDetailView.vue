@@ -107,7 +107,6 @@ const state = reactive({
   imageUrl: "",
   images: [],
   relatedProjects: [],
-
   // categories
 })
 
@@ -124,8 +123,6 @@ async function getProjectDetails() {
     state.imageUrl = projectData.imageUrl
     state.images = projectData.images
     state.relatedProjects = projectData.relatedProjects
-
-    console.log(projectData)
   } catch(error) {
     // do something
   }
