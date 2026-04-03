@@ -52,6 +52,7 @@
         <div class="links">
           <router-link :to="{ name: 'Legal' }" class="w-100 text-semi-bold">Legal</router-link>
           <router-link :to="{ name: 'Privacy' }" class="w-100 text-semi-bold">{{ $t('legal.privacy.title') }}</router-link>
+          <router-link :to="{ name: 'Cookie' }" class="w-100 text-semi-bold">{{ $t('legal.cookie.title') }}</router-link>
         </div>
       </div>
     </div>
@@ -63,6 +64,7 @@
         <p>Maku Agency 2026</p>
         <router-link :to="{ name: 'Legal' }" class="w-100 text-semi-bold">Legal</router-link>
         <router-link :to="{ name: 'Privacy' }" class="w-100 text-semi-bold">{{ $t('legal.privacy.title') }}</router-link>
+        <router-link :to="{ name: 'Cookie' }" class="w-100 text-semi-bold">{{ $t('legal.cookie.title') }}</router-link>
       </div>
     </div>
   </footer>
