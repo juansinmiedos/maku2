@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-section">
+  <section class="login-section">
     <div class="box">
       <p class="title-lg">Log in</p>
       
@@ -23,6 +23,10 @@
 
       <TheButton :isLoading="state.loading" @click="logIn">Iniciar sesión</TheButton>
     </div>
+
+    <section class="empty-admin-projects-view">
+      <span>For a better experience, open this in a larger screen</span>
+    </section>
   </section>
 </template>
 

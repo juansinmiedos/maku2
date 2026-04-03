@@ -79,6 +79,9 @@
       </div>
     </div>
   </section>
+  <section class="empty-admin-projects-view">
+    <span>For a better experience, open this in a larger screen</span>
+  </section>
 </template>
 
 <script setup>
