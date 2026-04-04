@@ -69,7 +69,6 @@ const state = reactive({
     computed(() => t('sections.services.options[0].points[2]')),
     computed(() => t('sections.services.options[0].points[3]')),
     computed(() => t('sections.services.options[0].points[4]')),
-    computed(() => t('sections.services.options[0].points[5]')),
     computed(() => t('sections.services.options[1].points[0]')),
     computed(() => t('sections.services.options[1].points[1]')),
     computed(() => t('sections.services.options[1].points[2]')),

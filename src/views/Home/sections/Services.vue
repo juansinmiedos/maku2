@@ -33,7 +33,6 @@ const services = [
       computed(() => t('sections.services.options[0].points[2]')),
       computed(() => t('sections.services.options[0].points[3]')),
       computed(() => t('sections.services.options[0].points[4]')),
-      computed(() => t('sections.services.options[0].points[5]')),
     ],
   },
   {
