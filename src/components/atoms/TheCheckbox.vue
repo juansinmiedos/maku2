@@ -5,6 +5,7 @@
         ref="input"
         :checked="modelValue"
         :name="name"
+        :id="name"
         type="checkbox"
         @input="updateValue"
       />
