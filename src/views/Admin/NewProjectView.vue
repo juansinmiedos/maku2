@@ -53,6 +53,122 @@
         </div>
       </div>
 
+      <div class="flex column" style="gap: 12px;">
+        <h4>Categories</h4>
+
+        <div class="w-100 flex column" style="gap: 8px;">
+          <div class="w-100 flex" style="gap: 10px;">
+            <TheCheckbox
+              v-model="state.categories['brand.story']"
+              label="Brand Storytelling"
+              name="brand.story"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['brand.naming']"
+              label="Naming & Concept Creation"
+              name="brand.naming"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['brand.strategy']"
+              label="Brand Strategy"
+              name="brand.strategy"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['brand.pitch']"
+              label="Pitch Decks"
+              name="brand.pitch"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['brand.systems']"
+              label="Full Brand Systems"
+              name="brand.systems"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['identity.visual']"
+              label="Visual Identity Design"
+              name="identity.visual"
+            />
+          </div>
+
+          <div class="w-100 flex" style="gap: 10px;">
+            <TheCheckbox
+              v-model="state.categories['identity.books']"
+              label="Brand Books"
+              name="identity.books"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['identity.packaging']"
+              label="Packaging & Collaterals"
+              name="identity.packaging"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.social']"
+              label="Social Media Strategy"
+              name="marketing.social"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.content']"
+              label="Content Creation"
+              name="marketing.content"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.campaigns']"
+              label="Creative & Digital Campaigns"
+              name="marketing.campaigns"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.ai']"
+              label="AI-Driven Campaigns"
+              name="marketing.ai"
+            />
+          </div>
+          
+          <div class="w-100 flex" style="gap: 10px;">
+            <TheCheckbox
+              v-model="state.categories['marketing.ads']"
+              label="Paid Advertising (Meta, Google, YouTube)"
+              name="marketing.ads"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.launch']"
+              label="Launch Campaigns"
+              name="marketing.launch"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['conversion.website']"
+              label="Website & Funnel Building"
+              name="conversion.website"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['conversion.ux']"
+              label="UX/UI Strategy"
+              name="conversion.ux"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['conversion.copywriting']"
+              label="Copywriting for Web & Digital"
+              name="conversion.copywriting"
+            />
+
+            <div style="display: flex; padding: 12px 20px; flex: 1 0 0;"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="images-container">
         <h4>Main image</h4>
         <TheImagePreview v-if="state.mainImageFile" v-model:file="state.mainImageFile" />
@@ -88,6 +204,7 @@ import { useRouter } from 'vue-router'
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheDropdown from '@/components/atoms/TheDropdown.vue'
 import TheLabel from '@/components/atoms/TheLabel.vue'
+import TheCheckbox from '@/components/atoms/TheCheckbox.vue'
 import TheImageLoader from '@/components/atoms/TheImageLoader.vue'
 import TheImagePreview from '@/components/atoms/TheImagePreview.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
@@ -104,7 +221,25 @@ const state = reactive({
   relatedProject: "",
   relatedProjects: [],
 
-  // categories
+  categories: {
+    "brand.story": false,
+    "brand.naming": false,
+    "brand.strategy": false,
+    "brand.pitch": false,
+    "brand.systems": false,
+    "identity.visual": false,
+    "identity.books": false,
+    "identity.packaging": false,
+    "marketing.social": false,
+    "marketing.content": false,
+    "marketing.campaigns": false,
+    "marketing.ai": false,
+    "marketing.ads": false,
+    "marketing.launch": false,
+    "conversion.website": false,
+    "conversion.ux": false,
+    "conversion.copywriting": false,
+  },
 
   mainImageFile: null,
 
@@ -165,14 +300,18 @@ async function saveProject() {
     const formData = new FormData()
 
     formData.append("title", state.title)
-    formData.append("mainImage", state.mainImageFile)
-    // categories
     formData.append("place", state.place)
     formData.append("year", state.year)
+    formData.append("relatedProjects", state.relatedProjects.map(rp => rp.id))
+    for (let key in state.categories) {
+      if (state.categories[key]) {
+        formData.append("categories", key)
+      }
+    }
+    formData.append("mainImage", state.mainImageFile)
     state.secondaryImagesFiles.forEach(file => {
       formData.append("images", file)
     })
-    formData.append("relatedProjects", state.relatedProjects.map(rp => rp.id))
 
     const project = await store.createProject(formData)
     router.push({ name: "AdminProjectDetail", params: { name: project.name } })
