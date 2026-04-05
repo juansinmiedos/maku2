@@ -39,7 +39,7 @@ const props = defineProps({
 })
 
 function emitsClick(e) {
-  if (!props.isDisabled) {
+  if (!props.isDisabled && !props.isLoading) {
     emit("click", e)
   }
 }
