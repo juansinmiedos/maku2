@@ -35,10 +35,12 @@
         />
 
         <TheDropdown
-          v-model="state.relatedProjects"
+          v-model="state.relatedProject"
           label="Related projects (max. 3)"
           name="relatedProjects"
-          :options="state.relatedProjectsOption"
+          :options="relatedProjectsOptions"
+          :isDisabled="state.relatedProjects.length === 3"
+          @update:modelValue="addSelectedProject"
         />
       </div>
 
@@ -54,6 +56,122 @@
             isActive
             @click="removeProject(project.id)"
           >{{ project.title }}</TheLabel>
+        </div>
+      </div>
+
+      <div class="flex column" style="gap: 12px;">
+        <h4>Categories</h4>
+
+        <div class="w-100 flex column" style="gap: 8px;">
+          <div class="w-100 flex" style="gap: 10px;">
+            <TheCheckbox
+              v-model="state.categories['brand.story']"
+              label="Brand Storytelling"
+              name="brand.story"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['brand.naming']"
+              label="Naming & Concept Creation"
+              name="brand.naming"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['brand.strategy']"
+              label="Brand Strategy"
+              name="brand.strategy"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['brand.pitch']"
+              label="Pitch Decks"
+              name="brand.pitch"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['brand.systems']"
+              label="Full Brand Systems"
+              name="brand.systems"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['identity.visual']"
+              label="Visual Identity Design"
+              name="identity.visual"
+            />
+          </div>
+
+          <div class="w-100 flex" style="gap: 10px;">
+            <TheCheckbox
+              v-model="state.categories['identity.books']"
+              label="Brand Books"
+              name="identity.books"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['identity.packaging']"
+              label="Packaging & Collaterals"
+              name="identity.packaging"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.social']"
+              label="Social Media Strategy"
+              name="marketing.social"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.content']"
+              label="Content Creation"
+              name="marketing.content"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.campaigns']"
+              label="Creative & Digital Campaigns"
+              name="marketing.campaigns"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.ai']"
+              label="AI-Driven Campaigns"
+              name="marketing.ai"
+            />
+          </div>
+          
+          <div class="w-100 flex" style="gap: 10px;">
+            <TheCheckbox
+              v-model="state.categories['marketing.ads']"
+              label="Paid Advertising (Meta, Google, YouTube)"
+              name="marketing.ads"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['marketing.launch']"
+              label="Launch Campaigns"
+              name="marketing.launch"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['conversion.website']"
+              label="Website & Funnel Building"
+              name="conversion.website"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['conversion.ux']"
+              label="UX/UI Strategy"
+              name="conversion.ux"
+            />
+
+            <TheCheckbox
+              v-model="state.categories['conversion.copywriting']"
+              label="Copywriting for Web & Digital"
+              name="conversion.copywriting"
+            />
+
+            <div style="display: flex; padding: 12px 20px; flex: 1 0 0;"></div>
+          </div>
         </div>
       </div>
 
@@ -75,7 +193,7 @@
       </div>
 
       <div class="w-100 flex justify-end">
-        <TheButton>Save project</TheButton>
+        <TheButton :isDisabled="buttonIsDisabled" :isLoading="state.loadingUpdate" @click="updateProject">Update project</TheButton>
       </div>
     </div>
   </section>
@@ -85,13 +203,15 @@
 </template>
 
 <script setup>
-import { reactive, onMounted } from 'vue'
+import { reactive, computed, onMounted } from 'vue'
 import { useMainStore } from '@/stores/main.store'
 import { useRoute, useRouter } from 'vue-router'
 
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheDropdown from '@/components/atoms/TheDropdown.vue'
 import TheLabel from '@/components/atoms/TheLabel.vue'
+import TheCheckbox from '@/components/atoms/TheCheckbox.vue'
+import TheImageLoader from '@/components/atoms/TheImageLoader.vue'
 import TheImagePreview from '@/components/atoms/TheImagePreview.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
@@ -100,20 +220,62 @@ const route = useRoute()
 const router = useRouter()
 
 const state = reactive({
-  loadingDelete: false, 
+  loadingDelete: false,
+  loadingUpdate: false,
 
   _id: "",
   title: "",
   place: "",
   year: "",
-  relatedProject: "",
   imageUrl: "",
   images: [],
+  relatedProject: "",
   relatedProjects: [],
-  // categories
+  
+  categories: {
+    "brand.story": false,
+    "brand.naming": false,
+    "brand.strategy": false,
+    "brand.pitch": false,
+    "brand.systems": false,
+    "identity.visual": false,
+    "identity.books": false,
+    "identity.packaging": false,
+    "marketing.social": false,
+    "marketing.content": false,
+    "marketing.campaigns": false,
+    "marketing.ai": false,
+    "marketing.ads": false,
+    "marketing.launch": false,
+    "conversion.website": false,
+    "conversion.ux": false,
+    "conversion.copywriting": false,
+  },
 })
 
-onMounted(() => getProjectDetails())
+const relatedProjectsOptions = computed(() => store.state.projects.filter(project => {
+  const rp = state.relatedProjects.find(rp => rp.id === project._id)
+  return rp === undefined
+}).map(project => {
+  return {
+    text: project.title,
+    value: project._id
+  }
+}))
+const buttonIsDisabled = computed(() => {
+  return (
+    state.title === "" ||
+    state.place === "" ||
+    state.year === ""
+    // state.mainImageFile === null ||
+    // state.secondaryImagesFiles.length === 0
+  )
+})
+
+onMounted(() => {
+  store.getProjects()
+  getProjectDetails()
+})
 
 async function getProjectDetails() {
   try {
@@ -123,9 +285,17 @@ async function getProjectDetails() {
     state.title = projectData.title
     state.place = projectData.place
     state.year = projectData.year
+    state.relatedProjects = projectData.relatedProjects.map(rp => {
+      return {
+        id: rp._id,
+        title: rp.title
+      }
+    })
+    projectData.categories.forEach(category => {
+      state.categories[category] = true
+    })
     state.imageUrl = projectData.imageUrl
     state.images = projectData.images
-    state.relatedProjects = projectData.relatedProjects
   } catch(error) {
     // do something
   }
@@ -135,15 +305,40 @@ function goToProjects() {
   router.push({ name: "AdminProjects" })
 }
 
+function addSelectedProject(id) {
+  const title = store.state.projects.find(project => project._id === id).title
+  state.relatedProjects.push({
+    id,
+    title,
+  })
+  state.relatedProject = ""
+}
+
+function removeProject(id) {
+  state.relatedProjects = state.relatedProjects.filter(project => project.id !== id)
+}
+
 async function deleteProject() {
   try {
-    state.loading = true
+    state.loadingDelete = true
     await store.deleteProject(state._id)
     goToProjects()
   } catch(error) {
     //
   } finally {
-    state.loading = false
+    state.loadingDelete = false
+  }
+}
+
+async function updateProject() {
+  try {
+    state.loadingUpdate = true
+    // await store.deleteProject(state._id)
+    goToProjects()
+  } catch(error) {
+    //
+  } finally {
+    state.loadingUpdate = false
   }
 }
 </script>
