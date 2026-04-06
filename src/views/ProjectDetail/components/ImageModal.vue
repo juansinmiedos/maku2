@@ -6,7 +6,7 @@
         ref="image"
         :src="media.url"
         :class="{ active: show }"
-        @load="fitImage"
+        @load="fitMedia"
         @click.stop
       />
       <video
@@ -16,6 +16,7 @@
         controls
         autoplay
         :class="{ active: show }"
+        @loadedmetadata="fitMedia"
         @click.stop
       />
     </div>
@@ -36,32 +37,40 @@ const props = defineProps({
   media: Object,
 })
 
-onMounted(() => window.addEventListener("resize", fitImage))
-onUnmounted(() => window.removeEventListener("resize", fitImage))
+onMounted(() => window.addEventListener("resize", fitMedia))
+onUnmounted(() => window.removeEventListener("resize", fitMedia))
 
-const fitImage = async () => {
-  await nextTick();
+const fitMedia = async () => {
+  await nextTick()
 
-  if (!props.media?.type || props.media.type !== "image") return;
+  const container = box.value
+  if (!container) return
 
-  const img = image.value;
-  const container = box.value;
+  let mediaEl = null
+  let mediaRatio = 1
 
-  if (!img || !container) return;
+  if (props.media?.type === "image" && image.value) {
+    mediaEl = image.value
+    mediaRatio = mediaEl.naturalWidth / mediaEl.naturalHeight
+  }
+
+  if (props.media?.type === "video" && video.value) {
+    mediaEl = video.value
+    mediaRatio = mediaEl.videoWidth / mediaEl.videoHeight
+  }
+
+  if (!mediaEl) return
 
   const containerRatio =
-    container.clientWidth / container.clientHeight;
+    container.clientWidth / container.clientHeight
 
-  const imageRatio =
-    img.naturalWidth / img.naturalHeight;
+  mediaEl.style.width = "auto"
+  mediaEl.style.height = "auto"
 
-  img.style.width = "auto";
-  img.style.height = "auto";
-
-  if (imageRatio > containerRatio) {
-    img.style.width = "100%";
+  if (mediaRatio > containerRatio) {
+    mediaEl.style.width = "100%"
   } else {
-    img.style.height = "100%";
+    mediaEl.style.height = "100%"
   }
 }
 
@@ -80,12 +89,13 @@ function next() {
 }
 
 function clearAndCloseModal() {
-  if (video.value) {
-    video.value.pause()
-    video.value.currentTime = 0
-  }
-
   emit("update:show", false)
-  setTimeout(() => emit("update:media", null), 200)
+  setTimeout(() => {
+    if (video.value) {
+      video.value.pause()
+      video.value.currentTime = 0
+    }
+    emit("update:media", null)
+  }, 200)
 }
 </script>
