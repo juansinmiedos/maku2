@@ -67,8 +67,8 @@
         <h4>Project images</h4>
         
         <div class="flex wrap" style="gap: 12px;">
-          <div v-for="(url, i) in state.images" :key="i">
-            <TheImagePreview :url="url" />
+          <div v-for="(image, i) in state.images" :key="i">
+            <TheImagePreview :url="image.thumbnail ? image.thumbnail : image.url" />
           </div>
           <!-- <TheImageLoader v-model:file="state.secondaryFile" @update:file="processSecondaryImages" id="secondaryFiles" /> -->
         </div>

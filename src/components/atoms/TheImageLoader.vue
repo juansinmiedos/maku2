@@ -6,7 +6,7 @@
       type="file"
       ref="imageloader"
       class="input"
-      accept=".jpg, .jpeg, .png"
+      accept=".jpg, .jpeg, .png, .mp4"
       @input="updateValue"
     />
     <label :for="id">
