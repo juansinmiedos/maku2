@@ -37,8 +37,8 @@
     </div>
 
     <section class="images-section">
-      <div v-for="(url, i) in state.projectData.images" :key="i">
-        <img class="image" :src="url" @click="openImageModal(url)" />
+      <div v-for="(image, i) in state.projectData.images" :key="i">
+        <img class="image" :src="image.thumbnail ? image.thumbnail : image.url" @click="openImageModal(image.url)" />
       </div>
     </section>
 
@@ -83,7 +83,7 @@ onMounted(() => {
 })
 
 function resizeController() {
-  const filteredProducts = store.state.projects.filter(project => project.name !== route.params.id)
+  const filteredProducts = state.projectData.relatedProjects
   if (window.innerWidth > 830) {
     state.relatedProducts = filteredProducts
   } else {
@@ -96,6 +96,7 @@ async function getProjectDetails() {
     const projectName = route.params.name
     const res = await store.getProjectDetails(projectName)
     state.projectData = res
+    resizeController()
   } catch(error) {
     // do something
   }
