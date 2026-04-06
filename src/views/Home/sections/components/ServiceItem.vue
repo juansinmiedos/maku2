@@ -2,7 +2,7 @@
   <div class="service-item">
     <h4 v-if="windowIsSmall" style="line-height: normal;">{{ data.title }}</h4>
     <h3 v-else>{{ data.title }}</h3>
-    <p :class="windowIsSmall || windowIsMedium ? 'p-md' : 'p-lg'" v-for="(point, i) in data.points" :key="i">{{ point }}</p>
+    <p :class="windowIsSmall || windowIsMedium ? 'p-md' : 'p-lg'" v-for="(point, i) in data.points" :key="i">{{ $t(point) }}</p>
   </div>
 </template>
 

@@ -18,7 +18,7 @@
                 :key="i"
                 :value="category"
                 isActive
-              >{{ category }}</TheLabel>
+              >{{ $t(category) }}</TheLabel>
             </div>
           </div>
 

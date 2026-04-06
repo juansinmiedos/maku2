@@ -232,5 +232,30 @@
       },
       "title": "Our Projects"
     }
+  },
+  "brand": {
+    "story": "Brand Storytelling",
+    "naming": "Naming & Concept Creation",
+    "strategy": "Brand Strategy",
+    "pitch": "Pitch Decks",
+    "systems": "Full Brand Systems"
+  },
+  "identity": {
+    "visual": "Visual Identity Design",
+    "books": "Brand Books",
+    "packaging": "Packaging & Collaterals"
+  },
+  "marketing": {
+    "social": "Social Media Strategy",
+    "content": "Content Creation",
+    "campaigns": "Creative & Digital Campaigns",
+    "ai": "AI-Driven Campaigns",
+    "ads": "Paid Advertising (Meta, Google, YouTube)",
+    "launch": "Launch Campaigns"
+  },
+  "conversion": {
+    "website": "Website & Funnel Building",
+    "ux": "UX/UI Strategy",
+    "copywriting": "Copywriting for Web & Digital"
   }
 }

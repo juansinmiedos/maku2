@@ -18,7 +18,7 @@
                 :value="category"
                 :isActive="state.selectedCategories.includes(category)"
                 @click="toggleCatSelection"
-              >{{ category }}</TheLabel>
+              >{{ $t(category) }}</TheLabel>
             </div>
           </div>
 
@@ -41,7 +41,7 @@
         :value="category"
         :isActive="state.selectedCategories.includes(category)"
         @click="toggleCatSelection"
-      >{{ category }}</TheLabel>
+      >{{ $t(category) }}</TheLabel>
     </div>
 
     <ProjectsContainerGrid v-if="state.controlViewButton === 'multiple'" :projects="filteredProjects" />
@@ -52,7 +52,6 @@
 <script setup>
 import { reactive, computed } from 'vue'
 import { useMainStore } from '@/stores/main.store'
-import { useI18n } from 'vue-i18n'
 
 import TheLabel from '@/components/atoms/TheLabel.vue'
 import ControlViewButton from './components/ControlViewButton.vue'
@@ -60,27 +59,26 @@ import ProjectsContainerGrid from './components/ProjectsContainerGrid.vue'
 import ProjectsContainerSlider from './components/ProjectsContainerSlider.vue'
 
 const store = useMainStore()
-const { t } = useI18n()
 
 const state = reactive({
   categories: [
-    computed(() => t('sections.services.options[0].points[0]')),
-    computed(() => t('sections.services.options[0].points[1]')),
-    computed(() => t('sections.services.options[0].points[2]')),
-    computed(() => t('sections.services.options[0].points[3]')),
-    computed(() => t('sections.services.options[0].points[4]')),
-    computed(() => t('sections.services.options[1].points[0]')),
-    computed(() => t('sections.services.options[1].points[1]')),
-    computed(() => t('sections.services.options[1].points[2]')),
-    computed(() => t('sections.services.options[2].points[0]')),
-    computed(() => t('sections.services.options[2].points[1]')),
-    computed(() => t('sections.services.options[2].points[2]')),
-    computed(() => t('sections.services.options[2].points[3]')),
-    computed(() => t('sections.services.options[2].points[4]')),
-    computed(() => t('sections.services.options[2].points[5]')),
-    computed(() => t('sections.services.options[3].points[0]')),
-    computed(() => t('sections.services.options[3].points[1]')),
-    computed(() => t('sections.services.options[3].points[2]')),
+    'brand.story',
+    'brand.naming',
+    'brand.strategy',
+    'brand.pitch',
+    'brand.systems',
+    'identity.visual',
+    'identity.books',
+    'identity.packaging',
+    'marketing.social',
+    'marketing.content',
+    'marketing.campaigns',
+    'marketing.ai',
+    'marketing.ads',
+    'marketing.launch',
+    'conversion.website',
+    'conversion.ux',
+    'conversion.copywriting',
   ],
   selectedCategories: [],
 

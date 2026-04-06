@@ -232,5 +232,30 @@
       },
       "title": "Nuestros proyectos"
     }
+  },
+  "brand": {
+    "story": "Narrativa de marca",
+    "naming": "Naming y creación de concepto",
+    "strategy": "Estrategia de marca",
+    "pitch": "Pitch decks",
+    "systems": "Sistemas completos de marca"
+  },
+  "identity": {
+    "visual": "Diseño de identidad visual",
+    "books": "Manual de marca",
+    "packaging": "Empaque y materiales"
+  },
+  "marketing": {
+    "social": "Estrategia de redes sociales",
+    "content": "Creación de contenido",
+    "campaigns": "Campañas creativas y digitales",
+    "ai": "Campañas impulsadas por IA",
+    "ads": "Publicidad pagada (Meta, Google, YouTube)",
+    "launch": "Campañas de lanzamiento"
+  },
+  "conversion": {
+    "website": "Desarrollo de sitios web y embudos",
+    "ux": "Estrategia UX/UI",
+    "copywriting": "Copywriting para web y digital"
   }
 }
