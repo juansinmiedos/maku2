@@ -37,12 +37,12 @@
     </div>
 
     <section class="images-section">
-      <div v-for="(image, i) in state.projectData.images" :key="i">
-        <img class="image" :src="image.thumbnail ? image.thumbnail : image.url" @click="openImageModal(image.url)" />
+      <div v-for="(media, i) in state.projectData.images" :key="i">
+        <img class="image" :src="media.thumbnail ? media.thumbnail : media.url" @click="openImageModal(media)" />
       </div>
     </section>
 
-    <ImageModal v-model:show="state.imageModal" v-model:url="state.selectedImageUrl" />
+    <ImageModal v-model:show="state.imageModal" v-model:media="state.selectedMedia" />
 
     <section class="related-projects">
       <p class="title-lg">More Projects</p>
@@ -71,7 +71,7 @@ const store = useMainStore()
 
 const state = reactive({
   imageModal: false,
-  selectedImageUrl: "",
+  selectedMedia: {},
   projectData: {},
   relatedProducts: [],
 })
@@ -102,8 +102,8 @@ async function getProjectDetails() {
   }
 }
 
-function openImageModal(url) {
-  state.selectedImageUrl = url
+function openImageModal(media) {
+  state.selectedMedia = media
   state.imageModal = true
 }
 
