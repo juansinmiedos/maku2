@@ -177,18 +177,22 @@
 
       <div class="images-container">
         <h4>Main image</h4>
-        <TheImagePreview v-if="state.imageUrl" :url="state.imageUrl" />
-        <!-- <TheImageLoader v-else v-model:file="state.mainImageFile" id="mainFile" /> -->
+        <TheImagePreview v-if="state.imageUrl" :url="state.imageUrl" @update:url="deleteMainImage" />
+        <TheImagePreview v-else-if="state.mainImageFile" v-model:file="state.mainImageFile" />
+        <TheImageLoader v-else v-model:file="state.mainImageFile" id="mainFile" />
       </div>
 
       <div class="images-container">
         <h4>Project images</h4>
         
         <div class="flex wrap" style="gap: 12px;">
-          <div v-for="(image, i) in state.images" :key="i">
-            <TheImagePreview :url="image.thumbnail ? image.thumbnail : image.url" />
+          <div v-for="(image, i) in state.images" :key="image.url">
+            <TheImagePreview :url="image.thumbnail ? image.thumbnail : image.url" @update:file="deleteSecondaryImageUrl(i)" />
           </div>
-          <!-- <TheImageLoader v-model:file="state.secondaryFile" @update:file="processSecondaryImages" id="secondaryFiles" /> -->
+          <div v-for="(file, i) in state.secondaryImagesFiles" :key="file">
+            <TheImagePreview :file="file" @update:file="deleteSecondaryImageFile(i)" />
+          </div>
+          <TheImageLoader v-model:file="state.secondaryFile" @update:file="processSecondaryImages" id="secondaryFiles" />
         </div>
       </div>
 
@@ -251,6 +255,11 @@ const state = reactive({
     "conversion.ux": false,
     "conversion.copywriting": false,
   },
+
+  mainImageFile: null,
+  secondaryFile: null,
+  secondaryImagesFiles: [],
+  filesToDelete: [],
 })
 
 const relatedProjectsOptions = computed(() => store.state.projects.filter(project => {
@@ -269,6 +278,7 @@ const buttonIsDisabled = computed(() => {
     state.year === ""
     // state.mainImageFile === null ||
     // state.secondaryImagesFiles.length === 0
+    // si no tengo url principal, debo tener mainfile
   )
 })
 
@@ -318,6 +328,25 @@ function removeProject(id) {
   state.relatedProjects = state.relatedProjects.filter(project => project.id !== id)
 }
 
+function deleteMainImage() {
+  state.filesToDelete.push(state.imageUrl)
+  state.imageUrl = ""
+}
+
+function processSecondaryImages(e) {
+  state.secondaryImagesFiles.push(e)
+  state.secondaryFile = null
+}
+
+function deleteSecondaryImageUrl(index) {
+  const deletedElement = state.images.splice(index, 1)
+  state.filesToDelete.push(deletedElement[0].url)
+}
+
+function deleteSecondaryImageFile(index) {
+  state.secondaryImagesFiles.splice(index, 1)
+}
+
 async function deleteProject() {
   try {
     state.loadingDelete = true
@@ -333,7 +362,31 @@ async function deleteProject() {
 async function updateProject() {
   try {
     state.loadingUpdate = true
-    // await store.deleteProject(state._id)
+    const formData = new FormData()
+    formData.append("title", state.title)
+    formData.append("place", state.place)
+    formData.append("year", state.year)
+    formData.append("relatedProjects", state.relatedProjects.map(rp => rp.id))
+    for (let key in state.categories) {
+      if (state.categories[key]) {
+        formData.append("categories", key)
+      }
+    }
+    if (state.filesToDelete.length > 0) {
+      state.filesToDelete.forEach(url => {
+        formData.append("filesToDelete", url)
+      })
+    }
+    if (state.mainImageFile) {
+      formData.append("mainImage", state.mainImageFile)
+    }
+    if (state.secondaryImagesFiles.length > 0) {
+      state.secondaryImagesFiles.forEach(file => {
+        formData.append("images", file)
+      })
+    }
+
+    await store.updateProject(state._id, formData)
     goToProjects()
   } catch(error) {
     //

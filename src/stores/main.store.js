@@ -54,6 +54,15 @@ export const useMainStore = defineStore("main", () => {
     }
   }
 
+  async function updateProject(id, body) {
+    try {
+      await updateProjectRequest(id, body)
+    } catch(error) {
+      console.error(error)
+      throw error
+    }
+  }
+
   async function sendForm(body) {
     try {
       await sendFormRequest(body)
@@ -68,6 +77,7 @@ export const useMainStore = defineStore("main", () => {
     getProjects,
     getProjectDetails,
     createProject,
+    updateProject,
     deleteProject,
     sendForm
   }

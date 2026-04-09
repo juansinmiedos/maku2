@@ -5,7 +5,9 @@ const getProjectDetailsRequest = name => MainService.get(`/projects/${name}`)
 const createProjectRequest = body => MainService.post("/projects", body, {
   headers: { 'Content-Type': 'multipart/form-data' }
 })
-const updateProjectRequest = (id, body) => MainService.put(`/projects/${id}`, body)
+const updateProjectRequest = (id, body) => MainService.put(`/projects/${id}`, body, {
+  headers: { 'Content-Type': 'multipart/form-data' }
+})
 const deleteProjectRequest = id => MainService.delete(`/projects/${id}`)
 
 export {

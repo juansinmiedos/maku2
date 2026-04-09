@@ -11,7 +11,7 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 
-const emit = defineEmits([ "update:file" ])
+const emit = defineEmits([ "update:file", "update:url" ])
 
 const props = defineProps({
   file: File,
@@ -67,5 +67,6 @@ function generateVideoThumbnail(file) {
 
 function deleteFile() {
   emit("update:file", null)
+  emit("update:url", "")
 }
 </script>
