@@ -275,10 +275,13 @@ const buttonIsDisabled = computed(() => {
   return (
     state.title === "" ||
     state.place === "" ||
-    state.year === ""
-    // state.mainImageFile === null ||
-    // state.secondaryImagesFiles.length === 0
-    // si no tengo url principal, debo tener mainfile
+    state.year === "" || 
+    (
+      state.imageUrl === "" && state.mainImageFile === null
+    ) ||
+    (
+      state.images.length === 0 && state.secondaryImagesFiles.length === 0
+    )
   )
 })
 
