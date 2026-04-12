@@ -37,8 +37,8 @@ onMounted(() => store.getProjects())
 
 async function logOut() {
   try {
-    const res = await store.logOut()
-    console.log(res)
+    await store.logOut()
+    router.push({ name: "Login" })
   } catch(error) {
     console.log(error)
   }
