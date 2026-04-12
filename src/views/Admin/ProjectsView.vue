@@ -4,6 +4,7 @@
       <h1>Projects</h1>
 
       <div>
+        <TheButton @click="logOut">Log out</TheButton>
         <TheButton @click="goToNewProjectView">Add new project</TheButton>
       </div>
     </div>
@@ -33,6 +34,15 @@ const store = useMainStore()
 const router = useRouter()
 
 onMounted(() => store.getProjects())
+
+async function logOut() {
+  try {
+    const res = await store.logOut()
+    console.log(res)
+  } catch(error) {
+    console.log(error)
+  }
+}
 
 function goToNewProjectView() {
   router.push({ name: "NewProject" })
