@@ -1,6 +1,5 @@
 import { defineStore } from "pinia"
 import { reactive } from "vue"
-// auth
 import {
   getProjectsRequest,
   getProjectDetailsRequest,
@@ -9,6 +8,11 @@ import {
   deleteProjectRequest,
 } from "@/services/projects"
 import { sendFormRequest } from "@/services/form"
+import {
+  logInRequest,
+  pingUserRequest,
+  logOutRequest,
+} from "@/services/auth"
 
 export const useMainStore = defineStore("main", () => {
   const state = reactive({
@@ -72,6 +76,34 @@ export const useMainStore = defineStore("main", () => {
     }
   }
 
+  async function logIn(body) {
+    try {
+      await logInRequest(body)
+    } catch(error) {
+      console.log(error)
+      throw error
+    }
+  }
+
+  async function pingUser() {
+    try {
+      const res = await pingUserRequest()
+      return res
+    } catch(error) {
+      console.log(error)
+      throw error
+    }
+  }
+
+  async function logOut() {
+    try {
+      await logOutRequest()
+    } catch(error) {
+      console.log(error)
+      throw error
+    }
+  }
+
   return {
     state,
     getProjects,
@@ -79,6 +111,9 @@ export const useMainStore = defineStore("main", () => {
     createProject,
     updateProject,
     deleteProject,
-    sendForm
+    sendForm,
+    logIn,
+    pingUser,
+    logOut,
   }
 })

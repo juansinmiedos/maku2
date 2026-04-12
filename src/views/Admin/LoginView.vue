@@ -6,9 +6,9 @@
       <div class="w-100">
         <div class="flex wrap" style="gap: 12px;">
           <TheInput
-            v-model="state.user"
-            label="User"
-            name="user"
+            v-model="state.username"
+            label="Username"
+            name="username"
             type="text"
           />
   
@@ -38,19 +38,23 @@ import { useRouter } from 'vuetify/lib/composables/router'
 import TheInput from '@/components/atoms/TheInput.vue'
 import TheButton from '@/components/atoms/TheButton.vue'
 
-const mainStore = useMainStore()
+const store = useMainStore()
 const router = useRouter()
 
 const state = reactive({
   loading: false,
-  user: "",
+  username: "",
   password: "",
 })
 
 async function logIn() {
   try {
     state.loading = true
-    // enviar
+    const res = await store.logIn({
+      username: state.username,
+      password: state.password,
+    })
+    console.log(res)
     router.push({ name: "AdminProjects" })
   } catch(error) {
     console.log("An error ocurred while logging in")
