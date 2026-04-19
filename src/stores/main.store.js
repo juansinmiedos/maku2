@@ -3,6 +3,7 @@ import { reactive } from "vue"
 import {
   getProjectsRequest,
   getProjectDetailsRequest,
+  getCloudinarySignatureRequest,
   createProjectRequest,
   updateProjectRequest,
   deleteProjectRequest,
@@ -32,6 +33,16 @@ export const useMainStore = defineStore("main", () => {
   async function getProjectDetails(name) {
     try {
       const res = await getProjectDetailsRequest(name)
+      return res.data
+    } catch(error) {
+      console.error(error)
+      throw error
+    }
+  }
+
+  async function getCloudinarySignature() {
+    try {
+      const res = await getCloudinarySignatureRequest()
       return res.data
     } catch(error) {
       console.error(error)
@@ -108,6 +119,7 @@ export const useMainStore = defineStore("main", () => {
     state,
     getProjects,
     getProjectDetails,
+    getCloudinarySignature,
     createProject,
     updateProject,
     deleteProject,

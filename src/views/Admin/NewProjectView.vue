@@ -294,6 +294,54 @@ function deleteSecondaryImage(index) {
   state.secondaryImagesFiles.splice(index, 1)
 }
 
+const getUploadUrl = (file) => {
+  if (file.type.startsWith('video')) {
+    return 'https://api.cloudinary.com/v1_1/dcfk22n9p/video/upload'
+  }
+  return 'https://api.cloudinary.com/v1_1/dcfk22n9p/image/upload'
+}
+
+const buildImageObject = (r) => {
+  if (r.resource_type === "video") {
+    const thumbnail = `https://res.cloudinary.com/dcfk22n9p/video/upload/so_2/${r.public_id}.jpg`
+
+    return {
+      type: "video",
+      url: r.secure_url,
+      thumbnail
+    }
+  }
+
+  return {
+    type: "image",
+    url: r.secure_url
+  }
+}
+
+async function uploadToCloudinary(file) {
+  const { timestamp, signature, apiKey } = await store.getCloudinarySignature()
+  
+  const formData = new FormData()
+  formData.append('file', file)
+  formData.append('timestamp', timestamp)
+  formData.append('signature', signature)
+  formData.append('api_key', apiKey)
+
+  const res = await fetch(
+    getUploadUrl(file),
+    {
+      method: 'POST',
+      body: formData
+    }
+  )
+
+  if (!res.ok) {
+    throw new Error('Error subiendo archivo')
+  }
+
+  return await res.json()
+}
+
 async function saveProject() {
   try {
     state.loading = true
@@ -303,20 +351,17 @@ async function saveProject() {
     formData.append("place", state.place)
     formData.append("year", state.year)
     formData.append("relatedProjects", state.relatedProjects.map(rp => rp.id))
-    for (let key in state.categories) {
-      if (state.categories[key]) {
-        formData.append("categories", key)
-      }
-    }
-    formData.append("mainImage", state.mainImageFile)
-    state.secondaryImagesFiles.forEach(file => {
-      formData.append("images", file)
-    })
+
+    const res = await uploadToCloudinary(state.mainImageFile)
+    formData.append("imageUrl", res.secure_url)
+
+    const imagesRes = await Promise.all(state.secondaryImagesFiles.map(file => uploadToCloudinary(file)))
+    const imagesFormatted = imagesRes.map(buildImageObject)
+    formData.append("images", JSON.stringify(imagesFormatted))
 
     const project = await store.createProject(formData)
     router.push({ name: "AdminProjectDetail", params: { name: project.name } })
   } catch (error) {
-    //
     console.log(error)
   } finally {
     state.loading = false

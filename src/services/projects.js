@@ -2,6 +2,7 @@ import { MainService } from "."
 
 const getProjectsRequest = () => MainService.get("/projects")
 const getProjectDetailsRequest = name => MainService.get(`/projects/${name}`)
+const getCloudinarySignatureRequest = () => MainService.get("/clodinary-signature")
 const createProjectRequest = body => MainService.post("/projects", body, {
   headers: { 'Content-Type': 'multipart/form-data' }
 })
@@ -13,6 +14,7 @@ const deleteProjectRequest = id => MainService.delete(`/projects/${id}`)
 export {
   getProjectsRequest,
   getProjectDetailsRequest,
+  getCloudinarySignatureRequest,
   createProjectRequest,
   updateProjectRequest,
   deleteProjectRequest,
