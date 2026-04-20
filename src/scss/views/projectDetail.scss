@@ -146,6 +146,20 @@
     }
   }
 
+  & .collaboration {
+    display: flex;
+    padding: 0 80px 80px;
+    justify-content: flex-end;
+
+    @include until($medium-width) {
+      padding: 0 48px 48px;
+    }
+
+    @include until($small-width) {
+      padding: 0px 24px 32px;
+    }
+  }
+
   & .related-projects {
     background: $neutral-100;
     display: flex;

@@ -42,6 +42,14 @@
       </div>
     </section>
 
+    <div class="collaboration">
+      <div style="height: 122px; width: 100%; max-width: 1090px; display: flex; flex-direction: column; justify-content: space-between;">
+        <p class="title-sm">In collaboration with</p>
+
+        <p class="title-lg"><span>Susana López Reyes</span><br />Former Co-Founder & Creative Director.</p>
+      </div>
+    </div>
+
     <ImageModal v-model:show="state.imageModal" v-model:media="state.selectedMedia" />
 
     <section class="related-projects">
