@@ -362,6 +362,54 @@ async function deleteProject() {
   }
 }
 
+const getUploadUrl = (file) => {
+  if (file.type.startsWith('video')) {
+    return 'https://api.cloudinary.com/v1_1/dcfk22n9p/video/upload'
+  }
+  return 'https://api.cloudinary.com/v1_1/dcfk22n9p/image/upload'
+}
+
+const buildImageObject = (r) => {
+  if (r.resource_type === "video") {
+    const thumbnail = `https://res.cloudinary.com/dcfk22n9p/video/upload/so_2/${r.public_id}.jpg`
+
+    return {
+      type: "video",
+      url: r.secure_url,
+      thumbnail
+    }
+  }
+
+  return {
+    type: "image",
+    url: r.secure_url
+  }
+}
+
+async function uploadToCloudinary(file) {
+  const { timestamp, signature, apiKey } = await store.getCloudinarySignature()
+  
+  const formData = new FormData()
+  formData.append('file', file)
+  formData.append('timestamp', timestamp)
+  formData.append('signature', signature)
+  formData.append('api_key', apiKey)
+
+  const res = await fetch(
+    getUploadUrl(file),
+    {
+      method: 'POST',
+      body: formData
+    }
+  )
+
+  if (!res.ok) {
+    throw new Error('Error subiendo archivo')
+  }
+
+  return await res.json()
+}
+
 async function updateProject() {
   try {
     state.loadingUpdate = true
@@ -380,13 +428,16 @@ async function updateProject() {
         formData.append("filesToDelete", url)
       })
     }
+
     if (state.mainImageFile) {
-      formData.append("mainImage", state.mainImageFile)
+      const res = await uploadToCloudinary(state.mainImageFile)
+      formData.append("imageUrl", res.secure_url)
     }
+    
     if (state.secondaryImagesFiles.length > 0) {
-      state.secondaryImagesFiles.forEach(file => {
-        formData.append("images", file)
-      })
+      const imagesRes = await Promise.all(state.secondaryImagesFiles.map(file => uploadToCloudinary(file)))
+      const imagesFormatted = imagesRes.map(buildImageObject)
+      formData.append("images", JSON.stringify(imagesFormatted))
     }
 
     await store.updateProject(state._id, formData)

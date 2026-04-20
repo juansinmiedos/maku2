@@ -351,6 +351,11 @@ async function saveProject() {
     formData.append("place", state.place)
     formData.append("year", state.year)
     formData.append("relatedProjects", state.relatedProjects.map(rp => rp.id))
+    for (let key in state.categories) {
+      if (state.categories[key]) {
+        formData.append("categories", key)
+      }
+    }
 
     const res = await uploadToCloudinary(state.mainImageFile)
     formData.append("imageUrl", res.secure_url)
