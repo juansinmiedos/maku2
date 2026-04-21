@@ -43,10 +43,14 @@
     </section>
 
     <div class="collaboration">
-      <div style="height: 122px; width: 100%; max-width: 1090px; display: flex; flex-direction: column; justify-content: space-between;">
-        <p class="title-sm">In collaboration with</p>
+      <div style="height: 174px; width: 100%; max-width: 1090px; display: flex; flex-direction: column; justify-content: space-between;">
+        <p class="title-sm text-neutral-500">In collaboration with</p>
 
-        <p class="title-lg"><span>Susana López Reyes</span><br />Former Co-Founder & Creative Director.</p>
+        <div>
+          <p class="title-lg text-neutral-500"><span class="text-surface-black">Michelle Peniche Ibañez</span><br />Founder & Marketing Director.</p>
+  
+          <p class="title-lg text-neutral-500" style="margin-top: 8px;"><span class="text-surface-black">Susana López Reyes</span><br />Former Co-Founder & Creative Director.</p>
+        </div>
       </div>
     </div>
 
