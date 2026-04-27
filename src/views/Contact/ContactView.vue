@@ -287,7 +287,7 @@ function nextStep() {
 }
 
 function downloadServiceSheet() {
-  const fileUrl = "public/service-sheet.pdf"
+  const fileUrl = "service-sheet.pdf"
   const link = document.createElement('a')
   link.href = fileUrl
   link.download = 'MAKU - SELECTED SERVICES.pdf'
