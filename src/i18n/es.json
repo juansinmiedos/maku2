@@ -55,12 +55,12 @@
     "whoWeAre": {
       "name": "Quiénes somos",
       "title": "MAKU es una agencia estratégica de branding y marketing que resalta lo mejor de tu marca.",
-      "subtitle": "A través de nuestro método probado ABCDS, creamos estrategias y creatividad que ayudan a las marcas.",
+      "subtitle": "A través de nuestro método probado ABCDS, creamos estrategias y creatividad que impulsan a las marcas.",
       "learnMore": "Saber más"
     },
     "ourMethod": {
       "name": "Nuestro método",
-      "title": "Hemos trabajado con más de 55 marcas en hospitalidad, retail, arquitectura, salud, moda y más.",
+      "title": "Hemos trabajado con marcas en hospitalidad, retail, arquitectura, salud, moda y más.",
       "subtitle": "La estrategia no debe definirse por la industria, sino por la marca. Trabajar en distintas industrias nos ayuda a evitar fórmulas y construir estrategias realmente distintivas.",
       "button": "¿Tienes un proyecto en mente? Hablemos",
       "slogan": {
@@ -130,7 +130,7 @@
         },
         {
           "title": "Escala más rápido",
-          "body": "Incrementa ventas, expándete a nuevos mercados o lanza algo nuevo"
+          "body": "Incrementa ventas, expándete a nuevos mercados o lanza algo nuevo."
         },
         {
           "title": "Hazte escuchar",
@@ -143,7 +143,7 @@
         "1": "Mucho antes de que existieran las marcas,",
         "2": "las personas dejaban huellas."
       },
-      "title": "Símbolos tallados en piedra. Señales pintadas en paredes. Rastros que permanecían mucho después de que el momento pasara.",
+      "title": "Desde los jeroglíficos en el antiguo Egipto hasta las pinturas rupestres francesas.",
       "subtitle": {
         "1": "Creemos que el branding y el marketing realmente importan cuando ayudan a una marca a conectar, destacar y rendir mejor como negocio.",
         "2": "En esencia, la pregunta es simple: ¿por qué debería importarle a la gente tu marca? Nuestro rol es ayudar a encontrar esa respuesta y construir la estrategia para que sea clara, relevante y consistente."
@@ -169,7 +169,7 @@
       "name": "Sobre la fundadora",
       "p": {
         "1": "Michelle Peniche es especialista en marketing y cuenta con un MBA, con un fuerte enfoque en estrategia de marca y creación de conceptos para startups. Apasionada por el marketing y el pensamiento creativo, aporta un enfoque estratégico y orientado al negocio en cada proyecto.",
-        "2": "Habiendo vivido en tres países y trabajado con marcas globales como PepsiCo, Colgate y Steve Madden, Michelle lidera MAKU con una creencia clara: las marcas crecen cuando la estrategia y la creatividad trabajan juntas."
+        "2": "Habiendo vivido en tres países y trabajado con marcas globales, Michelle lidera MAKU con una creencia clara: las marcas crecen cuando la estrategia y la creatividad trabajan juntas."
       }
     },
     "formDescriptions": {
@@ -242,7 +242,7 @@
   },
   "identity": {
     "visual": "Diseño de identidad visual",
-    "books": "Manual de marca",
+    "books": "Branding",
     "packaging": "Empaque y materiales"
   },
   "marketing": {

@@ -26,6 +26,10 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 const emit = defineEmits([ "update:modelValue" ])
 
 const props = defineProps({
@@ -34,7 +38,9 @@ const props = defineProps({
 })
 
 function goBack() {
-  if (props.modelValue >= 2 && props.modelValue < props.steps + 1) {
+  if (props.modelValue === 1) {
+    router.push({ name: "Home" })
+  } else if (props.modelValue >= 2 && props.modelValue < props.steps + 1) {
     emit("update:modelValue", props.modelValue - 1)
   }
 }
