@@ -161,12 +161,26 @@
       </div>
 
       <!-- Step 3 -->
-      <div v-show="state.step === 3" class="w-100 flex column">
+      <div v-show="state.step === 3" class="w-100 flex column" style="gap: 12px;">
         <TheDropdown
           v-model="state.budget"
           :label="$t('views.contact.step.3.budget')"
           name="budget"
           :options="state.options"
+        />
+
+        <TheInput
+          v-model="state.differentBudget"
+          :label="$t('views.contact.step.2.differentBudget')"
+          name="differentBudget"
+          type="text"
+        />
+
+        <TheInput
+          v-model="state.anythingElse"
+          :label="$t('views.contact.step.2.anythingElse')"
+          name="anythingElse"
+          type="text"
         />
       </div>
 
@@ -211,7 +225,7 @@ import TheButton from '@/components/atoms/TheButton.vue'
 const mainStore = useMainStore()
 
 const state = reactive({
-  step: 1,
+  step: 3,
   formIsSending: false,
 
   // Form 1
@@ -254,6 +268,9 @@ const state = reactive({
       value: "3,500-5,000 USD",
     },
   ],
+  differentBudget: "",
+  anythingElse: "",
+
 })
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -320,6 +337,8 @@ async function sendForm() {
       packaging: state.packaging,
       other: state.other,
       budget: state.budget,
+      differentBudget: state.differentBudget,
+      anythingElse: state.anythingElse,
     }
     await mainStore.sendForm(body) 
     nextStep()

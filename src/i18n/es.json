@@ -215,7 +215,9 @@
           "contentCreation": "Creación de contenido (Foto y video)",
           "marketing": "Campaña de marketing",
           "packaging": "Empaque y diseño de producto",
-          "other": "Otro"
+          "other": "Otro",
+          "differentBudget": "¿Tienes otro presupuesto?",
+          "anythingElse": "⁠¿Algo más que te gustaría que supiéramos?"
         },
         "3": {
           "budget": "¿Cuánto estás dispuesto a invertir en el proyecto? (MXN)"

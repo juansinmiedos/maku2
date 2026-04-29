@@ -215,7 +215,9 @@
           "contentCreation": "Content Creation (Photo & Video)",
           "marketing": "Marketing Campaing",
           "packaging": "Packaging & Product Design",
-          "other": "Other"
+          "other": "Other",
+          "differentBudget": "Different budget in mind?",
+          "anythingElse": "Anything else to share?"
         },
         "3": {
           "budget": "How much are you willing to invest in the project? (MXN)"
