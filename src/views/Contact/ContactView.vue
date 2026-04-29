@@ -225,7 +225,7 @@ import TheButton from '@/components/atoms/TheButton.vue'
 const mainStore = useMainStore()
 
 const state = reactive({
-  step: 3,
+  step: 1,
   formIsSending: false,
 
   // Form 1
