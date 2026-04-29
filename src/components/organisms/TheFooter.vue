@@ -73,10 +73,12 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useMainStore } from '@/stores/main.store'
 
 import TheInputButton from '../atoms/TheInputButton.vue'
 
 const router = useRouter()
+const store = useMainStore()
 
 const windowIsSmall = ref(false)
 const windowIsMedium = ref(false)
@@ -108,19 +110,17 @@ function goToContact() {
   router.push({ name: "Contact" })
 }
 
-function sendEmail() {
-  // add regex to test email format
+// sendHotContact
+async function sendEmail() {
   emailFieldHasError.value = emailField.value === ""
-
   if (!emailFieldHasError.value) {
-    console.log("sendEmail:")
-    console.log(emailField.value)
     emailIsSending.value = true
-  
-    setTimeout(() => {
-      emailIsSending.value = false
-      emailIsSent.value = true
-    }, 3000)
+    const body = {
+      email: emailField.value
+    }
+    await store.sendHotContact(body)
+    emailIsSending.value = false
+    emailIsSent.value = true
   }
 }
 </script>

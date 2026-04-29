@@ -8,7 +8,7 @@ import {
   updateProjectRequest,
   deleteProjectRequest,
 } from "@/services/projects"
-import { sendFormRequest } from "@/services/form"
+import { sendFormRequest, sendHotContactRequest } from "@/services/form"
 import {
   logInRequest,
   pingUserRequest,
@@ -87,6 +87,14 @@ export const useMainStore = defineStore("main", () => {
     }
   }
 
+  async function sendHotContact(body) {
+    try {
+      await sendHotContactRequest(body)
+    } catch(error) {
+      throw error
+    }
+  }
+
   async function logIn(body) {
     try {
       await logInRequest(body)
@@ -124,6 +132,7 @@ export const useMainStore = defineStore("main", () => {
     updateProject,
     deleteProject,
     sendForm,
+    sendHotContact,
     logIn,
     pingUser,
     logOut,
