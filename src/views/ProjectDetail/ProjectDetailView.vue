@@ -89,7 +89,6 @@ const state = reactive({
 })
 
 onMounted(() => {
-  resizeController()
   window.addEventListener("resize", () => resizeController())
   getProjectDetails()
 })
